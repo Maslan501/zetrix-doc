@@ -1,0 +1,5 @@
+# Consensus Mechanism
+
+The consensus mechanism is the fundamental process by which transactions are validated and committed to the blockchain. The Zetrix blockchain employs an advanced hybrid consensus algorithm combining Delegated Proof of Stake (DPoS) and Zetrix Byzantine Fault Tolerance (zBFT). This architecture supports large-scale node participation and enables high-speed transaction processing, making Zetrix well-suited for a wide range of commercial applications.
+
+In this model, ordinary nodes must pledge ZETRIX tokens to become part of the validating node set. From this pool, the system randomly selects 21 validators in each consensus round to generate blocks in a cyclical rotation, governed by the zBFT algorithm. Validators are elected via a validator smart contract, ensuring that only trusted and high-performing nodes participate. This setup allows Zetrix to maintain high throughput, strong consistency, and robust decentralisation, aligning with the security and performance needs of enterprise-grade blockchain solutions.
