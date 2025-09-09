@@ -60,11 +60,11 @@ Finally, the **DID Registry Contract** stores all decentralized identifiers (DID
 
 ### Zetrix Blockchain
 
-At the core of the architecture lies the Z**etrix Layer-1 blockchain**, a decentralized and high-performance infrastructure that ensures security, auditability, and immutability of all identity-related operations. All DID documents, VCs, credential templates, and revocation logs are permanently stored on-chain, making Zetrix the single source of truth for digital identity operations within the ecosystem.
+At the core of the architecture lies the Zetrix Layer-1 blockchai&#x6E;**,** a decentralized and high-performance infrastructure that ensures security, auditability, and immutability of all identity-related operations. All DID documents, VCs, credential templates, and revocation logs are permanently stored on-chain, making Zetrix the single source of truth for digital identity operations within the ecosystem.
 
 ### ZID Resolver
 
-The **ZID Resolver** is a web service endpoint (_zid-resolver.zetrix.com)_ designed to translate a decentralized identifier (DID) into its associated DID document. It interacts with the Zetrix blockchain to fetch public keys, service endpoints, and other identity metadata encoded in the DID document. This resolution process is critical for verifying the authenticity and integrity of interactions between identity holders, issuers, and verifiers.
+The ZID Resolver is a web service endpoint (_zid-resolver.zetrix.com)_ designed to translate a decentralized identifier (DID) into its associated DID document. It interacts with the Zetrix blockchain to fetch public keys, service endpoints, and other identity metadata encoded in the DID document. This resolution process is critical for verifying the authenticity and integrity of interactions between identity holders, issuers, and verifiers.
 
 ### ZID Management Platform
 
@@ -72,7 +72,7 @@ Operating at _identity.zetrix.com_ (to-be launched), the ZID Management Platform
 
 ### Issuer Management Platform
 
-This component facilitates issuer onboarding and template creation through both front-end (_zid-issuer.zetrix.com_) and API endpoints (_zid-issuer.zetrix.com/api_). The front-end interface is used by issuers to perform **Know Your Customer (KYC)** procedures and manage their credential issuance capabilities. The backend APIs enable the automation of KYC and template registration workflows, forming the administrative layer that ensures only verified issuers are authorized to operate within the ecosystem.
+This component facilitates issuer onboarding and template creation through both front-end (_zid-issuer.zetrix.com_) and API endpoints (_zid-issuer.zetrix.com/api_). The front-end interface is used by issuers to perform Know Your Customer (KYC) procedures and manage their credential issuance capabilities. The backend APIs enable the automation of KYC and template registration workflows, forming the administrative layer that ensures only verified issuers are authorized to operate within the ecosystem.
 
 ### ZID Digital Credential Engine
 
@@ -80,7 +80,7 @@ Located at _api.zetrix.com/cred_, this engine provides the core functionality re
 
 ### DIDComm Mediator Server
 
-The **Mediator Server** at _zid-mediator.zetrix.com_ supports DIDComm messaging, facilitating encrypted, peer-to-peer communication between identity holders and verifiers or issuers. This ensures that VCs and VPs can be exchanged securely and privately over the network without relying on centralized intermediaries.
+The Mediator Server at _zid-mediator.zetrix.com_ supports DIDComm messaging, facilitating encrypted, peer-to-peer communication between identity holders and verifiers or issuers. This ensures that VCs and VPs can be exchanged securely and privately over the network without relying on centralized intermediaries.
 
 ### VC SDKs (Software Development Kits)
 
