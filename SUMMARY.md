@@ -48,6 +48,7 @@
   * [Smart Contract Assets](developer-resources/testing-and-auditing/smart-contract-assets.md)
 * [Verifiable Credentials](developer-resources/verifiable-credentials/README.md)
   * [Getting Started](developer-resources/verifiable-credentials/getting-started.md)
+  * [VC Encryption Process](developer-resources/verifiable-credentials/vc-encryption-process.md)
   * [API Reference](developer-resources/verifiable-credentials/api-reference.md)
 
 ## Node & Validator

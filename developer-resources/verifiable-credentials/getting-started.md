@@ -37,7 +37,7 @@ Let's walk through each stage step-by-step:
    * Inputs:
      * `signedTx`, `signerId`, `signerPublicKey` (to authenticate/sign the template)
      * Template metadata like `templateName`, `issuerDid`, `credentialFormat`, etc.
-2. **API Call: `/cred/tds/template/blob/create`**
+2. **API Call:** `/cred/tds/template/blob/create`
    * Backend generates a `blobId` and a `blob` that needs to be signed.
 3. **Submit signed blob**
    * API: `/cred/tds/template/submit`
