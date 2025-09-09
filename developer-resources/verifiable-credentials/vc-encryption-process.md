@@ -44,52 +44,35 @@ This process defines how a Verifiable Credential (VC) is securely issued by the 
 
 ### **Sending Encrypted Issuance Data**
 
-5\. The Issuer sends the encrypted issuance data and encrypted ECDH key to the MS Credential service (POST  `/vc/create`).
-
-6\. The service decrypts the ECDH key with its RSA private key.
-
-7\. The service decrypts the issuance data with the ECDH key.&#x20;
-
-8\. The service also decrypts the Holder’s earlier apply data.&#x20;
-
-9\. Metadata from Holder and Issuer are merged.&#x20;
-
-10\. The template metadata is validated.&#x20;
-
-11\. A VC blob is created and returned to the Issuer.
+5. The Issuer sends the encrypted issuance data and encrypted ECDH key to the MS Credential service     (POST  `/vc/create`).
+6. &#x20;The service decrypts the ECDH key with its RSA private key.
+7. The service decrypts the issuance data with the ECDH key.
+8. The service also decrypts the Holder’s earlier apply data.&#x20;
+9. Metadata from Holder and Issuer are merged.&#x20;
+10. The template metadata is validated.&#x20;
+11. A VC blob is created and returned to the Issuer.
 
 ### **Signing and Submitting VC Data**
 
-12\. The MS Credential service updates the encrypted apply VC data as **PENDING\_SIGN**.&#x20;
-
-13\. The Issuer signs the blob with **ED25519** and **BBS+ keys**.&#x20;
-
-14\. The Issuer encrypts the post VC data using AES with the ECDH key.&#x20;
-
-15\. The Issuer encrypts the ECDH key using the Holder’s RSA public key.&#x20;
-
-16\. The Issuer submits encrypted VC data, including the VC ID, ED25519 public key, ED25519 signature,      BBS public key, BBS signature, expiry, and the encrypted ECDH key (`POST /vc/submit`).\
-
+12. The MS Credential service updates the encrypted apply VC data as **PENDING\_SIGN**.&#x20;
+13. The Issuer signs the blob with **ED25519** and **BBS+ keys**.&#x20;
+14. The Issuer encrypts the post VC data using AES with the ECDH key.&#x20;
+15. The Issuer encrypts the ECDH key using the Holder’s RSA public key.&#x20;
+16. The Issuer submits encrypted VC data, including the VC ID, ED25519 public key, ED25519 signature,      BBS public key, BBS signature, expiry, and the encrypted ECDH key (`POST /vc/submit`).
 
 ### **Final VC Issuance**
 
-17\. MS Credential decrypts the ECDH key with its RSA private key.&#x20;
-
-18\. It decrypts the submitted VC data using AES with the ECDH key.&#x20;
-
-19\. It creates and verifies the final VC.&#x20;
-
-20\. The VC is encrypted again using AES with the ECDH key.&#x20;
-
-21\. The encrypted VC is stored in Redis as **ISSUED**.
+17. MS Credential decrypts the ECDH key with its RSA private key.&#x20;
+18. It decrypts the submitted VC data using AES with the ECDH key.&#x20;
+19. It creates and verifies the final VC.&#x20;
+20. The VC is encrypted again using AES with the ECDH key.&#x20;
+21. The encrypted VC is stored in Redis as **ISSUED**.
 
 ### **Download by Holder**
 
-21\. The Holder downloads the encrypted VC using POST `/vc/download` with payload including VC ID, Issuer ID, and signed VC ID.&#x20;
-
-22\. The Holder generates the ECDH key using the Issuer’s public key and the Holder’s private key.&#x20;
-
-23\. The Holder decrypts the VC using AES with the derived ECDH key and stores it locally.
+21. The Holder downloads the encrypted VC using POST `/vc/download` with payload including VC ID, Issuer ID, and signed VC ID.&#x20;
+22. The Holder generates the ECDH key using the Issuer’s public key and the Holder’s private key.&#x20;
+23. The Holder decrypts the VC using AES with the derived ECDH key and stores it locally.
 
 
 
