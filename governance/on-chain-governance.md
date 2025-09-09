@@ -1,18 +1,18 @@
 # On-Chain Governance
 
-**Token holders** can participate in a democratic voting process to influence key strategic decisions that enhance the performance and competitiveness of the **Zetrix blockchain** within a rapidly evolving ecosystem. These decisions may include, but are not limited to, the development and maintenance of the Zetrix network and initiatives aimed at increasing its overall value, such as:
+Token holders can participate in a democratic voting process to influence key strategic decisions that enhance the performance and competitiveness of the Zetrix blockchain within a rapidly evolving ecosystem. These decisions may include, but are not limited to, the development and maintenance of the Zetrix network and initiatives aimed at increasing its overall value, such as:
 
-**a)** Alteration of the consensus mechanism\
-**b)** Disbursement of incentives via airdrops\
-**c)** Definition of base parameters for staking and mining\
-**d)** Selection of interchain atomic swap protocols\
-**e)** Approval for support or integration with external blockchains\
-**f)** Recommendation and listing of new dApp assets\
-**g)** Admission of strategic alliance partners\
-**h)** Underwriting or mitigation of major network risks\
-**i)** Adjustment of token burning cycles
+a) Alteration of the consensus mechanism\
+b) Disbursement of incentives via airdrops\
+c) Definition of base parameters for staking and mining\
+d) Selection of interchain atomic swap protocols\
+e) Approval for support or integration with external blockchains\
+f) Recommendation and listing of new dApp assets\
+g) Admission of strategic alliance partners\
+h) Underwriting or mitigation of major network risks\
+i) Adjustment of token burning cycles
 
-Governance within the Zetrix network can be implemented through a **one-token-one-vote model,** where each **ZETRIX Token held equates to one voting right**. Alternatively, governance tokens may be created and distributed separately to ZETRIX holders, aligning with practices commonly seen in Decentralised Finance (DeFi) protocols. ZETRIX Token holders including permissioned participants and validators possess the authority to propose and vote on significant protocol changes or upgrades to the Zetrix network. In recognition of the challenges posed by contentious hard forks in networks like Bitcoin and Ethereum, Zetrix is committed to maintaining a forkless model to preserve consensus and network continuity.
+Governance within the Zetrix network can be implemented through a one-token-one-vote model, where each ZETRIX Token held equates to one voting right. Alternatively, governance tokens may be created and distributed separately to ZETRIX holders, aligning with practices commonly seen in Decentralised Finance (DeFi) protocols. ZETRIX Token holders including permissioned participants and validators possess the authority to propose and vote on significant protocol changes or upgrades to the Zetrix network. In recognition of the challenges posed by contentious hard forks in networks like Bitcoin and Ethereum, Zetrix is committed to maintaining a forkless model to preserve consensus and network continuity.
 
 The proposed process is as follows:
 
