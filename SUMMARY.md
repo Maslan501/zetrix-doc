@@ -104,6 +104,7 @@
 
 ## Community & Support
 
+* [Research and Development](community-and-support/research-and-development.md)
 * [Developer Community](community-and-support/developer-community.md)
 * [Official Support](community-and-support/official-support.md)
 * [Contributing to the Blockchain](community-and-support/contributing-to-the-blockchain.md)
