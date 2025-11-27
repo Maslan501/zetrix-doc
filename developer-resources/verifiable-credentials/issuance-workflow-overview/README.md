@@ -72,7 +72,7 @@ The following actions take place:
 
 The DID and BBS+ keys together form the Issuer’s official cryptographic identity on Zetrix.
 
-For more details, please refer to the Identity Platform section.&#x20;
+For more details, please refer to the [Identity Platform](generating-bbs+-key.md) section.&#x20;
 
 ### Credential Template Configuration
 
@@ -91,7 +91,7 @@ Activities include:
 
 Templates ensure consistency, standardization, and alignment with predefined data schemas.
 
-For more details, please refer to the Issuer Platform section.&#x20;
+For more details, please refer to the [Issuer Platform](zcert-issuer-platform.md) section.&#x20;
 
 ### VC Issuance
 
