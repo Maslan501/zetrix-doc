@@ -145,7 +145,7 @@ All onboarding steps should first be performed on the **Testnet environment** fo
     <figure><img src="../../../.gitbook/assets/image (40).png" alt=""><figcaption></figcaption></figure>
 
 
-3.  Once approved, the **Client** can create and manage a VC template as shown below.
+3.  Once approved, the Issuer can create and manage a VC template as shown below.
 
 
 
