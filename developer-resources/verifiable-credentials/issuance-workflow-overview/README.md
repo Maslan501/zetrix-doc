@@ -1,6 +1,8 @@
 # Issuance Workflow Overview
 
-<figure><img src="../../../.gitbook/assets/VC system overview.drawio (2).png" alt=""><figcaption></figcaption></figure>
+##
+
+<figure><img src="../../../.gitbook/assets/Zetrix-Illustration-white-bg (1).png" alt=""><figcaption></figcaption></figure>
 
 ## **Introduction**
 
