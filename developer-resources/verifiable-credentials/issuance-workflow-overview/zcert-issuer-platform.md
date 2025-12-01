@@ -101,9 +101,24 @@ Because design passes reflect the Issuer’s official visual identity, the platf
 
 ### Template and Design Status Indicators
 
+#### **Template Status: “Draft”**
+
+<figure><img src="../../../.gitbook/assets/image (41).png" alt=""><figcaption></figcaption></figure>
+
+When a template is first created:
+
+* The system marks the template as **“Draft”**.
+* At this stage, the template has **not yet been submit**.
+* The Issuer must **submit the template** before it can progress to the next stage.
+
+This ensures that:
+
+* The template structure is confirmed by the Issuer.
+* No design or issuance activities can begin until the template is formally submitted.
+
 #### **Template Status: “Pending Design”**
 
-<figure><img src="../../../.gitbook/assets/image (37).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (44).png" alt=""><figcaption></figcaption></figure>
 
 After the Issuer Admin successfully creates a template:
 
@@ -117,13 +132,56 @@ This allows Issuers to:
 
 #### **Design Pass Status: “Pending Approval”**
 
-<figure><img src="../../../.gitbook/assets/image (38).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (42).png" alt=""><figcaption></figcaption></figure>
 
 Once a design pass is created:
 
 * Status changes to **“Pending Approval”**.
 * The ZID Superadmin must validate the design before it can be used.
 * Ensures the final appearance meets quality and compliance requirements.
+
+#### **Design Pass Status: “Completed”**
+
+<figure><img src="../../../.gitbook/assets/completed.png" alt=""><figcaption></figcaption></figure>
+
+When the Superadmin approves the design:
+
+* The system marks the design as **“Completed”**.
+* All approved design passes are now published and ready for use.
+
+This enables:
+
+* VC issuance with the finalized digital card layout.
+* Seamless integration of template data into the approved visual design.
+
+#### **Design Pass Status: “Pending Publish”**
+
+<figure><img src="../../../.gitbook/assets/image (43).png" alt=""><figcaption></figcaption></figure>
+
+After a design pass is approved by the Superadmin:
+
+* The system marks the design as **“Pending Publish”**.
+* This indicates that the design is approved but **not yet published** for production use.
+* The final step requires the Issuer to publish the design.
+
+This ensures that:
+
+* Approved designs undergo a controlled release process.
+* Only intentionally published designs appear in production for VC generation.
+
+#### **Design Pass Status: “Rejected”**
+
+<figure><img src="../../../.gitbook/assets/rejected (3).png" alt=""><figcaption></figcaption></figure>
+
+If the design does not meet quality requirements:
+
+* The system marks the design pass as **“Reject”**.
+* The Maker or Issuer Admin must revise and resubmit the design.
+
+This ensures that:
+
+* Only compliant, high-quality visual layouts are published.
+* Incorrect mapping, poor layout, or branding inconsistencies are corrected before use.
 
 ### Summary of Workflow
 
