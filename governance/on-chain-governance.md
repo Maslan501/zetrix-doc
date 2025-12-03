@@ -23,7 +23,7 @@ The proposed process is as follows:
 5. Governance under this process is iterative proposers continuously revise the code based on community feedback and discussion. This cycle repeats until the proposed code is either fully accepted or rejected.
 6. Once a proposal enters the voting phase, participants may cast their votes directly based on their token holdings or delegate their voting rights to other trusted members of the community.
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
 
 The limitations of fully autonomous governance such as slow decision-making and delayed risk response must be carefully balanced. Additionally, low levels of participation or contribution remain a concern, which is being addressed through a more equitable Distribution of Interests, as outlined below.
 

@@ -11,7 +11,7 @@ One effective mechanism is the introduction of vesting cliffs, which serve to fi
 
 Conversely, to discourage passive concentration of influence, the model may incorporate reverse vesting. In this case, holders with significant token balances who remain inactive over extended periods may have their voting rights reduced or forfeited, thereby maintaining an active and representative governance base.
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 In parallel to stakeholder governance, members of the global, decentralized developer community who actively contribute to the security and progress of the Zetrix blockchain through activities such as debugging, smart contract auditing, ethical hacking, community education, and other bountied tasks may be granted governance rights or digital assets under a linear vesting schedule. This earn-as-you-go incentive model is designed to attract and retain committed contributors, with allocations sourced from the Community Building reserve.
 
@@ -26,4 +26,4 @@ It is also important to recognize that while consensus occurs on-chain, governan
 
 Ultimately, effective decentralized governance depends not only on system design but also on active participation and quorum. In practice, this makes shared governance—a structured blend of decentralization, delegation, and practical coordination—the most accurate and viable model for Zetrix at this stage of its evolution.
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>

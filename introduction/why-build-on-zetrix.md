@@ -8,7 +8,7 @@ At the foundation of this model is DPoS, a voting-based mechanism where Zetrix t
 
 Layered on top of DPoS is the Zetrix Byzantine Fault Tolerance (zBFT) protocol. This component ensures strong consistency and resilience within the validator node set. For every block, a random selection of 21 validators is made, and these validators reach consensus through a secure message-passing process. Unlike traditional BFT protocols that struggle with communication overhead, zBFT optimises this process by reducing the message complexity from quadratic to linear scale.
 
-![](<../.gitbook/assets/image (15).png>)
+![](<../.gitbook/assets/image (15) (1).png>)
 
 ## Parallel and Diverse Multi-Chain Sharding
 
@@ -20,7 +20,7 @@ Zetrix addresses these challenges through a multi-chain sharding architecture, e
 
 The underlying framework is described as a “two-layer capacity expansion model.” The main chain manages governance, validation, and security coordination, while the sub-chains handle specialised computation and data storage tasks. Each sub-chain inherits the security and trust guarantees of the main chain but operates independently, ensuring that congestion or data growth on one chain does not impact others. This results in true resource isolation and flexible, scalable deployment across diverse industry use cases.
 
-![](<../.gitbook/assets/image (5).png>)
+![](<../.gitbook/assets/image (5) (1).png>)
 
 ## Reliable Privacy Protection and Permission Control
 
@@ -34,13 +34,13 @@ Transaction address hiding in Zetrix is achieved by transferring ownership throu
 
 Ask ChatGPT
 
-![](<../.gitbook/assets/image (12).png>)
+![](<../.gitbook/assets/image (12) (1).png>)
 
 ## Application Development - Friendly Smart Contract
 
 The Zetrix blockchain features a smart contract engine built on the Chrome V8 virtual machine, offering an integrated development environment (IDE) along with multiple contract templates tailored for various application scenarios. To enhance contract security, Zetrix employs a restricted subset of JavaScript as its primary programming language, enabling developers to safely and efficiently build smart contract applications.
 
-![](<../.gitbook/assets/image (16).png>)
+![](<../.gitbook/assets/image (16) (1).png>)
 
 ## Scalable Homogeneous / Heterogeneous Cross Chain Interoperability
 

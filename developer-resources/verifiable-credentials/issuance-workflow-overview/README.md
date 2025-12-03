@@ -74,7 +74,7 @@ The following actions take place:
 
 The DID and BBS+ keys together form the Issuer’s official cryptographic identity on Zetrix.
 
-For more details, please refer to the [Identity Platform](generating-bbs+-key.md) section.&#x20;
+For more details, please refer to the [Identity Platform](did-management-platform.md) section.&#x20;
 
 ### Credential Template Configuration
 

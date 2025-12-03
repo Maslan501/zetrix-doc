@@ -49,7 +49,7 @@
 * [Verifiable Credentials](developer-resources/verifiable-credentials/README.md)
   * [Issuance Workflow Overview](developer-resources/verifiable-credentials/issuance-workflow-overview/README.md)
     * [ZPlatform (BaaS API)](developer-resources/verifiable-credentials/issuance-workflow-overview/zplatform-baas-api.md)
-    * [Generating BBS+ Key](developer-resources/verifiable-credentials/issuance-workflow-overview/generating-bbs+-key.md)
+    * [DID Management Platform](developer-resources/verifiable-credentials/issuance-workflow-overview/did-management-platform.md)
     * [ZCert Issuer Platform](developer-resources/verifiable-credentials/issuance-workflow-overview/zcert-issuer-platform.md)
   * [Getting Started](developer-resources/verifiable-credentials/getting-started.md)
   * [VC Encryption Process](developer-resources/verifiable-credentials/vc-encryption-process.md)
