@@ -29,7 +29,7 @@ Transfer ownership or administrative rights of a DID to another entity.
 **Use cases:**
 
 * Organization transferring DID ownership to a new department.
-* Rotating root-level admin keys.
+* Rotating root level admin keys.
 * Enforcing governance or recovering compromised ownership.
 
 #### Steps:
@@ -74,13 +74,13 @@ The **Issuer** will login Zetrix Wallet and log in to website to manage the attr
    1. The **algorithm** specifies the cryptographic algorithm used by the public key you are adding.
       1. **Ed25519** – general signing, authentication
       2. **X25519** – encryption / key agreement
-      3. **BBS+** – zero-knowledge proof credentials
+      3. **BBS+** – zero knowledge proof credentials
    2. Encoding describes **how the public key is formatted** when stored in the DID Document.
       1. **Hex** – Public key shown in raw hexadecimal bytes.\
          Example field: `publicKeyHex`
-      2. **Base64** – Common web-safe format used in WebCrypto.\
+      2. **Base64** – Common web safe format used in WebCrypto.\
          Example field: `publicKeyBase64`
-      3. **Base58** – Human-friendly Base58 format.\
+      3. **Base58** – Human friendly Base58 format.\
          Example field: `publicKeyBase58`
       4. **Multibase** – Base58 or Base64 but with a prefix (like `z`) telling the system which encoding is used.\
          Example field: `publicKeyMultibase`
@@ -158,7 +158,7 @@ Generate a **BBS+ signing key pair**, used for **Zero-Knowledge Proof (ZKP)** cr
 
 * Multi-message signatures
 * Selective disclosure
-* Privacy-preserving Verifiable Credentials
+* Privacy preserving Verifiable Credentials
 * Support for W3C VC ZKP formats
 
 **Where BBS+ is used:**
@@ -205,14 +205,14 @@ Generate an **X25519 key pair** for secure encryption and key exchange.
 **Why X25519?**
 
 * Lightweight and fast
-* Modern elliptic-curve cryptography
+* Modern elliptic curve cryptography
 * Strong forward secrecy
 * Recommended for DID secure messaging protocols
 
 **Use cases:**
 
 * Establish encrypted channels for Verifiable Presentation (VP).
-* Encrypt wallet-to-server communication.
+* Encrypt wallet to server communication.
 * DID-based encrypted chat systems.
 
 #### Steps:
