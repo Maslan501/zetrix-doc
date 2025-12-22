@@ -16,7 +16,11 @@ The **Blockchain Information API** provides comprehensive data and information a
 
 The **Node Count API** provides information about the number of active nodes in a blockchain network. It typically returns a count or statistical data indicating the total number of nodes currently participating in the network. This API helps monitor the health and decentralization of the blockchain network by tracking the number of active nodes and ensuring a robust network infrastructure.
 
-#### Node list
+The **Total Supply API** provides information about the total amount of tokens that have been created or issued on the blockchain. This includes tokens that are currently in circulation as well as tokens that are locked, reserved, or otherwise not actively circulating. This API is used to understand the maximum or current issuance of the blockchain’s native token.
+
+The **Circulating Supply API** provides information about the number of tokens that are actively circulating in the market. It excludes tokens that are locked, burned, reserved, or held in non-circulating accounts. This API is commonly used for market analysis, token economics evaluation, and price-related metrics.
+
+### Node list
 
 ```
 GET HTTP /ztx/core/node-list?nodeType=VALIDATOR_NODE&pageNo=1&pageSize=100
@@ -81,7 +85,7 @@ To view list of node running.
 }
 ```
 
-#### Node stat
+### Node stat
 
 ```
 GET HTTP /ztx/core/node-stat
@@ -121,7 +125,7 @@ To view statistics of node running.
 
 ```
 
-#### Blockchain info
+### Blockchain info
 
 ```
 GET HTTP /ztx/core/blockchain-info
@@ -216,7 +220,7 @@ To view overall of blockchain information.
 
 ```
 
-#### Node count
+### Node count
 
 ```
 GET HTTP /ztx/core/node-count
@@ -275,7 +279,7 @@ To view node running based on geographical. Geography Code is refer as follow:
 }
 ```
 
-#### Block Height
+### Block Height
 
 ```
 GET HTTP /ztx/core/block-height
@@ -283,7 +287,7 @@ GET HTTP /ztx/core/block-height
 
 CURL Command
 
-```
+```bash
 GET https://{endpoint}/ztx/core/block-height
 ```
 
@@ -293,9 +297,57 @@ To get latest block height from the node
 
 * Return Value
 
-```
+```json
 {
     "object": "1582107",
     "messages": []
+}
+```
+
+### Total Supply
+
+```
+GET HTTP /ztx/core/total-supply
+```
+
+CURL Command
+
+```bash
+GET https://{endpoint}/ztx/core/total-supply
+```
+
+* Function
+
+To get latest total supply from the node.
+
+* Return Value.
+
+```json
+{
+   1157075644.000000
+}
+```
+
+### Circulation Supply
+
+```
+GET HTTP /ztx/core/circulation-supply
+```
+
+CURL Command
+
+```bash
+GET https://{endpoint}/ztx/core/circulation-supply
+```
+
+* Function
+
+To get latest circulation supply from the node.
+
+* Return Value.
+
+```json
+{
+   273453899.844711
 }
 ```
