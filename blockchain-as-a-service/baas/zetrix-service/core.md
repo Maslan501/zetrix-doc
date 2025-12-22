@@ -1,7 +1,7 @@
 ---
 description: >-
-  Blockchain Node List API, Node Stat API, Node Count API and Blockchain
-  Information API.
+  Blockchain Node List API, Node Stat API, Node Count API, Block Height, Total
+  Supply, Circulation Supply and Blockchain Information API.
 ---
 
 # Core
