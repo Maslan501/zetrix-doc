@@ -322,10 +322,8 @@ To get latest total supply from the node.
 
 * Return Value.
 
-```json
-{
-   1157075644.000000
-}
+```
+1157075644.000000
 ```
 
 ### Circulation Supply
@@ -346,8 +344,6 @@ To get latest circulation supply from the node.
 
 * Return Value.
 
-```json
-{
-   273453899.844711
-}
+```
+273453899.844711
 ```
