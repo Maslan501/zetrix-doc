@@ -1,14 +1,14 @@
 # Zetrix Oraclize
 
-<figure><img src="../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
 
 Zetrix Oraclize has been developed to remove the limitation of communication between Smart Contract and outside world. Zetrix Oraclize supports common Rest API methods such as GET, POST, PUT, DELETE Basic and Bearer token authentication methods are supported to establish secure communication.
 
-<figure><img src="../.gitbook/assets/Architecture Oraclize.png" alt=""><figcaption><p>Design Architecture</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Architecture Oraclize.png" alt=""><figcaption><p>Design Architecture</p></figcaption></figure>
 
 Zetrix Oraclize also a blockchain oracle service that enables smart contracts on blockchain platforms to interact with external data sources such as APIs, web services, and traditional databases. It achieves this by providing a secure bridge that connects smart contracts to off-chain data, thus avoiding the need for developers to manually input the data. Zetrix Oraclize is designed to provide developers with reliable, transparent, and efficient access to external data, allowing them to build more sophisticated smart contracts and decentralized applications.
 
-<figure><img src="../.gitbook/assets/operationflow.jpg.png" alt=""><figcaption><p>Operation flow</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/operationflow.jpg.png" alt=""><figcaption><p>Operation flow</p></figcaption></figure>
 
 When using Zetrix Oraclize, developers specify an API call in their smart contract, which is then sent to Oraclize along with the payment required for the call. Oraclize then retrieves the data from the specified data source, verifies the authenticity of the data, and sends it back to the smart contract. The data is then processed by the smart contract according to the programmed logic.
 
@@ -24,9 +24,9 @@ Overall, Zetrix Oraclize provides a useful tool for developers seeking to build 
 
 Overall, by triggering the `payCoin` function, can trigger the Oraclize Contract and retrieve external data using Oraclize, while automatically paying the necessary fees based on the execution cost of the query."
 
-<figure><img src="../.gitbook/assets/Integration with oraclize contract.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Integration with oraclize contract.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/Integration with oraclize contract 2.png" alt=""><figcaption><p>Call payCoin function to trigger Oraclize Contract function “queryOraclize”. The payment is based on execution cost set in Oraclize Contract</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Integration with oraclize contract 2.png" alt=""><figcaption><p>Call payCoin function to trigger Oraclize Contract function “queryOraclize”. The payment is based on execution cost set in Oraclize Contract</p></figcaption></figure>
 
 
 
@@ -57,7 +57,7 @@ Oraclize Contract : [https://test-explorer.zetrix.com/account/ZTX3QLowAYiRnj8ifa
 
 ## Call GET Request from Caller Contract
 
-<figure><img src="../.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Example (Response)
 
@@ -67,4 +67,4 @@ Oraclize Contract : [https://test-explorer.zetrix.com/account/ZTX3QLowAYiRnj8ifa
 
 ## Get Response from Oraclize Contract
 
-<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>

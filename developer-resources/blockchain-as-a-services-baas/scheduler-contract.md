@@ -1,6 +1,6 @@
 # Scheduler Contract
 
-<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 The **Scheduler Contract in Zetrix Blockchain** is designed to support a standard interface for communication with other smart contracts. It enables seamless interaction between different contracts and facilitates task scheduling and execution based on a predefined cron job timing. Here's a breakdown of its functionality:
 
@@ -13,7 +13,7 @@ By leveraging the Scheduler Contract's standard interface, smart contracts withi
 
 ## Design Architecture
 
-<figure><img src="../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 
 In the Zetrix Blockchain ecosystem, users can connect to the Scheduler Contract using a standard protocol from their Smart Contract or SDK. This allows for seamless integration and interaction between various components. Here's an explanation of the process:
 
@@ -27,13 +27,13 @@ By connecting their Smart Contracts or SDKs to the Scheduler Contract using the 
 
 ## Operation Flow
 
-<figure><img src="../.gitbook/assets/image (17) (1).png" alt=""><figcaption><p>Operation Flow</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (17) (1).png" alt=""><figcaption><p>Operation Flow</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (19) (1).png" alt=""><figcaption><p>Operation flow</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (19) (1).png" alt=""><figcaption><p>Operation flow</p></figcaption></figure>
 
 ## Communication With Scheduler Contract
 
-<figure><img src="../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Protocol For Registration
 
@@ -49,10 +49,10 @@ By connecting their Smart Contracts or SDKs to the Scheduler Contract using the 
 
 Scheduler Contract : [https://test-explorer.zetrix.com/account/ZTX3Kfprq7zvFb8KXNEAbWZSZScZfVuFJCtuA](https://test-explorer.zetrix.com/account/ZTX3Kfprq7zvFb8KXNEAbWZSZScZfVuFJCtuA)
 
-<figure><img src="../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Example (Running Task)
 
 Scheduler Contract : [https://test-explorer.zetrix.com/account/ZTX3Kfprq7zvFb8KXNEAbWZSZScZfVuFJCtuA](https://test-explorer.zetrix.com/account/ZTX3Kfprq7zvFb8KXNEAbWZSZScZfVuFJCtuA)
 
-<figure><img src="../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>

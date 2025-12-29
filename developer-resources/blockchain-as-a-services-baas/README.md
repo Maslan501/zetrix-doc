@@ -1,8 +1,4 @@
----
-description: Blockchain as a Service
----
-
-# BaaS
+# Blockchain as a Services(BaaS)
 
 **Blockchain as a Service (BaaS)** is a **cloud-based blockchain infrastructure** that enables customers to create, deploy and manage blockchain applications without the complexity of setting up and managing their own blockchain infrastructure. BaaS is an **end-to-end solution** that provides all the necessary tools and services to create and run a blockchain network, including development tools, infrastructure, security, and support services.
 
