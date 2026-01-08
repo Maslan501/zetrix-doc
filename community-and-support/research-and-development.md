@@ -79,7 +79,7 @@ These results confirm that Zetrix’s implementation of DPoS achieves higher thr
 
 Scalability\[3] in blockchain systems refers to the relationship between transaction throughput achieves \~2,000 to 10,000 TPS (DPoS+zBFT with Multi-Chain) and network size (300 nodes across 20 countries \[11]). Our analysis reveals striking differences in how various consensus protocols handle network growth. &#x20;
 
-<figure><img src="../.gitbook/assets/unknown.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/unknown (3).png" alt=""><figcaption></figcaption></figure>
 
 Proof-of-Work (PoW), Proof-of-Stake (PoS), and Delegated Proof-of-Stake (DPoS) exhibit remarkably stable scalability profiles compared to PBFT \[3]. These algorithms maintain consistent transaction throughput regardless of network size, as their consensus mechanisms are designed to scale efficiently with additional participants. The number of nodes in these networks has minimal impact on overall system performance, making them far more suitable for permissionless blockchain implementations where network growth is expected.
 

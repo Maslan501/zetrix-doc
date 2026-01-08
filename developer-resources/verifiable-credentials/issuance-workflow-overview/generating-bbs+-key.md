@@ -7,7 +7,7 @@ All onboarding steps should first be performed on the **Testnet environment** fo
 * **Testnet:** [https://identity-sandbox.zetrix.com/](https://identity-sandbox.zetrix.com/)
 * **Mainnet:** [https://identity.zetrix.com/](https://identity.zetrix.com/)
 
-<figure><img src="../../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
 
 The following functionalities represent the core operations in a DID Management Console:
 
@@ -92,9 +92,9 @@ The **Issuer** will login Zetrix Wallet and log in to website to manage the attr
 
 <figure><img src="../../../.gitbook/assets/add attribute (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -143,11 +143,11 @@ The **Issuer** will login Zetrix Wallet and log in to website to update delegati
 6. Update.
 7. Submit sign using pop up wallet.
 
-<figure><img src="../../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (15) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (17) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (28).png" alt=""><figcaption></figcaption></figure>
 
 ### **Create BBS+ Key**
 

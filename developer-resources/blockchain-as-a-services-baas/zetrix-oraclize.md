@@ -1,6 +1,6 @@
 # Zetrix Oraclize
 
-<figure><img src="../../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Zetrix Oraclize has been developed to remove the limitation of communication between Smart Contract and outside world. Zetrix Oraclize supports common Rest API methods such as GET, POST, PUT, DELETE Basic and Bearer token authentication methods are supported to establish secure communication.
 
@@ -57,7 +57,7 @@ Oraclize Contract : [https://test-explorer.zetrix.com/account/ZTX3QLowAYiRnj8ifa
 
 ## Call GET Request from Caller Contract
 
-<figure><img src="../../.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (14) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Example (Response)
 
@@ -67,4 +67,4 @@ Oraclize Contract : [https://test-explorer.zetrix.com/account/ZTX3QLowAYiRnj8ifa
 
 ## Get Response from Oraclize Contract
 
-<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>

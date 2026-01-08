@@ -11,6 +11,6 @@ In Zetrix, DPoS is optimised for high performance, requiring validating nodes to
 
 
 
-<figure><img src="../../.gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (22) (1).png" alt=""><figcaption></figcaption></figure>
 
 The Zetrix Delegated Proof of Stake (DPoS) mechanism is executed via smart contracts, allowing for automated governance and scalable adaptability as the network expands. It incorporates a dynamic upgrade system that adjusts validator participation requirements in line with network growth, thereby maintaining decentralization and performance. Unlike traditional consensus models, DPoS is highly resource-efficient, requiring minimal computational power while supporting high transaction throughput. This low-energy architecture aligns with Environmental, Social, and Governance (ESG) principles, positioning Zetrix as a sustainable and future-ready blockchain infrastructure.

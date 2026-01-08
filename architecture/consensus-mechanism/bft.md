@@ -13,6 +13,6 @@ The zBFT algorithm includes several innovations:
 
 Together, these enhancements make zBFT a cornerstone of Zetrix’s capability to deliver enterprise-grade performance while sustaining trustless decentralization.
 
-<figure><img src="../../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (23) (1).png" alt=""><figcaption></figcaption></figure>
 
 The zBFT algorithm in Zetrix empowers the network to achieve consensus and finality even when some validators are faulty or unresponsive. By tolerating a bounded number of node failures without undermining consensus on the blockchain state, zBFT guarantees continuous network availability and mitigates the risk of service disruptions. This level of fault resilience is vital for preserving the reliability and operational integrity of Zetrix particularly in enterprise and cross-border environments, where uptime, data consistency, and network trustworthiness are mission-critical.

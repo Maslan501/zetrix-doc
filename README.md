@@ -24,7 +24,7 @@ Based on the DPoS mechanism, ordinary nodes stake ZETRIX tokens to join the vali
 
 ## Architecture
 
-![Zetrix Architecture](<.gitbook/assets/image (18) (1).png>)
+![Zetrix Architecture](<.gitbook/assets/image (18) (1) (1).png>)
 
 ## Zetrix Currency Unit
 
