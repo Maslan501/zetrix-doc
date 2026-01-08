@@ -104,6 +104,7 @@
     * [Core](developer-resources/blockchain-as-a-services-baas/zetrix-service/core.md)
     * [Transaction](developer-resources/blockchain-as-a-services-baas/zetrix-service/transaction.md)
     * [Contract](developer-resources/blockchain-as-a-services-baas/zetrix-service/contract.md)
+    * [Paymaster](developer-resources/blockchain-as-a-services-baas/zetrix-service/paymaster.md)
   * [Zetrix Oraclize](developer-resources/blockchain-as-a-services-baas/zetrix-oraclize.md)
   * [Scheduler Contract](developer-resources/blockchain-as-a-services-baas/scheduler-contract.md)
 * [Multisig Dapp](developer-resources/multisig-dapp/README.md)
