@@ -137,7 +137,7 @@ self.allowance = function (paramObj) {
 
 ## Extension
 
-### ZTP20 Permit
+### Permit
 
 The `permit` function enables **gasless approvals** for ZTP20 tokens by allowing an owner to approve a spender via an **off-chain signature**, instead of an on-chain `approve` transaction. This design is inspired by **EIP-2612**, adapted for the Zetrix / ZTP20 execution environment and cryptographic primitives.
 
