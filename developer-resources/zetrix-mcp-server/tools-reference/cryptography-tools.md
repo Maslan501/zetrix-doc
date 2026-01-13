@@ -30,7 +30,7 @@ Generate new key pair with address.
 
 ***
 
-### Retrieve Public Key(**`zetrix_crypto_get_public_key`)**
+### Public Key(**`zetrix_crypto_get_public_key`)**
 
 Derive public key from private key.
 
@@ -46,7 +46,7 @@ Derive public key from private key.
 
 ***
 
-### Derive Account Address(**`zetrix_crypto_get_address`)**
+### Account Address(**`zetrix_crypto_get_address`)**
 
 Get Zetrix address from public key.
 

@@ -4,7 +4,7 @@ Direct HTTP RPC interface to the Zetrix blockchain.
 
 ### **Account Operations**
 
-### Retrieve Account Details (`zetrix_get_account`)
+### Account Details (`zetrix_get_account`)
 
 Get complete account information including balance, nonce, assets, and metadata.
 
@@ -43,7 +43,7 @@ Ask Claude: "Get full account details for ZTX3Ta7d4GyAXD41H2kFCTd2eXhDesM83rvC3"
 
 ***
 
-### Retrieve Base Account Details(**`zetrix_get_account_base`)**
+### Base Account Details(**`zetrix_get_account_base`)**
 
 Get basic account information without assets and metadata (lightweight query).
 
@@ -75,7 +75,7 @@ Get basic account information without assets and metadata (lightweight query).
 
 ***
 
-### **Retrieve Account Asset(`zetrix_get_account_assets`)**
+### **Account Asset(`zetrix_get_account_assets`)**
 
 Get asset holdings for an account (tokens and custom assets).
 
@@ -111,7 +111,7 @@ Get asset holdings for an account (tokens and custom assets).
 
 ***
 
-### **Retrieve Account Metadata(`zetrix_get_account_metadata`)**
+### **Account Metadata(`zetrix_get_account_metadata`)**
 
 Get metadata associated with an account (key-value pairs).
 
@@ -141,7 +141,7 @@ Get metadata associated with an account (key-value pairs).
 
 ***
 
-### **Retrieve Account Balance(`zetrix_get_balance`)**
+### **Account Balance(`zetrix_get_balance`)**
 
 Get ZETRIX balance (returned in both ZETA and ZETRIX units).
 
@@ -170,7 +170,7 @@ Ask Claude: "What's the balance of ZTX3Ta7d4GyAXD41H2kFCTd2eXhDesM83rvC3?"
 
 ***
 
-### **Retrieve Account Nonce(`zetrix_get_nonce`)**
+### **Account Nonce(`zetrix_get_nonce`)**
 
 Get account nonce for transaction sequencing.
 
@@ -194,7 +194,7 @@ Get account nonce for transaction sequencing.
 
 ### **Blockchain Data**
 
-### **Retrieve Block(`zetrix_get_block`)**
+### **Block(`zetrix_get_block`)**
 
 Get information about a specific block by height.
 
@@ -219,7 +219,7 @@ Get information about a specific block by height.
 
 ***
 
-### **Retrieve Latest Block(`zetrix_get_latest_block`)**
+### **Latest Block(`zetrix_get_latest_block`)**
 
 Get the latest block information.
 
@@ -239,7 +239,7 @@ Get the latest block information.
 
 ***
 
-### **Retrive Ledger Information(`zetrix_get_ledger`)**
+### **Ledger Information(`zetrix_get_ledger`)**
 
 Get ledger information with validator details.
 
@@ -256,7 +256,7 @@ Get ledger information with validator details.
 
 ### **Transactions**
 
-### **Retrieve Transaction(`zetrix_get_transaction`)**
+### **Transaction(`zetrix_get_transaction`)**
 
 Get transaction details by hash.
 
@@ -280,7 +280,7 @@ Get transaction details by hash.
 
 ***
 
-### **Retrieve Transaction History(`zetrix_get_transaction_history`)**
+### **Transaction History(`zetrix_get_transaction_history`)**
 
 Get completed transaction records.
 
@@ -295,7 +295,7 @@ Get completed transaction records.
 
 ***
 
-### **Retrieve Transaction Cache(`zetrix_get_transaction_cache`)**
+### **Transaction Cache(`zetrix_get_transaction_cache`)**
 
 Get pending transactions.
 
@@ -307,7 +307,7 @@ Get pending transactions.
 
 ***
 
-### **Retrive Node Health(`zetrix_check_health`)**
+### **Node Health(`zetrix_check_health`)**
 
 Check node health status.
 
@@ -327,7 +327,7 @@ Check node health status.
 
 ***
 
-### **Execute Multi Query(`zetrix_multi_query`)**
+### **Multi Query(`zetrix_multi_query`)**
 
 Execute multiple API queries simultaneously.
 

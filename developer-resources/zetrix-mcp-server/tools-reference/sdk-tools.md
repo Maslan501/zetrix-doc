@@ -2,7 +2,7 @@
 
 Official Zetrix SDK integration powered by [zetrix-sdk-nodejs](https://github.com/Zetrix-Chain/zetrix-sdk-nodejs).
 
-### Create New Zetrix Account(**`zetrix_sdk_create_account`)**
+### Create Account(**`zetrix_sdk_create_account`)**
 
 Create new Zetrix account with keys.
 
@@ -26,7 +26,7 @@ Create new Zetrix account with keys.
 
 ***
 
-### Retrieve Account Balance(**`zetrix_sdk_get_balance`)**
+### Account Balance(**`zetrix_sdk_get_balance`)**
 
 Get account balance using official SDK.
 
@@ -44,7 +44,7 @@ Get account balance using official SDK.
 
 ***
 
-### Check Account Activation Status(**`zetrix_sdk_is_activated`)**
+### Account Activation Status(**`zetrix_sdk_is_activated`)**
 
 Check if account is activated.
 
@@ -66,7 +66,7 @@ Check if account is activated.
 
 ***
 
-### Get Current Account Nonce(**`zetrix_sdk_get_nonce`)**
+### Current Account Nonce(**`zetrix_sdk_get_nonce`)**
 
 Get account nonce for transactions.
 
@@ -80,7 +80,7 @@ Get account nonce for transactions.
 
 ***
 
-### Execute Read-Only Smart Contract Call(**`zetrix_sdk_call_contract`)**
+### Read-Only Smart Contract Call(**`zetrix_sdk_call_contract`)**
 
 Call smart contract (query only, no state change).
 

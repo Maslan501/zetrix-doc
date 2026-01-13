@@ -1,6 +1,6 @@
 # Transaction Building Tools
 
-### Generate Transaction Blob(**`zetrix_get_transaction_blob`)**
+### Transaction Blob(**`zetrix_get_transaction_blob`)**
 
 Serialize transaction data to hex format.
 
@@ -31,7 +31,7 @@ Submit signed transaction to blockchain.
 
 ***
 
-### Simulate / Test Transaction Execution(**`zetrix_test_transaction`)**
+### Test Transaction Execution(**`zetrix_test_transaction`)**
 
 Evaluate transaction fees without submission.
 
@@ -49,7 +49,7 @@ Evaluate transaction fees without submission.
 
 ***
 
-### Execute Read-Only Smart Contract Call(**`zetrix_call_contract`)**
+### Read-Only Smart Contract Call(**`zetrix_call_contract`)**
 
 Call smart contract in sandbox environment.
 

@@ -12,7 +12,7 @@ Generate new key pair (testing only).
 
 ***
 
-### Execute Multiple Blockchain Queries in a Single Request(**`zetrix_multi_query`)**
+### Multiple Blockchain Queries in a Single Request(**`zetrix_multi_query`)**
 
 Execute multiple API queries simultaneously.
 

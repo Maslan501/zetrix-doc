@@ -2,7 +2,7 @@
 
 Based on [zetrix-contract-development-tool](https://github.com/armmarov/zetrix-contract-development-tool).
 
-### Initialize Smart Contract Development Environment(**`zetrix_contract_init_dev_environment`)**
+### Smart Contract Development Environment(**`zetrix_contract_init_dev_environment`)**
 
 Initialize contract development project.
 
@@ -60,7 +60,7 @@ Generate multi-class contracts with tests.
 
 ***
 
-### Retrieve Built-In Chain Functions(**`zetrix_contract_get_chain_functions`)**
+### Built-In Chain Functions(**`zetrix_contract_get_chain_functions`)**
 
 Chain object function documentation.
 
@@ -85,7 +85,7 @@ Chain object function documentation.
 
 ***
 
-### Retrieve Utility Helper Functions(**`zetrix_contract_get_utils_functions`)**
+### Utility Helper Functions(**`zetrix_contract_get_utils_functions`)**
 
 Utils object function documentation.
 
@@ -135,7 +135,7 @@ ES5 contract patterns and inheritance.
 
 ***
 
-### Retrieve Token Standard Specification(**`zetrix_contract_get_token_standard`)**
+### Token Standard Specification(**`zetrix_contract_get_token_standard`)**
 
 Token standards (ZTP20, ZTP721, ZTP1155).
 
@@ -167,7 +167,7 @@ Token standards (ZTP20, ZTP721, ZTP1155).
 
 ***
 
-### Get Smart Contract Testing Guide(**`zetrix_contract_get_testing_guide`)**
+### Smart Contract Testing Guide(**`zetrix_contract_get_testing_guide`)**
 
 Testing framework documentation.
 

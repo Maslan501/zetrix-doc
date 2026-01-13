@@ -2,7 +2,7 @@
 
 Real-time blockchain monitoring via persistent WebSocket connections.
 
-### Establish WebSocket Connection(**`zetrix_ws_connect`)**
+### WebSocket Connection(**`zetrix_ws_connect`)**
 
 Connect and register to WebSocket for real-time updates.
 
@@ -26,7 +26,7 @@ Connect and register to WebSocket for real-time updates.
 
 ***
 
-### Submit Transaction via WebSocket(**`zetrix_ws_submit_transaction`)**
+### Transaction via WebSocket(**`zetrix_ws_submit_transaction`)**
 
 Submit transaction via WebSocket with real-time status.
 
@@ -42,7 +42,7 @@ Submit transaction via WebSocket with real-time status.
 
 ***
 
-### Subscribe to Transaction Events(**`zetrix_ws_subscribe_tx`)**
+### Transaction Events(**`zetrix_ws_subscribe_tx`)**
 
 Subscribe to transaction notifications for addresses.
 
@@ -68,7 +68,7 @@ Subscribe to transaction notifications for addresses.
 
 ***
 
-### Subscribe to Transaction Events(**`zetrix_ws_disconnect`)**
+### Transaction Events(**`zetrix_ws_disconnect`)**
 
 Disconnect from WebSocket.
 
@@ -78,7 +78,7 @@ Disconnect from WebSocket.
 
 ***
 
-### Retrieve WebSocket Connection Status(**`zetrix_ws_status`)**
+### WebSocket Connection Status(**`zetrix_ws_status`)**
 
 Check WebSocket connection status.
 
