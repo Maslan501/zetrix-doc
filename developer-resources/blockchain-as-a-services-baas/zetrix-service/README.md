@@ -14,11 +14,34 @@ A Zetrix BaaS API allows developers to interact with the underlying blockchain n
 
 The **endpoints for Zetrix BaaS API** for both mainnet and testnet are defined as
 
-1. https://test-api.zetrix.com (Zetrix Testnet)
+1. https://api-sandbox.zetrix.com (Zetrix Testnet)
 2. https://api.zetrix.com (Zetrix Mainnet)
+
+#### Authorization
 
 In a nutshell, developer has to request for the access token to be included in the API call. The access token has to be provided in Authorization header.
 
 > Headers
 >
 > Authorization : Bearer \<ACCESS\_TOKEN>
+
+#### API Gateway Authentication
+
+All requests to the Zetrix API Gateway **must** include the following header:
+
+```http
+X-API-Key:ehg7q2i6aN8jY6BbHqN5q42KsHQFRwl260jqAkAU
+```
+
+**Example (curl)**
+
+```bash
+curl -X GET https://<api-endpoint> \
+  -H "X-API-Key: ehg7q2i6aN8jY6BbHqN5q42KsHQFRwl260jqAkAU" \
+  -H "Content-Type: application/json"
+```
+
+**Notes**
+
+* The `X-API-Key` header is **required** for all API Gateway requests.
+* Requests without a valid API key will be rejected with an authorization error.
