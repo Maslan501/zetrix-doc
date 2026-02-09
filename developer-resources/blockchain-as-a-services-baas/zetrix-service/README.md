@@ -19,11 +19,16 @@ The **endpoints for Zetrix BaaS API** for both mainnet and testnet are defined a
 
 #### Authorization
 
-In a nutshell, developer has to request for the access token to be included in the API call. The access token has to be provided in Authorization header.
+All API requests must include **both** the API Gateway key and the access token:
 
-> Headers
->
-> Authorization : Bearer \<ACCESS\_TOKEN>
+* **API Gateway Key:** Include in the header `X-API-Key`.
+* **Access Token:** Include in the header `Authorization: Bearer <access_token>`.
+
+#### Headers
+
+```http
+Authorization : Bearer <ACCESS_TOKEN>
+```
 
 #### API Gateway Authentication
 
@@ -38,6 +43,7 @@ X-API-Key:ehg7q2i6aN8jY6BbHqN5q42KsHQFRwl260jqAkAU
 ```bash
 curl -X GET https://<api-endpoint> \
   -H "X-API-Key: ehg7q2i6aN8jY6BbHqN5q42KsHQFRwl260jqAkAU" \
+  -H "Authorization: Bearer <your_access_token>" \
   -H "Content-Type: application/json"
 ```
 
