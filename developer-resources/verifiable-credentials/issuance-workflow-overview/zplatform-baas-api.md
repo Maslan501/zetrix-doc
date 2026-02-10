@@ -38,7 +38,7 @@ The selected plan governs the Issuer's operational parameters, which include but
 
 ### **API Key Provisioning**
 
-To generate and provide a secure authentication credential, enabling the Issuer to interface programmatically with Zetrix VC APIs.
+To generate and provide a secure authentication credential, enabling the user to interface programmatically with Zetrix BaaS APIs.
 
 ### **Registration and Key Management**
 
@@ -178,14 +178,14 @@ Existing API keys can be managed from the **Manage API** page.
 
 ***
 
-### Account Balance
+## Account Balance
 
 * The current **Account Balance** is displayed at the top of the dashboard (e.g., RM 0.00).
 * Select **RELOAD** to top up the account if required for more API usage.
 
 ***
 
-### Security Best Practices
+## Security Best Practices
 
 To ensure secure usage of ZPlatform APIs:
 
@@ -197,7 +197,7 @@ To ensure secure usage of ZPlatform APIs:
 
 ***
 
-### Support and Assistance
+## Support and Assistance
 
 For technical assistance or account-related issues:
 
