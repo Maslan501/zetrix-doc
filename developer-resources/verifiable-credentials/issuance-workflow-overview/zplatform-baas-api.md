@@ -203,5 +203,3 @@ For technical assistance or account-related issues:
 
 * Select **Contact Support** from the navigation menu, or
 * Use **Forgot Password?** on the login page for credential recovery
-
-The successful completion of the Registration, Subscription, and API Provisioning process establishes the Issuer's authenticated identity and grants the necessary permissions to participate in the Zetrix BaaS ecosystem. This foundational step ensures the Issuer is fully equipped with the correct service entitlement and secure API access to proceed with subsequent technical configurations, including identity setup, credential template creation, and the execution of end-to-end VC lifecycle processes.
