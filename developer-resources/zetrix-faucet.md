@@ -1,4 +1,4 @@
-# Zetrix Faucet User Guide
+# Zetrix Faucet
 
 <figure><img src="../.gitbook/assets/image (54).png" alt=""><figcaption></figcaption></figure>
 
@@ -10,7 +10,7 @@ URL : [https://faucet.zetrix.com/](https://faucet.zetrix.com/)&#x20;
 
 ***
 
-### 1. Overview
+### Overview
 
 The Zetrix Faucet allows eligible users to receive a limited amount of ZTX tokens for testing purposes.
 
@@ -20,14 +20,14 @@ The Zetrix Faucet allows eligible users to receive a limited amount of ZTX token
 
 ***
 
-### 2. Accessing the Zetrix Faucet
+### Accessing the Zetrix Faucet
 
 1. Open a web browser and navigate to the **Zetrix Faucet** page.
 2. The page will display the title **“Zetrix Faucet”** with a wallet input field and a claim button.
 
 ***
 
-### 3. Prerequisites
+### Prerequisites
 
 Before claiming tokens, ensure that you have:
 
@@ -36,7 +36,7 @@ Before claiming tokens, ensure that you have:
 
 ***
 
-### 4. Claiming ZTX Tokens
+### Claiming ZTX Tokens
 
 #### Step 1: Enter Wallet Address
 
@@ -54,14 +54,14 @@ Before claiming tokens, ensure that you have:
 
 ***
 
-### 5. Transaction Confirmation
+### Transaction Confirmation
 
 * The **Your Transaction** section displays the transaction reference once the request is processed.
 * Users may use the transaction hash to verify the transfer on the Zetrix blockchain explorer, if applicable.
 
 ***
 
-### 6. Usage Limitations
+### Usage Limitations
 
 * Each wallet address is limited to **1 ZTX per day**.
 * Multiple requests within the same day using the same wallet address are not permitted.
@@ -69,7 +69,7 @@ Before claiming tokens, ensure that you have:
 
 ***
 
-### 7. Security and Best Practices
+### Security and Best Practices
 
 * Use the faucet **only for development and testing purposes**.
 * Do not use production wallet addresses.
