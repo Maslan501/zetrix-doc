@@ -24,7 +24,7 @@ All API requests must include **both** the API Gateway key and the access token:
 * **API Gateway Key:** Include in the header `X-API-Key`.
 * **Access Token:** Include in the header `Authorization: Bearer <access_token>`.
 
-#### Headers
+#### Access Token
 
 ```http
 Authorization : Bearer <ACCESS_TOKEN>
