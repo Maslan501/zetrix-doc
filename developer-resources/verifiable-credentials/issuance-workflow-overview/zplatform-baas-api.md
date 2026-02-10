@@ -46,7 +46,7 @@ To generate and provide a secure authentication credential, enabling the Issuer 
 
 Click **"Create an account"** or Navigate to the ZPlatform registration page:
 
-* **https://platform.zetrix.com/#/register**
+* [https://platform.zetrix.com/#/register ](https://platform.zetrix.com/#/register)&#x20;
 
 The **Sign Up Here** page will be displayed.
 
@@ -91,7 +91,7 @@ All fields marked with (\*) are mandatory.
 
 Navigate to:
 
-* **https://platform.zetrix.com/#/login**
+* [https://platform.zetrix.com/#/login](https://platform.zetrix.com/#/login)
 
 #### Enter Login Credentials
 
