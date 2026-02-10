@@ -1,6 +1,6 @@
 # Issuance Workflow Overview
 
-<figure><img src="../../.gitbook/assets/Zetrix-Illustration-white-bg (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Zetrix-Illustration-white-bg (1).png" alt=""><figcaption></figcaption></figure>
 
 ## **Introduction**
 
@@ -35,7 +35,7 @@ This is an overview of the end-to-end process for issuing Verifiable Credentials
 
 ### Subscription and API Provisioning
 
-The process begins by the SI registering on the **ZPlatform**.\
+The process begins by the SI registering on the [ZPlatform](zplatform-baas-api.md)**.**\
 Upon successful registration:
 
 1. The Issuer subscribes to a **VC Subscription Plan**, defining usage quotas and service access.
@@ -72,7 +72,7 @@ The following actions take place:
 
 The DID and BBS+ keys together form the Issuer’s official cryptographic identity on Zetrix.
 
-For more details, please refer to the [Identity Platform](../did-management-platform.md) section.&#x20;
+For more details, please refer to the [Identity Platform](generating-bbs+-key.md) section.&#x20;
 
 ### Credential Template Configuration
 
@@ -91,7 +91,7 @@ Activities include:
 
 Templates ensure consistency, standardization, and alignment with predefined data schemas.
 
-For more details, please refer to the [Issuer Platform](../zcert-issuer-platform.md) section.&#x20;
+For more details, please refer to the [Issuer Platform](zcert-issuer-platform.md) section.&#x20;
 
 ### VC Issuance
 

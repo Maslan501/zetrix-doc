@@ -17,6 +17,8 @@ The **endpoints for Zetrix BaaS API** for both mainnet and testnet are defined a
 1. https://api-sandbox.zetrix.com (Zetrix Testnet)
 2. https://api.zetrix.com (Zetrix Mainnet)
 
+Access to BaaS services requires users to register an account on [ZPlatform](../../verifiable-credentials/issuance-workflow-overview/zplatform-baas-api.md).
+
 #### Authorization
 
 All API requests must include **both** the API Gateway key and the access token:
