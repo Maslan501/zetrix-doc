@@ -55,7 +55,7 @@
     * [Paymaster](developer-resources/blockchain-as-a-services-baas/zetrix-service/paymaster.md)
   * [Zetrix Oraclize](developer-resources/blockchain-as-a-services-baas/zetrix-oraclize.md)
   * [Scheduler Contract](developer-resources/blockchain-as-a-services-baas/scheduler-contract.md)
-* [Zetrix Faucet User Guide](developer-resources/zetrix-faucet-user-guide.md)
+* [Zetrix Faucet](developer-resources/zetrix-faucet.md)
 * [ZPlatform (BaaS API)](developer-resources/verifiable-credentials/issuance-workflow-overview/zplatform-baas-api.md)
 * [DID Management Platform](developer-resources/verifiable-credentials/issuance-workflow-overview/generating-bbs+-key.md)
 * [ZCert Issuer Platform](developer-resources/verifiable-credentials/issuance-workflow-overview/zcert-issuer-platform.md)
