@@ -6,7 +6,7 @@ This preliminary process for an organization to establish its operational presen
 
 Completion of the procedures described herein is a prerequisite for accessing Zetrix's blockchain-based VC issuance functionalities.
 
-<figure><img src="../../../.gitbook/assets/image (51).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (55).png" alt=""><figcaption></figcaption></figure>
 
 ## Process Overview
 
