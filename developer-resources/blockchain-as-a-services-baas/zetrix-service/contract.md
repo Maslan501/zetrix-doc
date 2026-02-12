@@ -61,7 +61,7 @@ HTTP GET /ztx/contract/history/filter
 CURL Command
 
 ```bash
-curl --location 'https://{endpoint}/ztx/contract/history/filter
+curl GET 'https://{endpoint}/ztx/contract/history/filter
 ```
 
 * Function
