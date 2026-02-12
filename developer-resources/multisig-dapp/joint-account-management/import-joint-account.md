@@ -107,7 +107,7 @@ This feature empowers signers to fulfill their roles efficiently and responsibly
 
 1️⃣ **Open Import Join Account and enter existing address to import.**
 
-<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 2️⃣**Fill up Joint Account Name**
 

@@ -50,7 +50,7 @@ Click **"Create an account"** or Navigate to the ZPlatform registration page:
 
 The **Sign Up Here** page will be displayed.
 
-<figure><img src="../../../.gitbook/assets/image (53).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 #### Complete Registration Form
 
@@ -108,9 +108,7 @@ Optional:
 
 * Click **LOGIN** to access the ZPlatform dashboard.
 
-<figure><img src="../../../.gitbook/assets/image (50).png" alt=""><figcaption></figcaption></figure>
-
-***
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 ### API Management Overview
 
@@ -119,7 +117,7 @@ After successful login:
 1. From the left navigation menu, select **Manage API**.
 2. The **Manage your API** page will be displayed.
 
-<figure><img src="../../../.gitbook/assets/image (49).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 The API management table provides the following information:
 
@@ -139,9 +137,9 @@ The API management table provides the following information:
 
 A dialog titled **Create your API keys** will appear.
 
-<figure><img src="../../../.gitbook/assets/image (48).png" alt=""><figcaption></figcaption></figure>
-
 #### Configure API Key
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
 Complete the following fields:
 
@@ -149,8 +147,6 @@ Complete the following fields:
   A unique and descriptive name for the API key (e.g., `Billing-Service`, `Sandbox-Testing`).
 * **Expiration**\
   Select the expiration date for the API key. The key will automatically become invalid after this date.
-* **Password**\
-  Enter your ZPlatform account password to confirm the action.
 
 #### Generate API Key
 

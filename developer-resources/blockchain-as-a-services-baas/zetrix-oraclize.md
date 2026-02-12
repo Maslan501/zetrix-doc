@@ -67,4 +67,4 @@ Oraclize Contract : [https://test-explorer.zetrix.com/account/ZTX3QLowAYiRnj8ifa
 
 ## Get Response from Oraclize Contract
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>

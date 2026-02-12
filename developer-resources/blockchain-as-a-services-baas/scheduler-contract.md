@@ -1,6 +1,6 @@
 # Scheduler Contract
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 The **Scheduler Contract in Zetrix Blockchain** is designed to support a standard interface for communication with other smart contracts. It enables seamless interaction between different contracts and facilitates task scheduling and execution based on a predefined cron job timing. Here's a breakdown of its functionality:
 
