@@ -9,13 +9,13 @@ This API typically uses a set of methods to interact with smart contracts, inclu
 #### Query Contract
 
 ```
-HTTP POST /ztx/contract/query
+HTTP POST /ztx/contract/query-address
 ```
 
 CURL Command
 
 ```bash
-curl POST https://{endpoint}/ztx/contract/query
+curl POST https://{endpoint}/ztx/contract/query-address
 ```
 
 * Function&#x20;
@@ -28,32 +28,76 @@ Here body transfer is the transaction data. For specific json format and paramet
 
 ```json
 {
-  "contractKey": "string",
-  "inputParameters": {},
-  "method": "string"
+    "address": "",
+    "method": "",
+    "inputParameters": {
+    }
 }
 ```
-
-
 
 * Return Value
 
 ```json
 {
-  "messages": [
-    {
-      "errorCode": 0,
-      "message": "string",
-      "type": "INFO"
-    }
-  ],
-  "object": {
-    "result": {
-      "type": "string",
-      "value": "string"
-    }
-  }
+    "object": {
+        "result": {
+            "type": "string",
+            "value": ""
+        }
+    },
+    "messages": [],
+    "success": true,
+    "timestamp": "",
+    "traceId": ""
 }
+```
+
+#### Invoke Contract – History Filter
+
+```
+HTTP GET /ztx/contract/history/filter
+```
+
+CURL Command
+
+```bash
+curl --location 'https://{endpoint}/ztx/contract/history/filter
+```
+
+* Function
+
+Retrieve contract transaction history with optional filtering and pagination.
+
+* Return Value
+
+```json
+{
+  "object": {
+    "page": 0,
+    "pageSize": 10,
+    "totalPages": 2,
+    "totalElements": 17,
+    "content": [
+      {
+        "id": 1,
+        "address": "string",
+        "contractKey": "string",
+        "txInitiator": "string",
+        "method": "string",
+        "inputParameters": "string",
+        "txHash": "string",
+        "status": "string",
+        "createdAt": "string",
+        "updatedAt": "string"
+      }
+    ]
+  },
+  "messages": [],
+  "success": true,
+  "timestamp": "yyyy-MM-dd HH:mm:ss",
+  "traceId": "string"
+}
+
 ```
 
 #### Invoke Contract - Generate Blob
@@ -87,10 +131,9 @@ Here body transfer is the transaction data. For specific json format and paramet
 
 * Return Value
 
-```json
-{
-  "messages": [
-    {
+<pre class="language-json"><code class="lang-json">{
+<strong>  "messages": [
+</strong>    {
       "errorCode": 0,
       "message": "string",
       "type": "INFO"
@@ -104,6 +147,50 @@ Here body transfer is the transaction data. For specific json format and paramet
       "signBlob": "string"
     }
   }
+}
+</code></pre>
+
+#### Invoke Contract - Sign Blob
+
+```
+HTTP POST /ztx/contract/sign-blob
+```
+
+CURL Command
+
+```bash
+curl POST https://{endpoint}/ztx/contract/sign-blob
+```
+
+* Function&#x20;
+
+To sign transaction blob.
+
+* The body is in json format
+
+Here body transfer is the transaction data. For specific json format and parameters, see Transaction Structure. Example：
+
+```json
+{
+  "privateKey": "",
+  "blob": ""
+}
+```
+
+* Return Value
+
+```json
+{
+    "object": [
+        {
+            "signBlob": "",
+            "publicKey": ""
+        }
+    ],
+    "messages": [],
+    "success": true,
+    "timestamp": "",
+    "traceId": ""
 }
 ```
 
