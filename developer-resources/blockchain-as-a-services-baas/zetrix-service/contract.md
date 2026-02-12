@@ -54,6 +54,23 @@ Here body transfer is the transaction data. For specific json format and paramet
 
 #### Invoke Contract – History Filter
 
+* Query Parameters
+
+| Parameter       | Type    | Required | Description                                     |
+| --------------- | ------- | -------- | ----------------------------------------------- |
+| address         | string  | No       | Contract address                                |
+| status          | string  | No       | Transaction status (INITIATED, SUBMITTED, etc.) |
+| contractKey     | string  | No       | Contract key                                    |
+| txInitiator     | string  | No       | Transaction initiator address                   |
+| txHash          | string  | No       | Transaction hash                                |
+| method          | string  | No       | Contract method name                            |
+| createdDateFrom | string  | No       | Start date (ISO format)                         |
+| createdDateTo   | string  | No       | End date (ISO format)                           |
+| page            | integer | No       | Page number (default: 0)                        |
+| pageSize        | integer | No       | Page size (default: 10)                         |
+| sort            | string  | No       | Field to sort by                                |
+| isAsc           | boolean | No       | Sort ascending (true/false)                     |
+
 ```
 HTTP GET /ztx/contract/history/filter
 ```
