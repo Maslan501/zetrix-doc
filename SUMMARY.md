@@ -82,7 +82,6 @@
   * [Introduction](developer-resources/zetrix-mcp-server/introduction/README.md)
     * [What is MCP](developer-resources/zetrix-mcp-server/introduction/what-is-mcp.md)
     * [Key Features](developer-resources/zetrix-mcp-server/introduction/key-features.md)
-    * [Currency Information](developer-resources/zetrix-mcp-server/introduction/currency-information.md)
   * [Complete Installation Guide](developer-resources/zetrix-mcp-server/complete-installation-guide/README.md)
     * [System Requirements](developer-resources/zetrix-mcp-server/complete-installation-guide/system-requirements.md)
     * [Installation Methods](developer-resources/zetrix-mcp-server/complete-installation-guide/installation-methods.md)
