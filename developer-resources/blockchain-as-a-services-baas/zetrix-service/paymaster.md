@@ -46,6 +46,15 @@ POST /ztx/tx/paymaster/generate-blob
 curl POST https://{endpoint}/ztx/tx/paymaster/generate-blob
 ```
 
+#### Root Parameters
+
+| Field         | Type   | Required | Description                               |
+| ------------- | ------ | -------- | ----------------------------------------- |
+| userAddress   | string | ✅        | Wallet address initiating the transaction |
+| operationType | string | ✅        | Logical operation category                |
+| metadata      | object | ❌        | Custom metadata for tracking              |
+| operations    | array  | ✅        | List of transaction operations            |
+
 | Type | Params                                                                                                                                                                                                                                                    | Values                                                                                                                                                                                                                                   |
 | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | HEAD | `Authorization`                                                                                                                                                                                                                                           | `string`                                                                                                                                                                                                                                 |
@@ -96,18 +105,23 @@ Here body transfer is the transaction data. For specific json format and paramet
 
 ```json
 {
-    "operations": [
-        {
-            "amount": "1",
-            "inputStr": "",
-            "fromAddress": "ZTX3bt9zo4RUqF4EgVT9mer57qHAbxqyKzzk7",
-            "type": "2",
-            "toAddress": "ZTX3aUu8KbuMR9N8ATCXtoY8kU8oepRbDChaF",
-            "precision": "",
-            "payload": ""
-        }
-    ]
-}
+  "userAddress": "ZTX3QkbTjJsc7xDbwRtuHn826cAYF79uKR3rt",
+  "operationType": "TEST_TRANSACTION",
+  "metadata": {
+    "id": "tx_pm_5"
+  },
+  "operations": [
+    {
+      "amount": "1.5",
+      "inputStr": "",
+      "fromAddress": "ZTX3QkbTjJsc7xDbwRtuHn826cAYF79uKR3rt",
+      "type": "2",
+      "toAddress": "ZTX3b69xfJZbiC8WbrtE2Ez27zri3a6K9B5pt",
+      "precision": "",
+      "payload": ""
+    }
+  ],
+}'
 
 ```
 
@@ -116,15 +130,22 @@ Here body transfer is the transaction data. For specific json format and paramet
 ```json
 {
     "object": {
-        "blob": "0A255A5458336370526E4667693234504D55766E7178434262374C6338724A5A75714563546E5210052256080712255A5458336274397A6F34525571463445675654396D65723537714841627871794B7A7A6B37622B0A255A545833615575384B62754D52394E3841544358746F59386B55386F65705262444368614610C0843D30E45F3805",
-        "hash": "94f5edbbb19f0449c317ef38b90490eefd883f886be10afc35ec05393f55dffe",
+        "blob": "0A255A5458334D4B46654B4A413342524165693747737A6D48526F79597259596F6B79554A4551100E2256080712255A545833516B62546A4A73633778446277527475486E383236634159463739754B52337274622B0A255A54583362363978664A5A62694338576272744532457A32377A72693361364B394235707410E0C65B30E45F3805",
+        "hash": "054197b910b77a240f440ea5ca4c4dc0074023dc566fa749fc967efece92327f",
         "platformSignData": null,
-        "paymasterAddress": "ZTX3cpRnFgi24PMUvnqxCBb7Lc8rJZuqEcTnR",
-        "nonce": 5
+        "actualFee": null,
+        "blobId": "BLOB-3F1B883A021D4424",
+        "paymasterAddress": "ZTX3MKFeKJA3BRAei7GszmHRoyYrYYokyUJEQ",
+        "paymasterNonce": 14,
+        "paymasterPoolId": 2,
+        "expiresAt": "2026-04-06T09:28:30.072942652",
+        "timeoutMinutes": 10
     },
-    "messages": []
+    "messages": [],
+    "success": true,
+    "timestamp": "2026-04-06 09:18:30",
+    "traceId": "74851775-6903-400c-abf7-ec1d37a7b9fc"
 }
-
 ```
 
 ### Submit Blob
@@ -147,21 +168,21 @@ CURL Command
 curl POST https://{endpoint}/ztx/tx/paymaster/submit
 ```
 
-| Type | Params                                                                                                  | Values                                                                                       |
-| ---- | ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| HEAD | `Authorization`                                                                                         | `String`                                                                                     |
-| POST | `blob`                                                                                                  | `String`                                                                                     |
-| POST | `hash`                                                                                                  | `String`                                                                                     |
-| POST | <p><code>listSigners[]</code></p><ul><li><code>signBlob</code></li><li><code>publicKey</code></li></ul> | <p><code>Array[]</code>  </p><p> <br><code>String]</code></p><p><code>String</code> <br></p> |
-| POST | `paymasterAddress`                                                                                      | `String`                                                                                     |
+| Type | Params                                                                                                  | Values                                                                                         |
+| ---- | ------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| HEAD | `Authorization`                                                                                         | `String`                                                                                       |
+| POST | `blobId`                                                                                                | `String`                                                                                       |
+| POST | `blob`                                                                                                  | `String`                                                                                       |
+| POST | <p><code>listSigners[]</code></p><ul><li><code>signBlob</code></li><li><code>publicKey</code></li></ul> | <p><code>Array[]</code> </p><ul><li><code>String</code></li><li><code>String</code> </li></ul> |
+| POST | `paymasterAddress`                                                                                      | `String`                                                                                       |
+
+**blobId**
+
+`blobId` is Identifier returned from `generate-blob`
 
 **blob**
 
 `blob` is transaction blob that need to signed
-
-**hash**
-
-`hash` is transaction hash
 
 **signBlob**
 
@@ -187,15 +208,14 @@ Here body transfer is the transaction data. For specific json format and paramet
 
 ```json
 {
-    "blob": "0A255A5458336370526E4667693234504D55766E7178434262374C6338724A5A75714563546E5210092256080712255A5458336274397A6F34525571463445675654396D65723537714841627871794B7A7A6B37622B0A255A545833615575384B62754D52394E3841544358746F59386B55386F65705262444368614610C0843D30E45F3805",
-    "hash": "a4e42e4c0f8be1eb089bdc0d9a9a6fe0e465f3e1956771157889bcdd2f767452",
-    "listSigners": [
+    "blobId": "BLOB-FCC1642A329D4768",
+    "blob": "0A255A545833475548766172366278637948637A6543796D6153334B535341356B75775556445510032256080712255A545833516B62546A4A73633778446277527475486E383236634159463739754B52337274622B0A255A54583362363978664A5A62694338576272744532457A32377A72693361364B394235707410E0C65B3080FA01380A",
+    "listSigner": [
         {
-            "signBlob": "25831C2C112F7EEA3AE39FC824A2089033F4E1527CA0C14F1772E42AF451FDA5A0334AC7EB64459B84A089D24D36D2E7FE119ED02BCF46A445FB3650A246A400",
-            "publicKey": "b001c867ba4bc9378b8a7bd848b0713847720fcbbe0446737f2172a2d8248cc97934e66464c9"
+            "signBlob": "BD966E7A15599505B018CB623391BA5C58ABEB1054CC3043C36A0F3D7993BBAA3B65244ED7B158BB7A2D63CC5A0F6B8D2F535D1FB758B8E5B1CF5541CA5CC204",
+            "publicKey": "b001eff30af3427a38c5cd021f5ac28578d27c3bd1ab53fc4d2789c1f8cb1827e83c58de414a"
         }
-    ],
-    "paymasterAddress": "ZTX3cpRnFgi24PMUvnqxCBb7Lc8rJZuqEcTnR"
+    ]
 }
 ```
 
@@ -232,13 +252,13 @@ POST /ztx/contract/paymaster/generate-blob
 curl POST https://{endpoint}/ztx/contract/paymaster/generate-blob
 ```
 
-| Type | Params                                                                                          | Values                                                                                          |
-| ---- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| HEAD | `Authorization`                                                                                 | `String`                                                                                        |
-|      | `address`                                                                                       | `String`                                                                                        |
-|      | `method`                                                                                        | `String`                                                                                        |
-|      | <p><code>inputParameters</code></p><ul><li><code>to</code></li><li><code>value</code></li></ul> | <p><code>Array[]</code><br></p><p><br><br><code>String</code><br></p><p><code>String</code></p> |
-|      | `sourceAddress`                                                                                 | `String`                                                                                        |
+| Type | Params                                                                                          | Values                                                                                       |
+| ---- | ----------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| HEAD | `Authorization`                                                                                 | `String`                                                                                     |
+| POST | `userAddress`                                                                                   | `String`                                                                                     |
+| POST | `contractAddress`                                                                               | `String`                                                                                     |
+| POST | `method`                                                                                        | `String`                                                                                     |
+| POST | <p><code>inputParameters</code></p><ul><li><code>to</code></li><li><code>value</code></li></ul> | <p><code>Array[]</code></p><ul><li><code>String</code></li><li><code>String</code></li></ul> |
 
 **address**
 
@@ -268,13 +288,13 @@ Here body transfer is the transaction data. For specific json format and paramet
 
 ```json
 {
-    "address": "ZTX3cjLdUXK9AqQWyLFTT72xmWxVhsGQVyBUV",
+    "userAddress":"ZTX3QkbTjJsc7xDbwRtuHn826cAYF79uKR3rt",
+    "contractAddress": "ZTX3ZfbJ8AT8u8W7dx3g5tqbJ7nnGoYCszaj6",
     "method": "transfer",
     "inputParameters": {
-        "to": "ZTX3aUu8KbuMR9N8ATCXtoY8kU8oepRbDChaF",
-        "value": "1000000"
-    },
-    "sourceAddress": "ZTX3bt9zo4RUqF4EgVT9mer57qHAbxqyKzzk7"
+        "to": "ZTX3b69xfJZbiC8WbrtE2Ez27zri3a6K9B5pt",
+        "value": "500000000"
+    }
 }
 ```
 
@@ -283,13 +303,23 @@ Here body transfer is the transaction data. For specific json format and paramet
 ```json
 {
     "object": {
-        "blob": "0A255A54583364584C6235566A395377344E427973444B556D7238486541586A4564383647456F101522B401080712255A5458336274397A6F34525571463445675654396D65723537714841627871794B7A7A6B376288010A255A545833636A4C6455584B3941715157794C4654543732786D5778566873475156794255561A5F7B226D6574686F64223A227472616E73666572222C22706172616D73223A7B22746F223A225A545833615575384B62754D52394E3841544358746F59386B55386F657052624443686146222C2276616C7565223A2231303030303030227D7D309E693805",
-        "hash": "4db408ea17820a985641c7fa5c52cf13d8b1103cc59b36fce38b9458315d7221",
+        "blob": "0A255A5458334D4B46654B4A413342524165693747737A6D48526F79597259596F6B79554A4551100F22B601080712255A545833516B62546A4A73633778446277527475486E383236634159463739754B52337274628A010A255A5458335A66624A384154387538573764783367357471624A376E6E476F5943737A616A361A617B226D6574686F64223A227472616E73666572222C22706172616D73223A7B22746F223A225A54583362363978664A5A62694338576272744532457A32377A72693361364B3942357074222C2276616C7565223A22353030303030303030227D7D30FCBD02380A",
+        "hash": "97f8c9f0721cecc871848e099412aae325c4f1fb1288863ad855465007123ab4",
         "platformSignData": null,
-        "paymasterAddress": "ZTX3dXLb5Vj9Sw4NBysDKUmr8HeAXjEd86GEo",
-        "nonce": 21
+        "blobId": "BLOB-FD7247F70FF84BF3",
+        "paymasterAddress": "ZTX3MKFeKJA3BRAei7GszmHRoyYrYYokyUJEQ",
+        "paymasterNonce": 15,
+        "paymasterPoolId": 2,
+        "expiresAt": "2026-04-06T09:42:42.448084207",
+        "timeoutMinutes": 10,
+        "contractAddress": "ZTX3ZfbJ8AT8u8W7dx3g5tqbJ7nnGoYCszaj6",
+        "method": "transfer",
+        "actualFee": 40700
     },
-    "messages": []
+    "messages": [],
+    "success": true,
+    "timestamp": "2026-04-06 09:32:42",
+    "traceId": "7cd09ac8-448f-49e9-87ff-82bf366ed62b"
 }
 ```
 
@@ -314,18 +344,17 @@ curl POST https://{endpoint}/ztx/contract/paymaster/submit
 | Type | Params                                                                                                  | Values                                                                                       |
 | ---- | ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | HEAD | `Authorization`                                                                                         | `String`                                                                                     |
+| POST | `blobId`                                                                                                | `String`                                                                                     |
 | POST | `blob`                                                                                                  | `String`                                                                                     |
-| POST | `hash`                                                                                                  | `String`                                                                                     |
 | POST | <p><code>listSigners[]</code></p><ul><li><code>signBlob</code></li><li><code>publicKey</code></li></ul> | <p><code>Array[]</code>  </p><p> <br><code>String]</code></p><p><code>String</code> <br></p> |
-| POST | `initiator`                                                                                             | `String`                                                                                     |
+
+**blobId**
+
+`blobId` is Identifier returned from `generate-blob`
 
 **blob**
 
 `blob` is transaction blob that need to signed
-
-**hash**
-
-`hash` is transaction hash
 
 **signBlob**
 
@@ -351,16 +380,15 @@ Here body transfer is the transaction data. For specific json format and paramet
 
 ```json
 {
-     "blob": "0A255A5458334B5A6844567A7A3873363554486B726B4A714D547332354671414E356742446F31100822B401080712255A5458336274397A6F34525571463445675654396D65723537714841627871794B7A7A6B376288010A255A545833636A4C6455584B3941715157794C4654543732786D5778566873475156794255561A5F7B226D6574686F64223A227472616E73666572222C22706172616D73223A7B22746F223A225A545833615575384B62754D52394E3841544358746F59386B55386F657052624443686146222C2276616C7565223A2231303030303030227D7D309E693805",
-        "hash": "b1bed4ca228f2cb36039f1d2c087051008e98d2267c2a4ca7e11ba4d6392db2d",
+    "blobId": "BLOB-3F6BCE4AA08D4D88",
+    "blob": "0A255A5458335A3176633233554A6B576B38765139733754576B7070725846336A4255636A346F102F22B601080712255A545833516B62546A4A73633778446277527475486E383236634159463739754B52337274628A010A255A5458335A66624A384154387538573764783367357471624A376E6E476F5943737A616A361A617B226D6574686F64223A227472616E73666572222C22706172616D73223A7B22746F223A225A54583362363978664A5A62694338576272744532457A32377A72693361364B3942357074222C2276616C7565223A22353030303030303030227D7D30FCBD02380A",
     "listSigner": [
         {
-            "signBlob": "A7FAF9AE306D668ECC696EE098FF9D64C5701D67C0EA0A17D6CE95A54E926973F31DEFD9650AEC5FA85372A55840D2A38ED0AF6BE6AD45CBECB871B07B82E408",
-            "publicKey": "b001c867ba4bc9378b8a7bd848b0713847720fcbbe0446737f2172a2d8248cc97934e66464c9"
+            "signBlob": "1481CAE9D963C98C903AB02C26A74FF6AE3B5FF0351144933CC0E748E7182E2723A584228DCB663D0EECA3F45A70431C4DB772AE13ADD247D897D18A28237001",
+            "publicKey": "b001eff30af3427a38c5cd021f5ac28578d27c3bd1ab53fc4d2789c1f8cb1827e83c58de414a"
         }
-    ],
-    "initiator": "ZTX3KZhDVzz8s65THkrkJqMTs25FqAN5gBDo1"
-}
+    ]
+}'
 
 ```
 
