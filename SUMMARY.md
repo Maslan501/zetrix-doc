@@ -49,6 +49,17 @@
   * [API Reference](developer-resources/verifiable-credentials/api-reference.md)
 * [Blockchain as a Services(BaaS)](developer-resources/blockchain-as-a-services-baas/README.md)
   * [Zetrix Service](developer-resources/blockchain-as-a-services-baas/zetrix-service/README.md)
+    * ```yaml
+      type: builtin:openapi
+      props:
+        models: true
+        downloadLink: true
+      dependencies:
+        spec:
+          ref:
+            kind: openapi
+            spec: zetrix-public-api
+      ```
     * [Core](developer-resources/blockchain-as-a-services-baas/zetrix-service/core.md)
     * [Transaction](developer-resources/blockchain-as-a-services-baas/zetrix-service/transaction.md)
     * [Contract](developer-resources/blockchain-as-a-services-baas/zetrix-service/contract.md)

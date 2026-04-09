@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Transaction
 
 A **Zetrix Transaction Blockchain API** allows developers to send and receive transactions, read data, and access smart contract functions on a blockchain programmatically.

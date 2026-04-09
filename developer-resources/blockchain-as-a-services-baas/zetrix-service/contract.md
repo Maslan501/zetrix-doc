@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Contract
 
 A **Contract Blockchain API** allows you to interact with smart contracts on a Zetrix blockchain network programmatically. Smart contracts are agreements that execute automatically when certain conditions are met, and they are stored on the blockchain.
