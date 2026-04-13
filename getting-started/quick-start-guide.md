@@ -25,7 +25,6 @@ This section provides a brief overview of how to quickly get up and running with
   * Coinstore [https://www.coinstore.com/](https://www.coinstore.com/)
   * MEXC [https://www.mexc.com/](https://www.mexc.com/)
   * BitMart [https://www.bitmart.com/](https://www.bitmart.com/)
-  * Swap with ETH [https://swap.zetrix.com/#/home](https://swap.zetrix.com/#/home)
 * Transfer the tokens to your Zetrix wallet by copying the wallet’s public address and initiating the transaction.
 
 **1.3 Performing a Transaction**
