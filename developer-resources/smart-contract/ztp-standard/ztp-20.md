@@ -14,7 +14,7 @@ A standard interface allows any tokens on Zetrix to be re-used by other applicat
 
 ## Specification Token Methods
 
-## Matadata
+## Metadata
 
 ### name
 
