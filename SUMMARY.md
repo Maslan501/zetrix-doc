@@ -28,6 +28,7 @@
   * [ZTP Standard](developer-resources/smart-contract/ztp-standard/README.md)
     * [ZTP-20](developer-resources/smart-contract/ztp-standard/ztp-20.md)
     * [ZTP-165](developer-resources/smart-contract/ztp-standard/ztp-165.md)
+    * [ZTP-173](developer-resources/smart-contract/ztp-standard/ztp-173.md)
     * [ZTP-721](developer-resources/smart-contract/ztp-standard/ztp-721.md)
     * [ZTP-1155](developer-resources/smart-contract/ztp-standard/ztp-1155.md)
     * [ZTP-3525](developer-resources/smart-contract/ztp-standard/ztp-3525.md)
