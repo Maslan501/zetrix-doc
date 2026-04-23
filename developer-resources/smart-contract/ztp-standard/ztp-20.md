@@ -516,21 +516,6 @@ if (input.method === 'permit') {
 }
 ```
 
-**Sample response:**
-
-```json
-{
-   "results" : [
-      {
-         "error_code" : 0,
-         "error_desc" : "",
-         "hash" : "caa80.......395f9"
-      }
-   ],
-   "success_count" : 1
-}
-```
-
 ## [Zetrix Ecosystem Proposals](https://github.com/Zetrix-Chain/zetrix-protocol)
 
 ***
