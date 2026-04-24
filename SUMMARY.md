@@ -142,6 +142,7 @@
   * [Asset Issuance](developer-resources/testing-and-auditing/asset-issuance.md)
   * [Legal Evidence](developer-resources/testing-and-auditing/legal-evidence.md)
   * [Smart Contract Assets](developer-resources/testing-and-auditing/smart-contract-assets.md)
+* [Zetrix Official Release Notes](developer-resources/zetrix-official-release-notes.md)
 
 ## Node & Validator
 
