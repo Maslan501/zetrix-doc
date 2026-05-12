@@ -1,0 +1,11 @@
+# Contract Methods Reference
+
+The table below summarizes the contract methods and their operational role.
+
+<table><thead><tr><th width="151.72723388671875">Contract</th><th width="169.9090576171875">Method</th><th>Caller Keystore</th><th>Trigger</th><th>Purpose</th></tr></thead><tbody><tr><td>DPOS Contract</td><td><code>setFreeze(freeze, validators[])</code></td><td><code>dposKeyStore</code></td><td>Every 10s — ForecastCheckJob (freeze) + Every 1min — LocalSeqCheckJob (freeze or unfreeze)</td><td>Freeze or unfreeze validators</td></tr><tr><td>DPOS Contract</td><td><code>updateValidator()</code></td><td><code>dposKeyStore</code></td><td>Every 10s</td><td>Rotate validator set</td></tr><tr><td>Heartbeat Contract</td><td><code>pushStatus({onlineList[], onlineTimestamp})</code></td><td><code>statisticMonitorKeyStore</code> (operator-gated)</td><td>Every 1 hour</td><td>Append online node set for that timestamp slot into contract storage</td></tr><tr><td>Heartbeat Contract</td><td><code>getNodeList({rate})</code></td><td>DPOS Contract (contractQuery)</td><td>Daily 18:00, inside <code>extract()</code></td><td>Return validators that appeared in ≥rate% of stored hourly slots</td></tr><tr><td>Heartbeat Contract</td><td><code>clearRecord()</code></td><td>DPOS Contract (msg.sender check)</td><td>Daily 18:00, after <code>getNodeList()</code></td><td>Delete all <code>timestamp_node_{ts}</code> keys; reset <code>timestamp_list</code> to <code>{}</code></td></tr><tr><td>DPOS Contract</td><td><code>extract()</code></td><td><code>extractKeyStore</code></td><td>Daily 18:00</td><td>Query Heartbeat Contract, calculate reward distribution, wipe records</td></tr><tr><td>DPOS Contract</td><td><code>extractTransfer(list[])</code></td><td><code>extractKeyStore</code></td><td>Daily 18:00</td><td>Distribute rewards to fund addresses</td></tr></tbody></table>
+
+#### Contract interaction pattern
+
+The DPOS contract is the decision and settlement contract. The Heartbeat contract is the historical evidence store used to derive online participation.
+
+This separation is useful because it keeps monitoring evidence and reward execution loosely coupled while preserving on-chain verification of eligibility.
