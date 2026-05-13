@@ -77,12 +77,12 @@ Two contracts are central to the design:
 
 The following diagram shows the full lifecycle from startup through continuous monitoring, hourly statistics, and daily reward extraction.
 
-```mermaid
+````mermaid
 flowchart TD
     START([System Startup]) --> INIT_NODE
 
     subgraph SG_INIT["Initialisation"]
-        INIT_NODE["Load keystores\ndpos · statistic · extract\nLoad contracts\nDPOS addr · Heartbeat addr\nLoad admin validator list"]
+        INIT_NODE["Load keystores<br/>Load contracts<br/>Load admin validator list"]
     end
 
     SG_INIT --> SG_CYCLE
@@ -90,40 +90,40 @@ flowchart TD
     subgraph SG_CYCLE["Continuous Monitoring Cycle"]
 
         subgraph T30["Every 10 seconds — ValidatorsRotateJob"]
-            R1["Get DPOS config on-chain\nvalidatorSliceBlockCount + validatorRotate"]
+            R1["Get DPOS config on-chain<br/>validator slice count + rotate interval"]
             R2["Get current max block sequence"]
-            R3{"currentSeq >\nsliceCount + rotate?"}
-            R4["Identify freeze candidates\nfreezeToActive list"]
-            R5["HTTP :43300 CoChainTxService\nupdateValidator()\n→ DPOS Contract\nvia dposKeyStore"]
-            R6["Log in DposLog table"]
+            R3{"currentSeq ><br/>sliceCount + rotate?"}
+            R4["Identify freeze candidates<br/>freezeToActive list"]
+            R5["Call updateValidator()<br/>on DPOS Contract"]
+            R6["Log rotation event"]
             R1 --> R2 --> R3
             R3 -->|No| R_SKIP["Skip rotation"]
             R3 -->|Yes| R4 --> R5 --> R6
         end
 
         subgraph T1A["Every 10 seconds — ValidatorsForecastCheckJob"]
-            FA1["Get current max seq\nfrom blockchain"]
-            FA2["Get active validators list\nfrom ledger"]
-            FA3["Calculate next 3 forecasted\nproducers via viewNum mod count"]
-            FA4{"Forecasted validator\nlocal seq lagging\n> 2 blocks?"}
-            FA5["Mark as ABNORMAL\nAdd to freeze list"]
-            FA6["doValidatorNodeFreeze\nABNORMAL + triggerType=4"]
-            FA7["HTTP :43300 CoChainTxService\nsetFreeze(true, [validator])\n→ DPOS Contract\nskip admin addresses"]
-            FA8["Log in DposLog"]
+            FA1["Get current max seq<br/>from blockchain"]
+            FA2["Get active validators list<br/>from ledger"]
+            FA3["Calculate next 3 forecasted<br/>producers via viewNum mod count"]
+            FA4{"Forecasted validator<br/>local seq lagging<br/>> 2 blocks?"}
+            FA5["Mark as ABNORMAL<br/>Add to freeze list"]
+            FA6["Trigger freeze<br/>ABNORMAL status"]
+            FA7["Call setFreeze(true)<br/>on DPOS Contract<br/>skip admin addresses"]
+            FA8["Log freeze event"]
             FA1 --> FA2 --> FA3 --> FA4
-            FA4 -->|No| FA_OK["Validator healthy\nno action"]
+            FA4 -->|No| FA_OK["Validator healthy<br/>no action"]
             FA4 -->|Yes| FA5 --> FA6 --> FA7 --> FA8
         end
 
         subgraph T1B["Every 1 min — ValidatorsLocalSeqCheckJob"]
-            LS1["Query all validators\nlocal seq from DB"]
-            LS2["Query on-chain seq\nfrom blockchain"]
-            LS3{"Frozen validator\nseq now current?"}
-            LS4["doInActiveToActive\nStatus = NORMAL + triggerType=5"]
-            LS5{"Active validator\nseq lag > 2 blocks?"}
-            LS6["doActiveToInActive\nStatus = ABNORMAL + triggerType=5"]
-            LS7["HTTP :43300 CoChainTxService\nsetFreeze(freeze, [validator])\n→ DPOS Contract\nvia dposKeyStore"]
-            LS8["Log in DposLog"]
+            LS1["Query all validators<br/>local seq from DB"]
+            LS2["Query on-chain seq<br/>from blockchain"]
+            LS3{"Frozen validator<br/>seq now current?"}
+            LS4["Mark NORMAL<br/>trigger unfreeze"]
+            LS5{"Active validator<br/>seq lag > 2 blocks?"}
+            LS6["Mark ABNORMAL<br/>trigger freeze"]
+            LS7["Call setFreeze(freeze)<br/>on DPOS Contract"]
+            LS8["Log state change"]
             LS1 --> LS2 --> LS3
             LS3 -->|Yes| LS4 --> LS7
             LS3 -->|No| LS5
@@ -136,32 +136,32 @@ flowchart TD
     SG_CYCLE --> SG_HOURLY
 
     subgraph SG_HOURLY["Every 1 Hour — ValidatorsHeartStatisticJob"]
-        H1["Query all configured\nvalidator addresses"]
-        H2["Read heartbeat counts\nfrom Redis cache"]
-        H3{"Count >= threshold\n47 beats?"}
+        H1["Query all configured<br/>validator addresses"]
+        H2["Read heartbeat counts<br/>from cache"]
+        H3{"Count >= threshold<br/>47 beats?"}
         H4["Add to onlineValidatorList"]
-        H5["HTTP :43300 CoChainTxService\npushStatus({onlineList[], onlineTimestamp})\n→ Heartbeat Contract\nstatisticMonitorKeyStore (operator-gated)"]
-        H6["Insert HeartbeatStatistic\nrecords in DB"]
-        H7["Reset Redis heartbeat\ncounters for next hour"]
+        H5["Call pushStatus(onlineList, onlineTimestamp)<br/>on Heartbeat Contract<br/>via operator key"]
+        H6["Insert heartbeat statistic record"]
+        H7["Reset heartbeat counters<br/>for next hour"]
         H1 --> H2 --> H3
         H3 -->|Yes| H4 --> H5
-        H3 -->|No| H3_SKIP["Validator excluded\nfrom online list"]
+        H3 -->|No| H3_SKIP["Validator excluded<br/>from online list"]
         H5 --> H6 --> H7
     end
 
     SG_HOURLY --> SG_DAILY
 
     subgraph SG_DAILY["Daily 18:00 — ValidatorExtractJob"]
-        D1["Reset heartbeat stats\nin Redis cache"]
-        D2["Call doExtract\nextractKeyStore"]
-        D3["Submit extract tx to DPOS contract\nOn-chain reward calculation triggered"]
-        D4["Call doExtractTransfer\nextractKeyStore"]
-        D5["Fetch all validator\nfund addresses from chain"]
+        D1["Reset heartbeat stats<br/>in cache"]
+        D2["Call extract()<br/>via admin key"]
+        D3["Submit extract tx to DPOS contract<br/>On-chain reward calculation triggered"]
+        D4["Call extractTransfer()<br/>via admin key"]
+        D5["Fetch all validator<br/>fund addresses from chain"]
         D6["Partition into batches of 10"]
-        D7["Submit extractTransfer tx\nper batch"]
-        D8["Sleep 2 min between batches\nnonce management"]
-        D9["Rewards transferred\nto validator accounts"]
-        D10["Log all tx hashes\nin DposLog"]
+        D7["Submit extractTransfer tx<br/>per batch"]
+        D8["Wait between batches<br/>for nonce management"]
+        D9["Rewards transferred<br/>to validator accounts"]
+        D10["Log all tx hashes"]
         D1 --> D2 --> D3 --> D4 --> D5 --> D6 --> D7 --> D8
         D8 -->|next batch| D7
         D7 -->|All batches done| D9 --> D10
@@ -169,6 +169,7 @@ flowchart TD
 
     D10 -.->|"Next day — loop continues"| SG_CYCLE
 ```
+````
 
 ### Operational Jobs
 

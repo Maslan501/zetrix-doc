@@ -4,15 +4,15 @@ The following diagram shows how heartbeat signals become reward eligibility inpu
 
 ```mermaid
 flowchart LR
-    subgraph SG_NODE["Zetrix Node (monitor :19336 — Conn 2)"]
-        PING["Node sends WS PING every 15s\nconnect_time_out_(60s) / 4\nnetwork.cpp NeedPing()"]
-        SYS["Node responds with Monitor.SystemStatus\n(cpu · memory · discs)"]
+    subgraph SG_NODE["Zetrix Node (Monitor Connection)"]
+        PING["Node sends WebSocket PING every ~15s"]
+        SYS["Node responds with system status<br/>(cpu · memory · disk)"]
     end
 
     subgraph SG_DC["BaaS Data Center"]
-        PONG["IoServiceImpl.nodePong()\ncount PINGs — every N=3 PINGs (~45s)\nsend MONITOR_MSGTYPE_SYSTEM (type 34) request"]
-        RCV["SystemAction.system()\nParse Monitor.SystemStatus"]
-        HBCNT["SystemAction.doStatisticValidatorHeartbeat()\nredisUtil.incr(validatorAddress)\nkey = validator address string"]
+        PONG["Receive PING<br/>Every 3 PINGs (~45s)<br/>Request system status"]
+        RCV["Parse system status response"]
+        HBCNT["Increment heartbeat counter in cache<br/>key = validator address"]
     end
 
     subgraph SG_HR["Every 1 Hour"]
@@ -20,18 +20,18 @@ flowchart LR
         FILTER{"Count >= 47?"}
         ONLINE["Add to onlineList"]
         SKIP["Exclude from onlineList"]
-        PUSH["DposOnChainServiceImpl.doPushStatus()\nBC.generatePushStatusBlob() then BC.submitTx()\nHTTP :43300 CoChainTxService (Feign)\npushStatus({onlineList, onlineTimestamp})\nstatisticMonitorKeyStore (operator-gated)"]
-        DBINS["Insert HeartbeatStatistic\nrow in DB"]
-        RESET["Reset Redis counters"]
+        PUSH["Call pushStatus(onlineList, onlineTimestamp)<br/>on Heartbeat Contract<br/>via operator key"]
+        DBINS["Insert heartbeat statistic record"]
+        RESET["Reset cache counters"]
     end
 
-    subgraph SG_HB["Heartbeat Contract (ZTX3T9M7...)"]
-        HB_STORE["timestamp_list: {ts→0, ...}\ntimestamp_node_{ts}: {addr→0, ...}\nunion-merged per onlineTimestamp slot"]
+    subgraph SG_HB["Heartbeat Contract"]
+        HB_STORE["Stores per-timestamp validator sets<br/>Each hourly push appended to contract storage"]
     end
 
     subgraph SG_DAY["Daily 18:00"]
-        EXTRACT["DPOS extract()\ngetNodeList({rate: monitor_rate=80})\n→ keep validators in ≥80% of hourly slots\npayCoin clearRecord() → wipe all records\ncalculate() reward distribution"]
-        TRANSFER["DPOS extractTransfer()\nChain.payCoin() to fund addresses"]
+        EXTRACT["DPOS extract()<br/>getNodeList(rate = 80%)<br/>Keep validators in >= 80% of hourly slots<br/>clearRecord() wipes all records<br/>calculate() distributes reward"]
+        TRANSFER["DPOS extractTransfer()<br/>Transfer rewards to fund addresses"]
     end
 
     PING --> PONG --> SYS --> RCV --> HBCNT

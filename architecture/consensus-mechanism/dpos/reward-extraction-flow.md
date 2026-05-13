@@ -5,62 +5,62 @@ The following sequence diagram shows the two-phase daily reward process.(Daily 1
 ```mermaid
 sequenceDiagram
     participant JOB as ValidatorExtractJob
-    participant REDIS as Redis Cache
-    participant SVC as DposOnChainServiceImpl
-    participant BC as BlockChainService
-    participant CHAIN as DPOS Contract<br/>(ZTX3ePNZ...)
-    participant HB as Heartbeat Contract<br/>(ZTX3T9M7...)
-    participant DB as MySQL DposLog
+    participant CACHE as Cache
+    participant SVC as On-Chain Service
+    participant BC as Blockchain Service
+    participant CHAIN as DPOS Contract
+    participant HB as Heartbeat Contract
+    participant DB as Database
 
-    JOB->>REDIS: resetHeartbeatStatisticInCache()
-    REDIS-->>JOB: Cache cleared
+    JOB->>CACHE: Reset heartbeat statistics
+    CACHE-->>JOB: Cache cleared
 
     Note over JOB,CHAIN: Phase 1 — Trigger On-Chain Reward Calculation
 
-    participant CC as Cochain BE<br/>(:43300)
-    participant NODE as Zetrix Node<br/>(:19333 HTTP)
+    participant API as Backend API
+    participant NODE as Zetrix Node
 
     JOB->>SVC: doExtract()
-    SVC->>BC: generateExtractBlob()
-    BC->>CC: HTTP :43300 /tx/blob — build extract() blob
-    CC-->>BC: blob {method:"extract", params:{}}
+    SVC->>BC: Generate extract() transaction blob
+    BC->>API: Build extract() blob
+    API-->>BC: blob
     BC-->>SVC: blob
-    SVC->>SVC: Sign blob with extractKeyStore
-    SVC->>BC: submitTx(blob, txHash, signBlob, publicKey)
-    BC->>CC: HTTP :43300 /tx/submit — signed TransactionEnv{extract()}
-    CC->>NODE: Zetrix SDK HTTP :19333 POST /submitTransaction
-    NODE-->>CC: tx hash
-    CC->>NODE: SDK poll getTransactionByHash() until COMPLETE
-    NODE-->>CC: tx confirmed
-    CC-->>BC: tx_hash + status=COMPLETE
-    BC-->>SVC: tx_hash + status=COMPLETE
+    SVC->>SVC: Sign blob with admin key
+    SVC->>BC: Submit signed transaction
+    BC->>API: Submit TransactionEnv{extract()}
+    API->>NODE: POST /submitTransaction
+    NODE-->>API: tx hash
+    API->>NODE: Poll getTransactionByHash() until COMPLETE
+    NODE-->>API: tx confirmed
+    API-->>BC: tx_hash + COMPLETE
+    BC-->>SVC: tx_hash + COMPLETE
     Note over CHAIN,HB: extract() runs on-chain — getOnlineNodeList()
-    CHAIN->>HB: contractQuery getNodeList({rate: monitor_rate})
-    Note right of HB: count per-validator appearances across all stored timestamps<br/>include if appearances/total * 100 >= rate (e.g. 80%)
+    CHAIN->>HB: contractQuery getNodeList(rate)
+    Note right of HB: Count per-validator appearances across all stored timestamps.<br/>Include if appearances/total * 100 >= rate (e.g. 80%)
     HB-->>CHAIN: online validator address list
-    CHAIN->>HB: payCoin clearRecord() — del all timestamp_node_{ts} keys, reset timestamp_list
-    Note right of CHAIN: calculate() distributes reward<br/>only to online validators<br/>cross-ref against valCands list
+    CHAIN->>HB: clearRecord() — wipe all timestamp records
+    Note right of CHAIN: calculate() distributes reward only to online validators,<br/>cross-referenced against validator candidates list
     SVC->>DB: Log tx hash + timestamp
 
     Note over JOB,CHAIN: Phase 2 — Distribute Rewards to Validator Accounts
 
     JOB->>SVC: doExtractTransfer()
-    SVC->>NODE: HTTP :19333 GET /getAccountMetaData (DPOS contract + validator_candidates key)<br/>VerifyNodeSearchServiceImpl.getAllValidatorFundAddress()
+    SVC->>NODE: GET validator fund addresses (DPOS contract metadata)
     NODE-->>SVC: validator fund address list
 
     loop For each batch of 10 validators
-        SVC->>SVC: Sleep 2 minutes for nonce increment
-        SVC->>BC: generateExtractTransferBlob(batch)
-        BC->>CC: HTTP :43300 /tx/blob — build extractTransfer(list) blob
-        CC-->>BC: blob {method:"extractTransfer", params:{list:[addr1..addr10]}}
+        SVC->>SVC: Wait for nonce increment
+        SVC->>BC: Generate extractTransfer(batch) blob
+        BC->>API: Build extractTransfer(list) blob
+        API-->>BC: blob
         BC-->>SVC: blob
-        SVC->>SVC: Sign blob with extractKeyStore
-        SVC->>BC: submitTx(blob, txHash, signBlob, publicKey)
-        BC->>CC: HTTP :43300 /tx/submit — signed TransactionEnv{extractTransfer(list)}
-        CC->>NODE: Zetrix SDK HTTP :19333 POST /submitTransaction
-        NODE-->>CC: tx confirmed
-        CC-->>BC: tx_hash + status=COMPLETE
-        BC-->>SVC: tx_hash + status=COMPLETE
+        SVC->>SVC: Sign blob with admin key
+        SVC->>BC: Submit signed transaction
+        BC->>API: Submit TransactionEnv{extractTransfer(list)}
+        API->>NODE: POST /submitTransaction
+        NODE-->>API: tx confirmed
+        API-->>BC: tx_hash + COMPLETE
+        BC-->>SVC: tx_hash + COMPLETE
         SVC->>DB: Log batch tx hash
         Note right of CHAIN: Contract transfers reward tokens<br/>directly to each validator fund address
     end

@@ -12,7 +12,7 @@ This separation matters because not every operational decision is made from the 
 
 The validator state machine below captures the functional states used by the system.
 
-<figure><img src="../../../.gitbook/assets/Architecture Overview-2026-05-11-044314.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/Wallet &#x26; Holdings — Sequence Diagram-2026-05-13-081208.png" alt=""><figcaption></figcaption></figure>
 
 #### State semantics
 
