@@ -2,76 +2,28 @@
 
 This chapter explains how Zetrix Delegated Proof of Stake (DPOS) operates from an application and contract-integration perspective.
 
-It is intended to serve as implementation documentation for engineers, operators, and reviewers who need to understand:
-
-* how validator health is monitored,
-* how validators are frozen or restored,
-* how hourly heartbeat statistics are persisted,
+* how validator rotation is triggered,
+* how freeze and unfreeze decisions are made,
+* how heartbeat statistics are accumulated and stored,
 * how reward eligibility is derived, and
 * how daily reward extraction and transfer are executed.
 
-## System Overview
+### System Overview
 
-Zetrix uses a DPOS model in which validators take turns producing blocks. The surrounding platform continuously inspects validator behavior and coordinates several supporting processes:
+Zetrix uses Delegated Proof of Stake (DPOS). Validators are elected to produce blocks in rotation. Around that core block-production model, the platform runs a continuous operational loop that:
 
-* validator rotation,
-* abnormal node detection,
-* freeze and unfreeze operations,
-* heartbeat accumulation,
-* hourly online-status reporting, and
-* daily reward extraction and transfer.
+* monitors validator health,
+* freezes lagging validators,
+* restores recovered validators,
+* records hourly online-validator status, and
+* distributes rewards once per day.
 
-At a high level, the system combines three layers:
+The model operates on three time scales:
 
-* off-chain schedulers and services that monitor validator state,
-* blockchain node and BaaS services that build and submit transactions, and
-* on-chain contracts that enforce validator state and reward rules.
-
-The operational model is cyclical:
-
-1. Validators are monitored continuously.
-2. Suspect validators are frozen when they fall behind or fail health expectations.
-3. Recovered validators are restored when they catch up or become eligible through rotation.
-4. Hourly heartbeat statistics determine which validators count as online.
-5. Daily extraction uses those recorded online sets to calculate reward eligibility.
-
-## Core Components
-
-### Off-chain services
-
-The off-chain layer is responsible for observing the network and turning operational decisions into transactions.
-
-Key responsibilities:
-
-* reading chain state,
-* comparing local and on-chain sequence numbers,
-* forecasting upcoming block producers,
-* tracking heartbeats in Redis,
-* building contract transaction payloads, and
-* signing and submitting transactions with the correct keystore.
-
-#### BaaS / CoChain transaction service
-
-The CoChain service running on port 43300 is used as the transaction construction and submission gateway. It builds contract method blobs and forwards signed transaction envelopes to the Zetrix node.
-
-#### Zetrix node
-
-The Zetrix node provides chain data and transaction confirmation. It is also part of the monitoring path by responding to heartbeat-related system status requests.
-
-#### Redis cache
-
-Redis stores short-lived heartbeat counters keyed by validator address. These counters are consumed hourly to determine whether a validator qualifies as online for that hour.
-
-#### Database
-
-The database persists DPOS-related logs and heartbeat statistic records. This provides an auditable history of operational actions and scheduled-job outcomes.
-
-#### On-chain contracts
-
-Two contracts are central to the design:
-
-* DPOS Contract: manages validator freeze state, validator rotation, reward extraction, and reward transfer.
-* Heartbeat Contract: stores hourly online snapshots and returns the validators that satisfy the configured online-rate threshold.
+* every 10 seconds for rotation and forecast-based protection,
+* every 1 minute for local sequence reconciliation,
+* every 1 hour for heartbeat aggregation, and
+* daily at 18:00 for reward settlement.
 
 ## End-to-End DPOS Lifecycle
 
@@ -171,77 +123,72 @@ flowchart TD
 ```
 ````
 
-### Operational Jobs
+#### Lifecycle explanation
 
-This section explains each scheduled job and the purpose of its logic.
+The DPOS lifecycle is split into continuous safety checks, hourly evidence collection, and daily reward settlement. Sequence lag drives operational freeze decisions, while heartbeat inclusion drives reward eligibility.
+
+Operational Jobs
 
 #### `ValidatorsRotateJob`
 
 Frequency: every 10 seconds
 
-Purpose: rotate validator participation when the configured block slice and rotation window indicate that a change is required.
+Purpose: rotate validator participation when the configured block slice and rotation interval require it.
 
 Behavior summary:
 
-* reads the DPOS configuration from chain,
-* reads the latest block sequence,
-* checks whether the current sequence has moved beyond the rotation threshold,
-* identifies candidates that should move from freeze-related state back into active participation,
-* calls updateValidator() using dposKeyStore, and
-* records the action in DposLog.
-
-This job handles membership progression rather than health enforcement.
+* read DPOS configuration from chain,
+* read the latest block sequence,
+* decide whether the rotation threshold has been reached,
+* identify candidates that can move from freeze-related state back to active participation,
+* call updateValidator(), and
+* log the rotation event.
 
 #### `ValidatorsForecastCheckJob`
 
 Frequency: every 10 seconds
 
-Purpose: proactively detect whether upcoming validators are likely to miss their production turn.
+Purpose: forecast upcoming producers and freeze validators that are already lagging.
 
 Behavior summary:
 
-* reads current chain height,
-* reads the active validator list,
-* forecasts the next three producers,
-* compares their local sequence progress against expected chain progress,
-* freezes validators whose lag exceeds the configured threshold,
-* excludes protected admin validators from freeze enforcement, and
-* records the action in DposLog.
-
-This is a preventive control. Instead of waiting for a full operational failure window, it checks projected near-future producers and freezes them before they degrade chain performance.
+* read current chain sequence,
+* read the active validator list,
+* calculate the next three expected producers,
+* compare projected validators against local sequence progress,
+* mark lagging validators as abnormal,
+* skip protected admin validators, and
+* call setFreeze(true) for the affected validators.
 
 #### `ValidatorsLocalSeqCheckJob`
 
 Frequency: every 1 minute
 
-Purpose: reconcile current validator status with actual sequence progress and recover validators that have caught up.
+Purpose: reconcile validator state using current local and on-chain sequence numbers.
 
 Behavior summary:
 
-* reads local validator sequence values from the database,
-* compares them with chain sequence values,
-* restores frozen validators whose sequence is current again,
-* freezes active validators whose lag now exceeds the threshold, and
-* submits setFreeze() updates through the DPOS contract.
-
-This job is the main reconciliation pass for steady-state validator health.
+* read local validator sequence values,
+* compare them with the latest on-chain values,
+* restore frozen validators that have caught up,
+* freeze active validators that exceed the lag threshold, and
+* log any resulting state changes.
 
 #### `ValidatorsHeartStatisticJob`
 
 Frequency: every 1 hour
 
-Purpose: convert raw heartbeat counts into an hourly online validator set.
+Purpose: convert raw heartbeat counts into an hourly online-validator snapshot.
 
 Behavior summary:
 
-* reads heartbeat counters from Redis,
-* checks whether each validator meets the hourly threshold,
-* builds an onlineList for validators that qualify,
-* pushes that list and its timestamp to the Heartbeat contract,
-* persists records to the database, and
-* resets counters for the next hour.
-
-This job does not directly reward validators. Instead, it creates the auditable hourly eligibility source used later by extract().
+* read configured validator addresses,
+* read heartbeat counts from cache,
+* check whether each validator reaches the hourly threshold,
+* build the online validator list,
+* push that list with the timestamp to the Heartbeat contract,
+* persist the heartbeat statistic record, and
+* reset counters for the next hour.
 
 #### `ValidatorExtractJob`
 
@@ -251,11 +198,10 @@ Purpose: finalize the daily reward cycle.
 
 Behavior summary:
 
-* resets heartbeat statistics in cache,
-* triggers extract() on the DPOS contract,
-* retrieves all validator fund addresses,
-* batches them in groups of 10,
-* executes extractTransfer(list\[]) for each batch, and
-* logs all transaction hashes.
-
-This is the settlement phase of the whole operational model.
+* reset heartbeat statistics in cache,
+* call extract(),
+* trigger on-chain reward calculation,
+* read validator fund addresses,
+* batch them in groups of 10,
+* call extractTransfer() for each batch, and
+* log the resulting transaction hashes.
