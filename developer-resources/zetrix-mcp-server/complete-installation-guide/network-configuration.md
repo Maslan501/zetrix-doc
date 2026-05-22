@@ -13,7 +13,7 @@ Configure network and endpoints via environment variables:
   "env": {
     "ZETRIX_NETWORK": "mainnet",
     "ZETRIX_RPC_URL": "https://custom-node.zetrix.com",
-    "ZETRIX_WS_URL": "ws://custom-ws.zetrix.com"
+    "ZETRIX_WS_URL": "wss://custom-ws.zetrix.com"
   }
 }
 ```
@@ -23,14 +23,14 @@ Configure network and endpoints via environment variables:
 **Mainnet:**
 
 * HTTP RPC: `https://node.zetrix.com`
-* WebSocket: `ws://node-ws.zetrix.com`
+* WebSocket: `wss://ws-node.zetrix.com`
 * Chain ID: 0 (mainnet)
 * Purpose: Production applications with real value
 
 **Testnet:**
 
 * HTTP RPC: `https://test-node.zetrix.com`
-* WebSocket: `ws://test-node-ws.zetrix.com`
+* WebSocket: `wss://test-ws-node.zetrix.com`
 * Chain ID: 0 (testnet)
 * Purpose: Development, testing, experimentation
 
