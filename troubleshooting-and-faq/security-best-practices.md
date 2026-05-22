@@ -277,7 +277,7 @@ All smart contracts in this project follow a standardized two-tier hierarchical 
 
 <table><thead><tr><th width="210.6363525390625">Role constant</th><th>Human alias</th><th width="164.45458984375">Account type</th><th>Notes</th></tr></thead><tbody><tr><td>DEFAULT_ADMIN_ROLE</td><td>admin / owner</td><td>Multisig</td><td>Required — no EOA permitted</td></tr><tr><td>OPERATOR_ROLE</td><td>operator / manager</td><td>EOA</td><td>Rotation handled by admin</td></tr></tbody></table>
 
-### Security Notes
+#### Security Notes
 
 * Contracts that assign `DEFAULT_ADMIN_ROLE` to an EOA will fail security review.
 * **Multisig** is mandatory for Tier 1 regardless of environment (testnet included for production-bound deployments).
