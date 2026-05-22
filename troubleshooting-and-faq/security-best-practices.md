@@ -251,6 +251,39 @@ function freezed(paramObj) {
 }
 ```
 
+### 11. Smart contract — Hierarchical access control standard
+
+All smart contracts in this project follow a standardized two-tier hierarchical access control model. Role naming must adhere to this standard across all contracts to ensure consistency and reduce audit surface area.
+
+<figure><img src="../.gitbook/assets/image (56).png" alt=""><figcaption></figcaption></figure>
+
+#### Access tiers
+
+**Tier 1 — Highest** ( `admin` / `owner` )
+
+* Must be a **multisig** wallet
+* Manages all role grants and revocations
+* Controls critical contract parameters
+* Sole authority to rotate operator roles
+
+**Tier 2 — Operational** ( `operator` / `manager` )
+
+* EOA account (externally owned)
+* May be stored in backend for automation
+* If compromised, admin rotates the key
+* Day-to-day operational functions only
+
+#### Naming standard
+
+<table><thead><tr><th width="210.6363525390625">Role constant</th><th>Human alias</th><th width="164.45458984375">Account type</th><th>Notes</th></tr></thead><tbody><tr><td>DEFAULT_ADMIN_ROLE</td><td>admin / owner</td><td>Multisig</td><td>Required — no EOA permitted</td></tr><tr><td>OPERATOR_ROLE</td><td>operator / manager</td><td>EOA</td><td>Rotation handled by admin</td></tr></tbody></table>
+
+### Security Notes
+
+* Contracts that assign `DEFAULT_ADMIN_ROLE` to an EOA will fail security review.
+* **Multisig** is mandatory for Tier 1 regardless of environment (testnet included for production-bound deployments).
+* Operator keys stored in the backend must follow the team's secrets management policy.
+* Key rotation procedures should be documented and tested before mainnet deployment.
+
 ### Conclusion
 
 Creating secure JavaScript-based smart contracts on the Zetrix blockchain or any blockchain platform demands a holistic approach that includes secure coding standards, extensive testing, routine audits, and ongoing monitoring. Following the best practices detailed above helps minimize security risks and strengthens the resilience and dependability of your smart contracts.
