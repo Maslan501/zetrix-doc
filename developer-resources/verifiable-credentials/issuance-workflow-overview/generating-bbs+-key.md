@@ -4,8 +4,8 @@ A DID Platform provides tools to manage decentralized identities, keys, attribut
 
 All onboarding steps should first be performed on the **Testnet environment** for testing, and once validated, the same steps can be applied on **Mainnet** for production use:
 
-* **Testnet:** [https://identity-sandbox.zetrix.com/](https://identity-sandbox.zetrix.com/)
-* **Mainnet:** [https://identity.zetrix.com/](https://identity.zetrix.com/)
+* **Testnet:** [https://zid-identity-sandbox.zetrix.com/](https://identity-sandbox.zetrix.com/)
+* **Mainnet:** [https://zid-identity.zetrix.com/](https://identity.zetrix.com/)
 
 <figure><img src="../../../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
 
