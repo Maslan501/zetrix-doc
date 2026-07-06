@@ -457,15 +457,51 @@ The `permit` mechanism allows a token holder to approve an allowance via an off-
 ### Function Signature
 
 ```javascript
-function permit(owner, spender, value, deadline, p, s){
+const PERMIT_TYPEHASH = Utils.sha256("Permit(owner,spender,value,nonce,deadline)", 1);
+
+function permit(owner, spender, value, deadline, p, s) {
+  // 1. Basic input validation
+  Utils.assert(Utils.addressCheck(owner) === true, "Arg-owner is not a valid address.");
+  Utils.assert(Utils.addressCheck(spender) === true, "Arg-spender is not a valid address.");
+  Utils.assert(Utils.stoI64Check(value) === true, "Arg-value must be alphanumeric.");
+  Utils.assert(Utils.int64Compare(value, "0") >= 0, "Arg-value must be >= 0.");
+  Utils.assert(Utils.stoI64Check(deadline) === true, "Arg-deadline must be alphanumeric.");
+  Utils.assert(typeof p === "string" && p.length > 0, "Public key is required.");
+  Utils.assert(typeof s === "string" && s.length > 0, "Signature is required.");
+  Utils.assert(Utils.int64Compare(deadline, Chain.block.timestamp) >= 0, "Permit signature has expired.");
+
+  // 2. Consume the owner's nonce (replay protection)
   let nonce = useNonce(owner);
-  let hash = Utils.sha256(PERMIT_TYPEHASH + owner + spender + value + nonce.toString() + deadline, 1);
+
+  // 3. Domain separator — binds the signature to this contract on this chain
+  //    chainId should be stored at init time (or via a one-time setChainId()) —
+  //    see "Domain separator" note below.
+  let domainSeparator = Utils.sha256(chainId + "|" + Chain.thisAddress, 1);
+
+  // 4. Struct hash — the data being authorised, "|" delimited to remove all ambiguity
+  let structHash = Utils.sha256(
+    PERMIT_TYPEHASH + "|" +
+    owner           + "|" +
+    spender         + "|" +
+    value           + "|" +
+    nonce           + "|" +
+    deadline,
+    1
+  );
+
+  // 5. Final digest — domain applied at the outer layer, mirrors EIP-712
+  let hash = Utils.sha256(domainSeparator + "|" + structHash, 1);
+
+  // 6. Verify signature and signer identity
   let validateSign = Utils.ecVerify(s, p, hash);
   let validatePubKey = Utils.toAddress(p) === owner;
+  Utils.assert(validateSign && validatePubKey, "Invalid permit signature.");
+
+  // 7. Apply the approval
   let allowKey = makeAllowanceKey(owner, spender);
   Chain.store(allowKey, value);
-  Chain.tlog('Approval', owner, spender, value);
-  Chain.tlog('Permit', owner, spender, value, deadline);
+  Chain.tlog("Approval", owner, spender, value);
+  Chain.tlog("Permit", owner, spender, value, deadline);
   return true;
 }
 ```
@@ -489,14 +525,14 @@ The `permit` function is a main contract function (transaction/invoke), not a qu
 
 ```javascript
 if (input.method === 'permit') {
-        permit(
-                input.params.owner,
-                input.params.spender,
-                input.params.value,
-                input.params.deadline,
-                input.params.p,
-                input.params.s
-        );
+  permit(
+    input.params.owner,
+    input.params.spender,
+    input.params.value,
+    input.params.deadline,
+    input.params.p,
+    input.params.s
+  );
 }
 ```
 
@@ -510,11 +546,33 @@ if (input.method === 'permit') {
         "spender": "ZTX3MVqzyhcYZJBnLa9do5ZqzHEUtT8KdhCsT",
         "value": "1000",
         "deadline": "1680000000",
-        "p": "04bfc...e2a1",  // public key (hex)
-        "s": "3045...0221"   // signature (hex)
+        "p": "04bfc...e2a1",
+        "s": "3045...0221"
     }
 }
 ```
+
+**`nonces(owner)` — query current nonce**
+
+```javascript
+function nonces(owner) {
+  Utils.assert(Utils.addressCheck(owner) === true, "Arg-owner is not a valid address.");
+  let nonceKey = makeNonceKey(owner);
+  let nonce = Chain.load(nonceKey);
+  return nonce === false ? "0" : nonce;
+}
+```
+
+Callers must query this **before** constructing the off-chain hash, since `nonce` is part of `structHash` but is not a `permit()` parameter.
+
+**Security Notes**
+
+* **Front-running is expected, not a bug.** Anyone holding a valid `(p, s)` pair can submit it, this is inherent to EIP-2612-style meta-transactions. The outcome is always the value the owner signed; a front-runner cannot steal funds, only grief a combined `permit + transferFrom` flow by consuming the signature first. Integrators should check `allowance(owner, spender)` before calling `permit()` and skip it if already sufficient.
+* **Signatures are single-use** because `nonce` is consumed on every successful `permit()` call, whether or not the caller supplied it, the contract reads it internally.
+* **`deadline` must be validated against `Chain.block.timestamp`** before consuming the nonce or verifying the signature, so expired signatures fail fast.
+* **Changing `chainId` invalidates all outstanding signatures** signed under the old value — treat it as a one-time, owner-only operation, not something toggled routinely.
+
+***
 
 ## [Zetrix Ecosystem Proposals](https://github.com/Zetrix-Chain/zetrix-protocol)
 
