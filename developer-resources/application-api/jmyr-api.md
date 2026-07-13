@@ -44,6 +44,4 @@ Use idempotent handling where an operation might be retried. Record request and 
 
 The detailed guide covers the available endpoints, authentication, request formats, and integration requirements.
 
-[View the JMYR API documentation](https://docs.zetrix.com/jmyr-api)
-
 <a href="https://docs.zetrix.com/jmyr-api" class="button primary">Open JMYR API documentation</a>

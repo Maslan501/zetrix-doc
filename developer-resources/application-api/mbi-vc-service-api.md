@@ -44,6 +44,4 @@ Record request and response identifiers for troubleshooting and reconciliation. 
 
 The detailed guide covers the available endpoints, authentication, request formats, and integration requirements.
 
-[View the MBI VC Service API documentation](https://docs.zetrix.com/mbi-vc-api)
-
 <a href="https://docs.zetrix.com/mbi-vc-api" class="button primary">Open MBI VC Service API documentation</a>
