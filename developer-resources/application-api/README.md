@@ -4,8 +4,6 @@ description: Partner integration APIs for applications that connect with Zetrix 
 
 # Application API
 
-## Application API
-
 Application APIs let external partners integrate their applications with Zetrix services. Each API provides a documented interface for a specific service and partner workflow.
 
 Use these APIs when your application needs to exchange data or invoke Zetrix service capabilities. The detailed API guides define the supported operations, authentication requirements, and request formats.
