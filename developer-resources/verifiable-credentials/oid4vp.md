@@ -52,6 +52,4 @@ OID4VP separates credential issuance from credential presentation. A verifier ca
 
 ### Detailed guide
 
-For request formats, integration steps, and implementation details, see the [OID4VP documentation](https://docs.zetrix.com/oid4vp).
-
 <a href="https://docs.zetrix.com/oid4vp" class="button primary">Open OID4VP documentation</a>
