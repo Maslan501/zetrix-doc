@@ -53,7 +53,7 @@ This wallet provides:
 
 The wallet is an essential trust anchor for subsequent identity related operations.
 
-For more details, please refer to the [Wallet](/broken/pages/RLu6XkDbEqkQqCQG2EWn) section.
+For more details, please refer to the [Wallet](https://app.gitbook.com/s/XcoJUOiksWSVn1v6flsh/wallets) section.
 
 ### DID and Key Management
 

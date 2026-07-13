@@ -1,6 +1,6 @@
 # VC Encryption Process
 
-<figure><img src="../../.gitbook/assets/Encryption Colour 1.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Encryption Colour 1 (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Apply VC Process
 
@@ -29,7 +29,7 @@ This process defines the secure exchange of data between a Holder and an Issuer 
 10. **ECDH Key Generation (Issuer):**\
     The Issuer generates its ECDH key using the Holder’s public key and its own private key to establish the shared secret.
 
-<figure><img src="../../.gitbook/assets/Encryption Colour 2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Encryption Colour 2 (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Issue and Download VC Process&#x20;
 
@@ -74,9 +74,7 @@ This process defines how a Verifiable Credential (VC) is securely issued by the 
 22. The Holder generates the ECDH key using the Issuer’s public key and the Holder’s private key.&#x20;
 23. The Holder decrypts the VC using AES with the derived ECDH key and stores it locally.
 
-
-
-<figure><img src="../../.gitbook/assets/Encryption Colour 3.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Encryption Colour 3 (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Create and Verify VP Process&#x20;
 
