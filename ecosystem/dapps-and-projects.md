@@ -14,6 +14,7 @@ Discover projects within the Zetrix Ecosystem:
    * Features: Green lane access for your goods export.
    * Details: Streamline your international trade by leveraging blockchain for fast and secure processing.
    * Explore ZTrade - [https://ztrade.ztradefi.com/](https://ztrade.ztradefi.com/)
+   * Ztrade Documentation - [https://docs.zetrix.com/ztrade](https://docs.zetrix.com/ztrade)
 4. **NFTPangolin**
    * Features: NFT marketplace for unique digital assets created on Zetrix.
    * Details: Discover, buy, and sell NFTs within a decentralized marketplace built on Zetrix.

@@ -54,6 +54,7 @@
   * [Issuance Workflow Overview](developer-resources/verifiable-credentials/issuance-workflow-overview/README.md)
   * [Getting Started](developer-resources/verifiable-credentials/getting-started.md)
   * [VC Encryption Process](developer-resources/verifiable-credentials/vc-encryption-process.md)
+  * [OID4VP](developer-resources/verifiable-credentials/oid4vp.md)
   * [API Reference](developer-resources/verifiable-credentials/api-reference.md)
 * [Blockchain as a Services(BaaS)](developer-resources/blockchain-as-a-services-baas/README.md)
   * [Zetrix Service](developer-resources/blockchain-as-a-services-baas/zetrix-service/README.md)
@@ -149,6 +150,9 @@
   * [Asset Issuance](developer-resources/testing-and-auditing/asset-issuance.md)
   * [Legal Evidence](developer-resources/testing-and-auditing/legal-evidence.md)
   * [Smart Contract Assets](developer-resources/testing-and-auditing/smart-contract-assets.md)
+* [Application API](developer-resources/application-api/README.md)
+  * [JMYR API](developer-resources/application-api/jmyr-api.md)
+  * [MBI VC Service API](developer-resources/application-api/mbi-vc-service-api.md)
 * [Zetrix Official Release Notes](developer-resources/zetrix-official-release-notes.md)
 
 ## Node & Validator
