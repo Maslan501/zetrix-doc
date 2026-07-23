@@ -87,21 +87,17 @@ The PROOF-RESPONSE carries the x401 VP (validated by the OID4VP verifier) and is
 
 First time an agent hits a paid resource: check vault → if no VC, x402 one-time issuance via MBI (P1) issues the VC → present the VC as x401 proof (VP submitted to the OID4VP verifier, result relayed as PROOF-RESPONSE to the API RS) → x402 pay-per-use (P2) for the call. Phase 2 runs only when no VC is held; on later calls it's skipped.
 
+#### Access and VC pre-check
+
 ```mermaid
 sequenceDiagram
     autonumber
     participant AV as Avatar<br/>(agent)
     participant WMCP as Wallet MCP<br/>(Node tool)
     participant OID as OID4VP<br/>(verifier)
-    participant WBE as Wallet BE<br/>(blob + audit)
-    participant HSM as softHSM<br/>(signer)
     participant API as API RS<br/>(x401/x402 SDK)
-    participant MBI as MBI RS<br/>(MYID issuer)
-    participant FAC as Facilitator<br/>(x402 verify/settle)
-    participant CHAIN as Zetrix chain<br/>(ledger · JMYR)
-
     rect rgb(235,242,250)
-    Note over AV,CHAIN: 1 · ACCESS + VC PRE-CHECK
+    Note over AV,API: 1 · ACCESS + VC PRE-CHECK
     AV->>API: Request protected resource<br/>POST /v1/accounts
     API->>OID: RequestVerification (callbackUrl omitted)
     OID-->>API: VerificationData
@@ -109,7 +105,20 @@ sequenceDiagram
     AV->>WMCP: Forward PROOF-REQUEST
     WMCP->>WMCP: Check vault — hold required VC?
     end
+```
 
+#### VC issuance via MBI (P1)
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant AV as Avatar<br/>(agent)
+    participant WMCP as Wallet MCP<br/>(Node tool)
+    participant WBE as Wallet BE<br/>(blob + audit)
+    participant HSM as softHSM<br/>(signer)
+    participant MBI as MBI RS<br/>(MYID issuer)
+    participant FAC as Facilitator<br/>(x402 verify/settle)
+    participant CHAIN as Zetrix chain<br/>(ledger · JMYR)
     rect rgb(250,245,230)
     Note over AV,CHAIN: 2 · IF VC NOT HELD — x402 VC issuance via MBI (P1)
     AV->>AV: Prompt user for VC attribute values
@@ -129,9 +138,21 @@ sequenceDiagram
     MBI-->>WMCP: return vc
     WMCP->>WMCP: Store VC in vault
     end
+```
 
+#### x401 identity proof (OID4VP → API RS)
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant AV as Avatar<br/>(agent)
+    participant WMCP as Wallet MCP<br/>(Node tool)
+    participant OID as OID4VP<br/>(verifier)
+    participant WBE as Wallet BE<br/>(blob + audit)
+    participant HSM as softHSM<br/>(signer)
+    participant API as API RS<br/>(x401/x402 SDK)
     rect rgb(235,248,240)
-    Note over AV,CHAIN: 3 · x401 — present identity proof (OID4VP → API RS)
+    Note over AV,API: 3 · x401 — present identity proof (OID4VP → API RS)
     WMCP->>OID: GetPresentationDefinition
     OID-->>WMCP: DCQL credential_query<br/>+ nonce + response_uri
     WMCP->>WMCP: Derive BBS+ / Bulletproof SD proof (software)
@@ -146,7 +167,20 @@ sequenceDiagram
     AV->>API: Retry + PROOF-RESPONSE
     API->>API: Recompute + verify HMAC
     end
+```
 
+#### x402 pay-per-use (P2, API RS)
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant AV as Avatar<br/>(agent)
+    participant WMCP as Wallet MCP<br/>(Node tool)
+    participant WBE as Wallet BE<br/>(blob + audit)
+    participant HSM as softHSM<br/>(signer)
+    participant API as API RS<br/>(x401/x402 SDK)
+    participant FAC as Facilitator<br/>(x402 verify/settle)
+    participant CHAIN as Zetrix chain<br/>(ledger · JMYR)
     rect rgb(245,238,250)
     Note over AV,CHAIN: 4 · x402 — pay-per-use (P2, API RS)
     API-->>AV: 402 Payment Required (usage)
