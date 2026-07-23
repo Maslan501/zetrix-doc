@@ -87,4 +87,81 @@ The PROOF-RESPONSE carries the x401 VP (validated by the OID4VP verifier) and is
 
 First time an agent hits a paid resource: check vault → if no VC, x402 one-time issuance via MBI (P1) issues the VC → present the VC as x401 proof (VP submitted to the OID4VP verifier, result relayed as PROOF-RESPONSE to the API RS) → x402 pay-per-use (P2) for the call. Phase 2 runs only when no VC is held; on later calls it's skipped.
 
-<figure><img src="../assets/e2e-first-paid-access-flow.png" alt=""><figcaption><p>Combined end-to-end — first paid access</p></figcaption></figure>
+```mermaid
+sequenceDiagram
+    autonumber
+    participant AV as Avatar<br/>(agent)
+    participant WMCP as Wallet MCP<br/>(Node tool)
+    participant OID as OID4VP<br/>(verifier)
+    participant WBE as Wallet BE<br/>(blob + audit)
+    participant HSM as softHSM<br/>(signer)
+    participant API as API RS<br/>(x401/x402 SDK)
+    participant MBI as MBI RS<br/>(MYID issuer)
+    participant FAC as Facilitator<br/>(x402 verify/settle)
+    participant CHAIN as Zetrix chain<br/>(ledger · JMYR)
+
+    rect rgb(235,242,250)
+    Note over AV,CHAIN: 1 · ACCESS + VC PRE-CHECK
+    AV->>API: Request protected resource<br/>POST /v1/accounts
+    API->>OID: RequestVerification (callbackUrl omitted)
+    OID-->>API: VerificationData
+    API-->>AV: 401 + PROOF-REQUEST
+    AV->>WMCP: Forward PROOF-REQUEST
+    WMCP->>WMCP: Check vault — hold required VC?
+    end
+
+    rect rgb(250,245,230)
+    Note over AV,CHAIN: 2 · IF VC NOT HELD — x402 VC issuance via MBI (P1)
+    AV->>AV: Prompt user for VC attribute values
+    WMCP->>MBI: applyX402VC (request VC)
+    MBI-->>WMCP: 402 — payTo = MBI issuer, nonce, expiry
+    WMCP->>WBE: pay_x402  [via MCP]
+    WBE->>WBE: Build x402 blob
+    WBE->>HSM: sign x402 payment (holder key)
+    HSM-->>WBE: signatureHex
+    WBE-->>WMCP: X-PAYMENT  [via MCP]
+    WMCP->>MBI: applyX402VC + X-PAYMENT (+ attributes)
+    MBI->>FAC: verify + settle (x402 SDK)
+    FAC->>CHAIN: submit JMYR tx → MBI issuer account
+    CHAIN-->>FAC: txHash confirmed
+    FAC-->>MBI: settled + txHash
+    MBI->>MBI: Issue VC directly (MYID issuer — Ed25519 + BBS+)
+    MBI-->>WMCP: return vc
+    WMCP->>WMCP: Store VC in vault
+    end
+
+    rect rgb(235,248,240)
+    Note over AV,CHAIN: 3 · x401 — present identity proof (OID4VP → API RS)
+    WMCP->>OID: GetPresentationDefinition
+    OID-->>WMCP: DCQL credential_query<br/>+ nonce + response_uri
+    WMCP->>WMCP: Derive BBS+ / Bulletproof SD proof (software)
+    WMCP->>WBE: Sign holder-binding over nonce
+    WBE->>HSM: sign
+    HSM-->>WBE: signature
+    WBE-->>WMCP: holder-binding signature
+    WMCP->>OID: Submit VP + keys<br/>POST /v1/presentation/submit
+    OID->>OID: Verify VP in-process (BBS+ / range / DCQL, resolve ZID)
+    OID-->>WMCP: Result + HMAC signature (sync)
+    WMCP-->>AV: Result artifact (PROOF-RESPONSE)
+    AV->>API: Retry + PROOF-RESPONSE
+    API->>API: Recompute + verify HMAC
+    end
+
+    rect rgb(245,238,250)
+    Note over AV,CHAIN: 4 · x402 — pay-per-use (P2, API RS)
+    API-->>AV: 402 Payment Required (usage)
+    AV->>WMCP: Forward 402 (usage)
+    WMCP->>WBE: pay_x402(usage, password)
+    WBE->>WBE: Build x402 blob
+    WBE->>HSM: sign-x402-payment (holder key + password)
+    HSM-->>WBE: signatureHex
+    WBE-->>WMCP: X-PAYMENT
+    WMCP-->>AV: X-PAYMENT (proof)
+    AV->>API: Retry + X-PAYMENT<br/>(+ PROOF-RESPONSE)
+    API->>FAC: verify + settle
+    FAC->>CHAIN: submit JMYR tx
+    CHAIN-->>FAC: txHash confirmed
+    FAC-->>API: settled
+    API-->>AV: 200 OK + resource
+    end
+```
