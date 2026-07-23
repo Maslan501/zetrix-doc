@@ -184,7 +184,6 @@
   * [Appendix](developer-resources/agentic-wallet-x401/appendix/README.md)
     * [Endpoint reference](developer-resources/agentic-wallet-x401/appendix/endpoint-reference.md)
     * [Glossary](developer-resources/agentic-wallet-x401/appendix/glossary.md)
-    * [Source material](developer-resources/agentic-wallet-x401/appendix/source-material.md)
 
 ## Node & Validator
 
