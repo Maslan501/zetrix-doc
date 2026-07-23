@@ -6,8 +6,6 @@ description: >-
 
 # Zetrix Agentic Wallet — x401 & x402
 
-**A Protocol Paper for Credential-Gated Agentic Access on Zetrix, Proof-of-Authority (x401) with Composable Payment (x402)**
-
 Autonomous agents now transact on behalf of humans and organizations. Two questions must be answerable at the HTTP boundary, per request, without a human in the loop: **can you pay?** (x402) and **who authorized this, and are they allowed?** (x401). This paper specifies how the **Zetrix Agentic Wallet** implements x401 as a native capability, reusing the same wallet service that already speaks x402.
 
 ## How this documentation is organized
