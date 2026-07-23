@@ -1,6 +1,6 @@
 ---
 description: >-
-  A protocol paper for credential-gated agentic access on Zetrix —
+  A protocol paper for credential-gated agentic access on Zetrix:
   proof-of-authority (x401) with composable payment (x402).
 ---
 
