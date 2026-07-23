@@ -6,7 +6,7 @@ The POC realizes x402 as **two payment programs** against two resource servers. 
 
 The **MBI Resource Server (MYID issuer)** both settles the payment and issues the VC in one location, because it holds the issuer key.
 
-<figure><img src="../assets/p1-issuance-flow.png" alt="P1 — VC issuance via MBI"><figcaption>P1 — paid VC issuance via MBI</figcaption></figure>
+<figure><img src="../assets/p1-issuance-flow.png" alt=""><figcaption><p>P1 — paid VC issuance via MBI</p></figcaption></figure>
 
 * The wallet initiates issuance with `applyX402VC`.
 * MBI returns x402 payment terms with `payTo` = the MBI issuer account.
@@ -72,7 +72,7 @@ The settling party (MBI for issuance, RS for usage) verifies amount/`payTo`/asse
 
 For protected, metered APIs the **API Resource Server** requires proof and payment on the same call:
 
-<figure><img src="../assets/p2-pay-per-use-flow.png" alt="P2 — pay-per-use on the API Resource Server"><figcaption>P2 — pay-per-use (x401 + x402 on the API RS)</figcaption></figure>
+<figure><img src="../assets/p2-pay-per-use-flow.png" alt=""><figcaption><p>P2 — pay-per-use (x401 + x402 on the API RS)</p></figcaption></figure>
 
 The PROOF-RESPONSE carries the x401 VP (validated by the OID4VP verifier) and is **paired with the x402 payment blob** for the metered call.
 
@@ -87,4 +87,4 @@ The PROOF-RESPONSE carries the x401 VP (validated by the OID4VP verifier) and is
 
 First time an agent hits a paid resource: check vault → if no VC, x402 one-time issuance via MBI (P1) issues the VC → present the VC as x401 proof (VP submitted to the OID4VP verifier, result relayed as PROOF-RESPONSE to the API RS) → x402 pay-per-use (P2) for the call. Phase 2 runs only when no VC is held; on later calls it's skipped.
 
-<figure><img src="../assets/e2e-first-paid-access-flow.png" alt="Combined end-to-end — first paid access"><figcaption>Combined end-to-end — first paid access</figcaption></figure>
+<figure><img src="../assets/e2e-first-paid-access-flow.png" alt=""><figcaption><p>Combined end-to-end — first paid access</p></figcaption></figure>
