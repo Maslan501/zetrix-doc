@@ -1,4 +1,4 @@
-# 3. x401 vs. x402 at a glance
+# x401 vs. x402 at a glance
 
 | Dimension | x402 | x401 |
 | --- | --- | --- |

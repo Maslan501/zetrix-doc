@@ -1,4 +1,4 @@
-# 1.1 Two gaps in the agentic web
+# Two gaps in the agentic web
 
 Autonomous agents now transact on behalf of humans and organizations. Two questions must be answerable at the HTTP boundary, per request, without a human in the loop:
 

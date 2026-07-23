@@ -1,4 +1,4 @@
-# 4.4 Where Zetrix fits the x401 abstractions
+# Where Zetrix fits the x401 abstractions
 
 | x401 abstraction | Zetrix realization |
 | --- | --- |

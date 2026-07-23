@@ -1,4 +1,4 @@
-# 8. Security considerations
+# Security considerations
 
 * **Replay.** Bind the verifier nonce into the holder proof; enforce single-submission and short session TTLs. x402 uses a per-payment nonce to prevent double-spend.
 * **Custody.** No user-held keys; one HSM-held holder key; issuer keys held only by issuers. Password-gated signing avoids long-lived tokens.

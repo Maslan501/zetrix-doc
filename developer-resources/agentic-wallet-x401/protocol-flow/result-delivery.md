@@ -1,4 +1,4 @@
-# 5.3 Result delivery
+# Result delivery
 
 | Mode | Trigger | Who verifies the result |
 | --- | --- | --- |

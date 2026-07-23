@@ -1,4 +1,4 @@
-# 6.3 Flow 3 — zero-knowledge proof flow
+# Flow 3 — zero-knowledge proof flow
 
 **Goal.** Let the agent prove it satisfies a credential/authorisation requirement **without revealing the full credential or unnecessary information** — e.g. prove "age ≥ 18" or "membership is active" while disclosing nothing else.
 
@@ -7,7 +7,7 @@ Two complementary zero-knowledge mechanisms are used, both derived from the issu
 * **BBS+ selective disclosure** — reveal only the specific claims requested; the issuer's signature stays verifiable over the disclosed subset.
 * **Bulletproof range proof** (BulletproofRangeProof2021) — prove a numeric claim lies within a range **without disclosing the value**.
 
-## 6.3.1 How the required claims/conditions are defined
+## How the required claims/conditions are defined
 
 The verifier states its requirements in **DCQL**. Each credential query names a format, an optional credential type, and a list of claims with **constraints**:
 
@@ -28,7 +28,7 @@ The verifier states its requirements in **DCQL**. Each credential query names a 
 
 Supported constraints: `minimum`, `maximum` (numeric → drive range proofs), `enum`, `pattern` (strings), and `required`. A `minimum`/`maximum` constraint is the signal to prove a **range** rather than disclose the value.
 
-## 6.3.2 How the agent generates the proof from its credential
+## How the agent generates the proof from its credential
 
 The current wallet is a **thin wallet**: it does not embed the BBS+/Bulletproof native libraries. It maps the request, delegates the zero-knowledge derivation to the MBI RS's `/vp/ext/create`, and performs the one private-key operation (holder binding) inside the HSM.
 
@@ -54,11 +54,11 @@ The current wallet is a **thin wallet**: it does not embed the BBS+/Bulletproof 
 
 **Fat-wallet alternative.** A wallet could instead embed the BBS+ + Bulletproof libraries and derive the proof locally over one HSM-held key. This is possible but only worthwhile for offline/detached operation; the POC uses the thin (server-assisted) model above.
 
-## 6.3.3 How the proof is submitted through x401
+## How the proof is submitted through x401
 
 The assembled VP (disclosed claims + BBS+ proof + range proof + holder binding) is submitted via `POST /v1/presentation/submit` with the holder's `ed25519_public_key` and `bbs_public_key`, correlated by `presentation_id`. This is the same submit step as any x401 exchange.
 
-## 6.3.4 How the resource server verifies the proof
+## How the resource server verifies the proof
 
 The OID4VP verifier verifies **in-process** (`PresentationServiceImpl.verifyVp` → `vpCommonService.verifyVpLite`):
 
@@ -69,7 +69,7 @@ The OID4VP verifier verifies **in-process** (`PresentationServiceImpl.verifyVp` 
 
 The verifier returns a **signed result** (`verified`, `status`, `verifiedClaims`); the RS accepts access on `verified = true`.
 
-## 6.3.5 How expiry, validity and revocation are checked
+## How expiry, validity and revocation are checked
 
 * **Expiry / validity** — the wallet screens `expirationDate` / `validFrom` before presenting; the verifier's `verifyVpLite` independently checks **expiration**. Separately, the **OID4VP session** carries a short TTL (`expiresAt`); a stale session is rejected (`VERIFICATION_REQUEST_EXPIRED`), bounding the replay window for sub-second agent round-trips.
 * **Revocation** — `verifyVpLite` checks **revocation** as part of verification; credential status and issuer keys resolve against the on-chain ZID registry, so an issuer's revocation is reflected at verification time.

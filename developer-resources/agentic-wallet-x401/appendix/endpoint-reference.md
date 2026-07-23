@@ -1,4 +1,4 @@
-# 10.1 Endpoint reference
+# Endpoint reference
 
 | Endpoint | Purpose |
 | --- | --- |

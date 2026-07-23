@@ -1,4 +1,4 @@
-# 5.6 VC issuance contract — MBI `POST /v1/vc/pay/apply` (two-phase)
+# VC issuance contract — MBI `POST /v1/vc/pay/apply` (two-phase)
 
 Issuance is a **single, two-phase endpoint** on the MBI RS; behaviour branches on the presence of the `X-PAYMENT` header. The holder **signs the VC payload up front** (folding the legacy construct-sign/submit-sign into one call), so MBI can prove the request comes from the holder both before and after payment.
 

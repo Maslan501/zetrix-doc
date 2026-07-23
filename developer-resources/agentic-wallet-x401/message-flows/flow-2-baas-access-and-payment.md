@@ -1,4 +1,4 @@
-# 6.2 Flow 2 — Zetrix BaaS access and payment (x401 + x402)
+# Flow 2 — Zetrix BaaS access and payment (x401 + x402)
 
 **Goal.** The agent accesses a protected, paid Zetrix BaaS resource. If it lacks the required **API Subscription Credential**, it buys one via x402, then proves it via x401 and is granted access.
 

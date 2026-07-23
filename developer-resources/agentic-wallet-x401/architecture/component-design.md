@@ -1,11 +1,11 @@
-# 4.2 Component design
+# Component design
 
 The implementation splits into two new components to build plus existing Zetrix wallet infrastructure.
 
 ## To build
 
 * **Agentic Wallet MCP (Wallet / ZID)** — the credential manager per the x401 spec. Holds credentials, receives OpenID4VP requests, selects matching VCs, **derives selective-disclosure proofs in software** (BBS+ / range-proofs), orchestrates holder-binding signatures via the Wallet BE, and returns the credential presentation result.
-* **X401 SDK (Java / Node.js)** — the Resource Server–side library. Issues the 401 + challenge, validates returned proof artifacts on every request, runs the OAuth 2.0 token-exchange endpoint, and coordinates with the X402 SDK via a shared route registry ([§5.3](../protocol-flow/result-delivery.md)).
+* **X401 SDK (Java / Node.js)** — the Resource Server–side library. Issues the 401 + challenge, validates returned proof artifacts on every request, runs the OAuth 2.0 token-exchange endpoint, and coordinates with the X402 SDK via a shared route registry ([Result delivery](../protocol-flow/result-delivery.md)).
 
 ## Agent Runtime (wallet side, new build)
 
@@ -16,8 +16,8 @@ The implementation splits into two new components to build plus existing Zetrix 
 
 ## Resource Servers
 
-* **MBI Resource Server (MYID issuer)** — issues the identity VC and, for paid issuance (P1, [§5.4](../protocol-flow/poc-payment-architecture.md)), **settles the payment and issues the VC in one place** (holds the issuer key). Signs with Ed25519 + BBS+.
-* **API Resource Server** — gates protected APIs; handles x401 + x402 **pay-per-use** (P2, [§5.4](../protocol-flow/poc-payment-architecture.md)).
+* **MBI Resource Server (MYID issuer)** — issues the identity VC and, for paid issuance (P1, [POC payment architecture](../protocol-flow/poc-payment-architecture.md)), **settles the payment and issues the VC in one place** (holds the issuer key). Signs with Ed25519 + BBS+.
+* **API Resource Server** — gates protected APIs; handles x401 + x402 **pay-per-use** (P2, [POC payment architecture](../protocol-flow/poc-payment-architecture.md)).
 
 ## Shared / existing infrastructure (reused)
 

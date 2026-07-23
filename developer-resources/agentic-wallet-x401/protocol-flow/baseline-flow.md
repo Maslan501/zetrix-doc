@@ -1,4 +1,4 @@
-# 5.1 Baseline flow (identity only)
+# Baseline flow (identity only)
 
 <figure><img src="../assets/baseline-flow.png" alt="x401 baseline identity-only flow"><figcaption>x401 baseline flow — identity only</figcaption></figure>
 

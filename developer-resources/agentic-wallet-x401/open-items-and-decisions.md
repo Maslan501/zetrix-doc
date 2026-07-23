@@ -1,4 +1,4 @@
-# 9. Open items & decisions
+# Open items & decisions
 
 * **Verifier-nonce binding.** The holder-binding proof must bind the verifier's nonce/challenge; today the VP is bound to a server-random nonce. This is a real backend change (`VpCommonService.createVp` / `setBbsBlsProof`), not a config toggle.
 * **Sync result path.** x401 needs the verdict inline; confirm the RS reads the submit response (not a separate async callback).

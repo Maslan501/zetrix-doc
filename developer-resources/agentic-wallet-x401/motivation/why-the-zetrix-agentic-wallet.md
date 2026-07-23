@@ -1,4 +1,4 @@
-# 1.2 Why the Zetrix Agentic Wallet
+# Why the Zetrix Agentic Wallet
 
 Zetrix is uniquely positioned to host both protocols in one wallet:
 

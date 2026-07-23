@@ -1,4 +1,4 @@
-# 5.2 Messages & endpoints
+# Messages & endpoints
 
 ## (1) The 401 Proof-Required challenge
 
@@ -22,7 +22,7 @@ HTTP/1.1 401 Proof-Required
 {
   "object": {
     "presentationId": "pres_abc123",
-    "credentialQuery": { "credentials": [ /* DCQL — see §6, Flow 3 */ ] },
+    "credentialQuery": { "credentials": [ /* DCQL — see Message flows, Flow 3 */ ] },
     "nonce": "n-0S6_WzA2Mj",
     "responseUri": "https://verifier/v1/presentation/submit",
     "abortUri": "https://verifier/api/v1/presentation/abort",

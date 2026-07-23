@@ -1,4 +1,4 @@
-# 10.2 Glossary
+# Glossary
 
 | Term | Meaning |
 | --- | --- |

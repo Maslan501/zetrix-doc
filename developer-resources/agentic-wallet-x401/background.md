@@ -1,4 +1,4 @@
-# 2. Background: the x401 protocol (as published by Proof)
+# Background: the x401 protocol (as published by Proof)
 
 x401 is an **open, issuer-neutral** protocol. Key characteristics drawn from the public specification and launch materials:
 
@@ -9,8 +9,8 @@ x401 is an **open, issuer-neutral** protocol. Key characteristics drawn from the
 * **Privacy-preserving:** selective disclosure and zero-knowledge proofs allow answering "over 18?" or "accredited?" without revealing the underlying data.
 * **Composable with x402:** identity and payment remain distinct flows; a server may require either, or both in sequence.
 
-x401 was launched by Proof in June 2026 with technical contribution from Circle, OpenAI, Google, and Okta; the normative spec lives at x401.id. A separate community project, **claw401**, explores a wallet-authentication variant (Ed25519 canonical-JSON challenge/response with single-use TTL-bounded nonces, replay caching, scoped agent sessions) that informs our replay-resistance design in [§7](implementation-approach/README.md).
+x401 was launched by Proof in June 2026 with technical contribution from Circle, OpenAI, Google, and Okta; the normative spec lives at x401.id. A separate community project, **claw401**, explores a wallet-authentication variant (Ed25519 canonical-JSON challenge/response with single-use TTL-bounded nonces, replay caching, scoped agent sessions) that informs our replay-resistance design in [Implementation approach](implementation-approach/README.md).
 
 {% hint style="info" %}
-**Header-naming note.** Early x401 material and the **Zetrix design/architecture** use a two-header convention: `PROOF-REQUEST` (server → agent challenge) and `PROOF-RESPONSE` (agent → server proof artifact). The v0.2.0 spec uses three: `PROOF-REQUIRED`, `PROOF-PRESENTATION`, `PROOF-RESPONSE`. This paper carries both and maps them in [§6](message-flows/README.md); the naming choice is an [open item](open-items-and-decisions.md) to lock before SDK freeze.
+**Header-naming note.** Early x401 material and the **Zetrix design/architecture** use a two-header convention: `PROOF-REQUEST` (server → agent challenge) and `PROOF-RESPONSE` (agent → server proof artifact). The v0.2.0 spec uses three: `PROOF-REQUIRED`, `PROOF-PRESENTATION`, `PROOF-RESPONSE`. This paper carries both and maps them in [Message flows](message-flows/README.md); the naming choice is an [open item](open-items-and-decisions.md) to lock before SDK freeze.
 {% endhint %}

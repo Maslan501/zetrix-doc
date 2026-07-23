@@ -1,4 +1,4 @@
-# 1. Motivation
+# Motivation
 
 Autonomous agents transacting on behalf of humans and organizations raise two distinct questions at the HTTP boundary: whether they can pay, and whether they are authorized. This section frames those two gaps and explains why the Zetrix Agentic Wallet is positioned to close the identity one.
 

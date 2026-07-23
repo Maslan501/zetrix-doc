@@ -1,4 +1,4 @@
-# 5.4 POC payment architecture — P1 (issuance) and P2 (pay-per-use)
+# POC payment architecture — P1 (issuance) and P2 (pay-per-use)
 
 The POC realizes x402 as **two payment programs** against two resource servers. **JMYR (a ZTP20 token)** or **native ZETRIX** may be used; the technical team decides. **Policy-engine checks are explicitly out of scope** for the POC.
 
@@ -14,11 +14,11 @@ The **MBI Resource Server (MYID issuer)** both settles the payment and issues th
 * MBI calls `/facilitator/verify` + `/facilitator/settle`; on settlement it **issues the VC directly** (Ed25519 + BBS+).
 * The agent stores the VC in its **Vault**.
 
-### 5.4.1 Overview
+### Overview
 
 x402 revives the long-reserved HTTP 402 Payment Required status as a machine-to-machine payment handshake: request → 402 with terms → pay on-chain → retry with proof of payment → resource served. The wallet has **no x402 client SDK**; Wallet BE builds the payment blob with Zetrix tooling and signs it with the holder key in softHSM. Settlement runs through the **Facilitator** onto the Zetrix chain.
 
-### 5.4.2 Messages (x402 wire format)
+### Messages (x402 wire format)
 
 **The 402 Payment Required challenge** follows the x402 wire format (`x402Version` + `accepts[]`) so standard x402 clients can consume it. It is returned **raw** (not inside the service's response envelope). One `accepts[]` entry per configured asset; the holder picks one:
 
@@ -59,7 +59,7 @@ x402 revives the long-reserved HTTP 402 Payment Required status as a machine-to-
 
 The settling party (MBI for issuance, RS for usage) verifies amount/`payTo`/asset **exactly** (overpayment is rejected), then calls the Facilitator `POST /ztx/facilitator/verify` (→ `isValid`) and `POST /ztx/facilitator/settle` (→ `status: "SUBMITTED"` + `txHash`). Self-pay settlement is **synchronous**. On success the response carries `X-PAYMENT-RESPONSE: base64({ success, txHash, networkId })`.
 
-### 5.4.3 Two payment purposes
+### Two payment purposes
 
 |  | Subscription (one-time) | Pay-per-use (usage) |
 | --- | --- | --- |
@@ -83,7 +83,7 @@ The PROOF-RESPONSE carries the x401 VP (validated by the OID4VP verifier) and is
 * **New:** MBI settles and issues in one location.
 * **Signing:** password-gated SoftHSM calls; no session tokens.
 
-## E2E — Combined end-to-end, first paid access
+## Combined end-to-end — first paid access
 
 First time an agent hits a paid resource: check vault → if no VC, x402 one-time issuance via MBI (P1) issues the VC → present the VC as x401 proof (VP submitted to the OID4VP verifier, result relayed as PROOF-RESPONSE to the API RS) → x402 pay-per-use (P2) for the call. Phase 2 runs only when no VC is held; on later calls it's skipped.
 

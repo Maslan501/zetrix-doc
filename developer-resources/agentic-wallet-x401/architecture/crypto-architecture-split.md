@@ -1,4 +1,4 @@
-# 4.3 Crypto architecture split
+# Crypto architecture split
 
 Standard HSMs cannot derive the zero-knowledge / selective-disclosure proofs (BBS+, Bulletproof range-proofs) that privacy-preserving VCs require. Responsibilities therefore split:
 

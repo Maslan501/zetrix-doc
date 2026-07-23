@@ -1,4 +1,4 @@
-# 4. Architecture
+# Architecture
 
 This section defines the actors in an x401/x402 exchange, the key terms used throughout the paper, the two components to build alongside existing Zetrix wallet infrastructure, the split between software and HSM cryptography, and how Zetrix realizes each x401 abstraction.
 

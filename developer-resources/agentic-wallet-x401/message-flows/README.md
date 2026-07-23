@@ -1,4 +1,4 @@
-# 6. Message flows
+# Message flows
 
 Three reference flows show the protocol end-to-end: bootstrapping a free agent credential (MVP), buying and proving a paid credential (POC), and proving a claim in zero-knowledge without revealing the underlying data.
 

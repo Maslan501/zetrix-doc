@@ -1,4 +1,4 @@
-# 5. Protocol flow
+# Protocol flow
 
 This section walks the wire-level exchange: the baseline identity-only flow, the concrete messages and endpoints, how the verification result is delivered, and the POC payment architecture (P1 issuance and P2 pay-per-use) with its settlement routing and VC-issuance contract.
 
