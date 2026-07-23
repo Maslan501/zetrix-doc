@@ -1,4 +1,4 @@
-# Flow 3 — zero-knowledge proof flow
+# Flow 3: zero-knowledge proof flow
 
 **Goal.** Let the agent prove it satisfies a credential/authorisation requirement **without revealing the full credential or unnecessary information**, e.g. prove "age ≥ 18" or "membership is active" while disclosing nothing else.
 

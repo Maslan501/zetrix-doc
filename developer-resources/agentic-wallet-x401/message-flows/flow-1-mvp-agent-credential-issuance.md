@@ -1,4 +1,4 @@
-# Flow 1 — MVP agent credential issuance (no payment)
+# Flow 1: MVP agent credential issuance (no payment)
 
 **Goal.** Bootstrap the agent's identity: set up the wallet and obtain a free **Agent Credential** from **ZCert**. Issuance is gated by an x401 exchange (the agent proves control of its wallet/DID); **no x402 payment** is involved in the MVP.
 

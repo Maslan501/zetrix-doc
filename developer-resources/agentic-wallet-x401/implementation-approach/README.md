@@ -2,7 +2,7 @@
 
 How the wallet is actually built: a thin orchestrator over one HSM-held key, the implemented MCP components, the signing model, the canonicalisation caveat, asset/settlement choices, and the MVP → POC → Future staging.
 
-## Wallet build model — thin wallet
+## Wallet build model: thin wallet
 
 The Agentic Zetrix Wallet is a **DCQL matcher + HTTP orchestrator** over one HSM-held Zetrix key. It delegates VP/ZKP derivation to the MBI RS (`/v1/vp/ext/create` → HSM-sign the returned blob → `/vp/ext/submit`, `includeVp: true`) rather than embedding native BBS+/Bulletproof libraries, and it uses `x401-zetrix-client` / `x402-zetrix-client` for the protocol legs. A **fat wallet** (local proof derivation) is possible but only worthwhile for offline/detached operation.
 

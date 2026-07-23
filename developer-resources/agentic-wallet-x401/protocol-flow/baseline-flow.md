@@ -1,6 +1,6 @@
 # Baseline flow (identity only)
 
-<figure><img src="../assets/baseline-flow.png" alt=""><figcaption><p>x401 baseline flow — identity only</p></figcaption></figure>
+<figure><img src="../assets/baseline-flow.png" alt=""><figcaption><p>x401 baseline flow: identity only</p></figcaption></figure>
 
 * **Request.** Agent requests a protected resource with no proof.
 * **Challenge.** The X401 SDK returns 401 Unauthorized (`Cache-Control: no-store`) with the challenge carrying the credential requirement, including a verifier challenge/nonce.
