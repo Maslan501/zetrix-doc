@@ -13,4 +13,4 @@
 * The agent retries the BaaS request and presents the credential through **x401** (VP derived via MBI `/vp/ext/*`, submitted to the OID4VP verifier).
 * The RS verifies the credential (via the relayed signed result) before granting access.
 
-**Future access to protected & paid resources.** A resource may require **both**: **x401** (proof of the required credential/authorisation) **and** **x402** (payment for the API/resource usage) on the same retry — the identity proof and the usage payment travel together. Per the POC decision, both subscription and usage payments settle to the VC issuer.
+**Future access to protected & paid resources.** A resource may require **both**: **x401** (proof of the required credential/authorisation) **and** **x402** (payment for the API/resource usage) on the same retry, the identity proof and the usage payment travel together. Per the POC decision, both subscription and usage payments settle to the VC issuer.

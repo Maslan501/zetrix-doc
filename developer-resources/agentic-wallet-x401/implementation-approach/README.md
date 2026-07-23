@@ -6,7 +6,7 @@ How the wallet is actually built: a thin orchestrator over one HSM-held key, the
 
 The Agentic Zetrix Wallet is a **DCQL matcher + HTTP orchestrator** over one HSM-held Zetrix key. It delegates VP/ZKP derivation to the MBI RS (`/v1/vp/ext/create` → HSM-sign the returned blob → `/vp/ext/submit`, `includeVp: true`) rather than embedding native BBS+/Bulletproof libraries, and it uses `x401-zetrix-client` / `x402-zetrix-client` for the protocol legs. A **fat wallet** (local proof derivation) is possible but only worthwhile for offline/detached operation.
 
-**Custody of credentials — client-held, no wallet vault.** The current design does **not** persist VCs in the MCP. `subscribe_and_issue` returns the VC to the calling agent, which holds it and passes it back per call (`vc` on `prove_identity`). This removes a server-side secret store; the only secret the wallet protects is the one HSM-held Zetrix key.
+**Custody of credentials, client-held, no wallet vault.** The current design does **not** persist VCs in the MCP. `subscribe_and_issue` returns the VC to the calling agent, which holds it and passes it back per call (`vc` on `prove_identity`). This removes a server-side secret store; the only secret the wallet protects is the one HSM-held Zetrix key.
 
 ### Build vs reuse
 
@@ -33,7 +33,7 @@ The Agentic Zetrix Wallet is a **DCQL matcher + HTTP orchestrator** over one HSM
 
 ## Signing model
 
-All signing (holder-binding + x402 payment) goes **Wallet BE → softHSM** over an **open, password-gated** API (`{blob, address, password}`) — no session token/JWT. The interface is kept identical to the future **ms-zetrix hardware HSM** so the upgrade is config-only.
+All signing (holder-binding + x402 payment) goes **Wallet BE → softHSM** over an **open, password-gated** API (`{blob, address, password}`), no session token/JWT. The interface is kept identical to the future **ms-zetrix hardware HSM** so the upgrade is config-only.
 
 ## Canonicalisation caveat
 
@@ -45,6 +45,6 @@ Payments settle via the Facilitator in **JMYR (ZTP20)** or **native ZETRIX** (te
 
 ## Staging summary
 
-* **MVP** — wallet setup + free Agent Credential from ZCert (x401 only).
-* **POC** — paid API Subscription Credential + usage (x401 + x402, both settling to the VC issuer).
-* **Future** — combined 401 + 402 on a single protected/paid request.
+* **MVP**, wallet setup + free Agent Credential from ZCert (x401 only).
+* **POC**, paid API Subscription Credential + usage (x401 + x402, both settling to the VC issuer).
+* **Future**, combined 401 + 402 on a single protected/paid request.

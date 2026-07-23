@@ -41,7 +41,7 @@ x402 revives the long-reserved HTTP 402 Payment Required status as a machine-to-
 }
 ```
 
-**The retry** carries an `X-PAYMENT` header — `base64(JSON)` of the facilitator payment payload. It is **self-pay** (`gasModel: client`): the wallet (via Wallet BE) builds and signs its **own** transfer blob to `payTo`:
+**The retry** carries an `X-PAYMENT` header, `base64(JSON)` of the facilitator payment payload. It is **self-pay** (`gasModel: client`): the wallet (via Wallet BE) builds and signs its **own** transfer blob to `payTo`:
 
 ```json
 {

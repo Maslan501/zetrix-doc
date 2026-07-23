@@ -5,6 +5,6 @@
 * **Price source.** Subscription/usage amounts stated in the 402 challenges vs. fixed config.
 * **Subscription lifetime.** Permanent, time-boxed, or renewable?
 * **Finality vs latency.** Confirm the acceptable settlement finality depth before issuance.
-* **VP format scope.** POC targets `ldp_vp` / `jwt_vp`; SD-JWT / mdoc are not yet verifiable — either scope them out or fund the crypto.
+* **VP format scope.** POC targets `ldp_vp` / `jwt_vp`; SD-JWT / mdoc are not yet verifiable, either scope them out or fund the crypto.
 * **Asset choice.** JMYR vs native ZETRIX for the POC.
 * **Auto-disclosure policy.** Programmatic DCQL matching for low-sensitivity claims vs. human approval for KYC-grade disclosure.

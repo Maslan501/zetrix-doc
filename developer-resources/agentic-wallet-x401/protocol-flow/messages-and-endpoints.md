@@ -51,8 +51,8 @@ HTTP/1.1 401 Proof-Required
 
 The signed verdict the caller verifies. In sync-HMAC mode (the agentic mode, when the request was created with `callbackUrl` omitted) the verifier returns the signed result plus HMAC headers, which the wallet relays verbatim:
 
-* **Body** — `signed_result` — `{ presentationId, verified, status, verifiedClaims }`
-* **Headers** — `X-Callback-Signature = HMAC-SHA256(timestamp + "." + payload)` and `X-Callback-Timestamp`, computed with the RS client's shared `callbackSecret`.
+* **Body**, `signed_result`, `{ presentationId, verified, status, verifiedClaims }`
+* **Headers**, `X-Callback-Signature = HMAC-SHA256(timestamp + "." + payload)` and `X-Callback-Timestamp`, computed with the RS client's shared `callbackSecret`.
 
 ## Endpoint summary
 
