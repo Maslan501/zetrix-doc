@@ -246,4 +246,25 @@ The Zetrix MCP Server is a comprehensive bridge between AI assistants (like Clau
 
 ***
 
+### Release 13: Disables multiQuery API and hardens the V8 contract runtime
+
+**Completion Date:** 24 July 2026\
+**Status:** Completed
+
+**Description:** This release disables the multiQuery API, whose unbounded recursive calls could cause out-of-memory conditions and impact validator availability. It also hardens the V8 contract runtime against non-deterministic execution by removing Intl, disabling Function-constructor code generation, and undefining locale-sensitive String/Number prototype methods. It updates the system to Ledger version 1014 and Chain version 1.1.5.
+
+**Release Info**
+
+#### Changes:
+
+1. Disable multiQuery API (unbounded recursive calls could cause OOM and impact validator availability)
+2. Harden V8 contract runtime against non-deterministic execution (remove Intl, disable Function-constructor code generation, undefine locale-sensitive String/Number prototype methods)
+
+#### Update info
+
+* Ledger version : 1014
+* Chain version : 1.1.5
+
+***
+
 > This document is the official Zetrix release note.
