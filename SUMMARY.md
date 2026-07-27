@@ -184,6 +184,7 @@
   * [Appendix](developer-resources/agentic-wallet-x401/appendix/README.md)
     * [Endpoint reference](developer-resources/agentic-wallet-x401/appendix/endpoint-reference.md)
     * [Glossary](developer-resources/agentic-wallet-x401/appendix/glossary.md)
+* [Zetrix Layer 2 (Z2)](developer-resources/zetrix-layer-2-z2.md)
 
 ## Node & Validator
 
