@@ -6,8 +6,6 @@ description: >-
 
 # Zetrix Layer 2 (Z2)
 
-## Zetrix Layer 2 (Z2)
-
 Zetrix Layer 2 (Z2) is an **optimistic rollup** built on top of the Zetrix Layer 1 (L1) blockchain. It executes transactions off-chain and periodically anchors compressed state back to L1, delivering orders-of-magnitude higher throughput and lower per-transaction cost while inheriting the security and final settlement guarantees of the Zetrix mainnet.
 
 Z2 pairs the optimistic rollup model with an **AnyTrust-style Data Availability Committee (DAC)**: instead of posting all transaction data on-chain, a committee attests to batch data, with automatic fallback to L1 calldata if the consensus threshold is not met.
