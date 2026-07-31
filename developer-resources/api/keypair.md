@@ -357,9 +357,9 @@ This data structure is for operations in transactions.
    message Operation {
        enum Type {
            UNKNOWN = 0;
-           CRGasTE_ACCOUNT = 1;
+           CREATE_ACCOUNT = 1;
            ISSUE_ASSET = 2;
-           PAY_ASSE = 3;
+           PAY_ASSET = 3;
            SET_METADATA = 4;
            SET_SIGNER_WEIGHT = 5;
            SET_THRESHOLD = 6;
@@ -720,7 +720,7 @@ Response message:
 
 1. Sign the transaction\_blob with the private key.
 
-Import package: `import zetrix.encryption.key.PrivateKey;`
+Import package: `import org.zetrix.encryption.key.PrivateKey;`
 
 Private key:
 
@@ -823,7 +823,7 @@ tx_threshold: Transaction default threshold.
 1. Populate the transaction data structure and generate a transaction\_blob.
 
 ```java
-import zetrix.sdk.core.extend.protobuf.Chain;
+import org.zetrix.crypto.protobuf.Chain;
 
 Chain.Transaction.Builder builder = Chain.Transaction.newBuilder();
 builder.setSourceAddress("ztxSrb2CPEcE7gK7AUPLorFW8sE3JTgrKX51z");
@@ -835,7 +835,7 @@ builder.setCeilLedgerSeq(0);
 builder.setMetadata(ByteString.copyFromUtf8(""));
 
 Chain.Operation.Builder operation = builder.addOperationsBuilder();
-operation.setType(Chain.Operation.Type.CRGasTE_ACCOUNT);
+operation.setType(Chain.Operation.Type.CREATE_ACCOUNT);
 
 Chain.OperationCreateAccount.Builder operationCreateAccount = Chain.OperationCreateAccount.newBuilder();
 operationCreateAccount.setDestAddress("ztxSWs62LxjYERH3qo22QjGAw4hrjZNt9LaUG");
@@ -863,7 +863,7 @@ The transaction\_blob obtained:
 
 1. Sign the transaction\_blob with the private key.
 
-Import package: `import zetrix.encryption.key.PrivateKey;`
+Import package: `import org.zetrix.encryption.key.PrivateKey;`
 
 The private key:
 

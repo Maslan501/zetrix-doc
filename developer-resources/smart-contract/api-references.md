@@ -594,7 +594,7 @@ A **message** in Zetrix smart contracts refers to the contextual data that initi
     For example, the account x initiates a transaction to call contract Y. During this execution, the value is the address of the contract account Y.
 
     ```js
-    let bar = Chain.msg.thisAddress;
+    let bar = Chain.thisAddress;
     /*
      The value of bar is the account address of the contract Y.
     */
@@ -627,7 +627,7 @@ Utils.log, Utils.stoI64Check, Utils.int64Add, Utils.int64Sub , Utils.int64Mul, U
     */
     ```
 
-#### Utils.stoI256Check
+#### Utils.stoI64Check
 
 *   Description
 
@@ -635,21 +635,21 @@ Utils.log, Utils.stoI64Check, Utils.int64Add, Utils.int64Sub , Utils.int64Mul, U
 *   Function call
 
     ```javascript
-    Utils.stoI256Check(strNumber);
+    Utils.stoI64Check(strNumber);
     ```
 * Parameter description
   * strNumber: String numeric parameter
 *   Example
 
     ```javascript
-    let ret = Utils.stoI256Check('12345678912345');
+    let ret = Utils.stoI64Check('12345678912345');
     /*
       Permission: Read-only
       Return value: Return true if it succeeds, or return false if it fails.
     */
     ```
 
-#### Utils.int256Add
+#### Utils.int64Add
 
 *   Description
 
@@ -657,7 +657,7 @@ Utils.log, Utils.stoI64Check, Utils.int64Add, Utils.int64Sub , Utils.int64Mul, U
 *   Function call
 
     ```javascript
-    Utils.int256Add(left_value, right_value);
+    Utils.int64Add(left_value, right_value);
     ```
 * Parameter description
   * left\_value: Left value.
@@ -665,14 +665,14 @@ Utils.log, Utils.stoI64Check, Utils.int64Add, Utils.int64Sub , Utils.int64Mul, U
 *   Example
 
     ```javascript
-    let ret = Utils.int256Add('12345678912345', 1);
+    let ret = Utils.int64Add('12345678912345', 1);
     /*
       Permission: Read-only
       Return value: Return a string if it succeeds, such as '12345678912346', or throw an exception if it fails.
     */
     ```
 
-#### Utils.int256Sub
+#### Utils.int64Sub
 
 *   Description
 
@@ -680,7 +680,7 @@ Utils.log, Utils.stoI64Check, Utils.int64Add, Utils.int64Sub , Utils.int64Mul, U
 *   Function call
 
     ```javascript
-    Utils.int256Sub(left_value, right_value);
+    Utils.int64Sub(left_value, right_value);
     ```
 * Parameter description
   * left\_value: Left value.
@@ -688,14 +688,14 @@ Utils.log, Utils.stoI64Check, Utils.int64Add, Utils.int64Sub , Utils.int64Mul, U
 *   Example
 
     ```javascript
-    let ret = Utils.int256Sub('12345678912345', 1);
+    let ret = Utils.int64Sub('12345678912345', 1);
     /*
       Permission: Read-only
       Return value: Return a string such as '12345678912344' if it succeeds, or throw an exception if it fails.
     */
     ```
 
-#### Utils.int256Mul
+#### Utils.int64Mul
 
 *   Description
 
@@ -703,7 +703,7 @@ Utils.log, Utils.stoI64Check, Utils.int64Add, Utils.int64Sub , Utils.int64Mul, U
 *   Function call
 
     ```javascript
-    Utils.int256Mul(left_value, right_value);
+    Utils.int64Mul(left_value, right_value);
     ```
 * Parameter description
   * left\_value: Left value.
@@ -711,14 +711,14 @@ Utils.log, Utils.stoI64Check, Utils.int64Add, Utils.int64Sub , Utils.int64Mul, U
 *   Example
 
     ```javascript
-    let ret = Utils.int256Mul('12345678912345', 2);
+    let ret = Utils.int64Mul('12345678912345', 2);
     /*
       Permission: Read-only
       Return value: Return a string such as '24691357824690' if it succeeds, or throw an exception if it fails.
     */
     ```
 
-#### Utils.int256Mod
+#### Utils.int64Mod
 
 *   Description
 
@@ -726,7 +726,7 @@ Utils.log, Utils.stoI64Check, Utils.int64Add, Utils.int64Sub , Utils.int64Mul, U
 *   Function call
 
     ```javascript
-    Utils.int256Mod(left_value, right_value);
+    Utils.int64Mod(left_value, right_value);
     ```
 * Parameter description
   * left\_value: Left value.
@@ -734,14 +734,14 @@ Utils.log, Utils.stoI64Check, Utils.int64Add, Utils.int64Sub , Utils.int64Mul, U
 *   Example
 
     ```javascript
-    let ret = Utils.int256Mod('12345678912345', 2);
+    let ret = Utils.int64Mod('12345678912345', 2);
     /*
       Permission: Read-only
       Return value: Return a string such as '1' if it succeeds, or throw an exception if it fails.
     */
     ```
 
-#### Utils.int256Div
+#### Utils.int64Div
 
 *   Description
 
@@ -749,7 +749,7 @@ Utils.log, Utils.stoI64Check, Utils.int64Add, Utils.int64Sub , Utils.int64Mul, U
 *   Function call
 
     ```javascript
-    Utils.int256Div(left_value, right_value);
+    Utils.int64Div(left_value, right_value);
     ```
 * Parameter description
   * left\_value: Left value.
@@ -757,14 +757,14 @@ Utils.log, Utils.stoI64Check, Utils.int64Add, Utils.int64Sub , Utils.int64Mul, U
 *   Example
 
     ```javascript
-    let ret = Utils.int256Div('12345678912345', 2);
+    let ret = Utils.int64Div('12345678912345', 2);
     /*
       Permission: Read-only
       Return value: Return '6172839456172' if it succeeds, or throw an exception if it fails.
     */
     ```
 
-#### Utils.int256Compare
+#### Utils.int64Compare
 
 *   Description
 
@@ -772,7 +772,7 @@ Utils.log, Utils.stoI64Check, Utils.int64Add, Utils.int64Sub , Utils.int64Mul, U
 *   Function call
 
     ```javascript
-    Utils.int256Compare(left_value, right_value);
+    Utils.int64Compare(left_value, right_value);
     ```
 * Parameter description
   * left\_value: Left value.
@@ -780,7 +780,7 @@ Utils.log, Utils.stoI64Check, Utils.int64Add, Utils.int64Sub , Utils.int64Mul, U
 *   Example
 
     ```javascript
-    let ret = Utils.int256Compare('12345678912345', 2);
+    let ret = Utils.int64Compare('12345678912345', 2);
     /*
       Permission: Read-only
       Return value: Return 1 if it succeeds (the left value is greater than the right value), or throw an exception if it fails.

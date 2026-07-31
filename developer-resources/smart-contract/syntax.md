@@ -87,13 +87,13 @@ function init(bar)
 
 function main(input) 
 {
-    log(input);
+    Utils.log(input);
 
     //for statement
     let i;
     for (i = 0; i < 5; i += 1) 
     {
-        log(i);
+        Utils.log(i);
     }
 
     //while statement
@@ -101,28 +101,28 @@ function main(input)
     while (b !== 0) 
     {
         b -= 1;
-        log(b);
+        Utils.log(b);
     }
 
     //if statement
     let compare = 1;
     if(compare === 1)
     {
-        log("it is one");
+        Utils.log("it is one");
     }
     else if(compare === 2)
     {
-        log("it is two");
+        Utils.log("it is two");
     }
     else
     {
-        log("it is other");
+        Utils.log("it is other");
     }
 
     //if statement
     if(compare !== 2)
     {
-        log("no, different");
+        Utils.log("no, different");
     }
 
     //switch statement
@@ -130,31 +130,31 @@ function main(input)
     switch(sw_value)
     {
     case 1:
-        log("switch 1");
+        Utils.log("switch 1");
         break;
     default:
-        log("default");
+        Utils.log("default");
     }
 
     //Number
     let my_num = Number(111);
-    log(my_num);
+    Utils.log(my_num);
 
     //String
     let my_str = String(111);
-    log(my_str);
+    Utils.log(my_str);
 
     //Boolean
     let my_bool = Boolean(111);
-    log(my_bool);
+    Utils.log(my_bool);
 
     //Array
     let str_array = ["red","black"]; 
-    log(str_array);
+    Utils.log(str_array);
 
     //Array
     let num_array = [1,2,3,4];
-    log(num_array);
+    Utils.log(num_array);
 
     throw "this is a exception";
 }

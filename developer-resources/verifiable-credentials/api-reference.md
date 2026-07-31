@@ -214,7 +214,7 @@ Credential **templates** define the structure and metadata for credentials that 
 **Response Body:** _(JSON)_
 
 * `templateId` (string): A unique identifier assigned to the newly created template. This ID will be used to reference the template in subsequent operations (such as credential issuance).
-* `templateHash` (string): A hash or transaction ID associated with the template registration on-chain. This can be used for audit or verification purposes to confirm the template was recorded on Zetrix.
+* `txHash` (string): A hash or transaction ID associated with the template registration on-chain. This can be used for audit or verification purposes to confirm the template was recorded on Zetrix.
 
 **Example Request:**
 
@@ -458,14 +458,14 @@ CImvIwjmub7nGUMAiKCM-dCB9-c3CMdI-zwjBD-ZO1gzNczenc5ni7tJmJzOIoaMWeKi0KhcHfoFCcJE
 * `vcId` (string): Unique identifier of the issued Verifiable Credential.
 * `ed25519PubKey`(string): The issuer’s ED25519 public key used for verifying the credential signature.
 * `ed25519SignData` (string): Signature of the credential data generated with the issuer’s ED25519 private key.
-* `bbsB1sPubKey` (string): The issuer’s BBS+ public key used for verifying selective disclosure proofs.
-* `bbsB1SignData` (string): Signature of the credential data generated with the issuer’s BBS+ private key.
+* `bbsBlsPubKey` (string): The issuer’s BBS+ public key used for verifying selective disclosure proofs.
+* `bbsBlsSignData` (string): Signature of the credential data generated with the issuer’s BBS+ private key.
 * `keyExpiry` (string): Expiry timestamp of the signing key pair to ensure key validity and rotation.
 
 **(Encrypted) Request Body:** _(JSON)_
 
 * Header: `secretKey` :  Encrypted ECDH key.
-* Encrypted VC data {`vcId, ed25519PubKey, ed25519SignData, bbsB1sPubKey , bbsB1SignData, keyExpiry }` . Refer to VC Encryption Process- Issue and Download VC Process.
+* Encrypted VC data {`vcId, ed25519PubKey, ed25519SignData, bbsBlsPubKey , bbsBlsSignData, keyExpiry }` . Refer to VC Encryption Process- Issue and Download VC Process.
 
 **Response Body:** _(JSON)_
 
@@ -686,7 +686,7 @@ These APIs allow an issuer to revoke an issued credential, invalidating it so it
 
 ### Create Revoke VC Blob
 
-**Endpoint:** POST `/cred/v1/vc/revoke/create`\
+**Endpoint:** POST `/cred/v1/vc/revoke/create-blob`\
 **Description:** Initiates the revocation of a verifiable credential. The issuer calls this to build a revocation transaction for a given credential, which returns a blob to be signed. Revoking a credential typically updates its status on-chain (for example, updating a revocation registry or marking the credential as revoked in a smart contract). This step does not yet revoke the credential; it only prepares the transaction.
 
 **Request Body:** _(JSON)_

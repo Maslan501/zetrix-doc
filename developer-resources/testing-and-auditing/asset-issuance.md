@@ -72,7 +72,7 @@ The return value is as follows:
 
 ```
  AccountCreateResult
-     address:  ztxSXVGt5ujjAe4hr11VqhjWpJdKqn6QfDVUX
+     address:  ZTXSXVGt5ujjAe4hr11VqhjWpJdKqn6QfDVUX
      privateKey:  privbUAYxPLLyaxvU3EMkSTfuEDTWxAYvyCasUcCgUxDihtNXQL4oHJx
      publicKey: b001724ed9475ca4c8893329924c7dceae66c61d8577ab2c2c3b29376e143137c20a4bbed176
 ```

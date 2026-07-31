@@ -14,7 +14,7 @@ In the Zetrix blockchain, the Account Nonce Value plays a crucial role in transa
 
 In the Zetrix blockchain, a keypair is used to create your public key, private key, address, and digital signature. This is how users prove their identity and approve transactions.
 
-Zetrix only supports the ED25519 algorithm for signing, which is fast, secure, and reliable.
+Zetrix supports multiple signing algorithms including ED25519 (the default, fast and secure) and SM2 (a Chinese national standard elliptic curve algorithm). ED25519 is used for all standard ZTX accounts.
 
 ### Raw Private Key
 
@@ -22,7 +22,7 @@ A Raw Private Key is a byte array generated using a random algorithm. It serves 
 
 ### Raw Public Key
 
-A Raw Public Key is a byte array created by processing a Raw Private Key using the ED25519 algorithm. It is the initial form of the public key, used to generate the final public key and address.
+A Raw Public Key is a byte array created by processing a Raw Private Key using the configured signing algorithm (ED25519 by default). It is the initial form of the public key, used to generate the final public key and address.
 
 ### Private Key
 
