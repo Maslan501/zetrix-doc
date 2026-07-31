@@ -1,6 +1,6 @@
 # VC Encryption Process
 
-<figure><img src="../../.gitbook/assets/Encryption Colour 1 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Encryption Colour 1.png" alt=""><figcaption></figcaption></figure>
 
 ## Apply VC Process
 
@@ -25,11 +25,11 @@ This process defines the secure exchange of data between a Holder and an Issuer 
 8. **Data Storage (Redis):**\
    The service stores the encrypted application data along with the Holder’s DID and X25519 public key in Redis as an APPLIED record.
 9. **Issuer Fetch Request:**\
-   The Issuer retrieves the Holder’s DID and X25519 public key by calling `GET /vc?vclId=`.
+   The Issuer retrieves the Holder’s DID and X25519 public key by calling `GET /v1/vc/enc/holder?vcId=`.
 10. **ECDH Key Generation (Issuer):**\
     The Issuer generates its ECDH key using the Holder’s public key and its own private key to establish the shared secret.
 
-<figure><img src="../../.gitbook/assets/Encryption Colour 2 (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Encryption Colour 2.png" alt=""><figcaption></figcaption></figure>
 
 ## Issue and Download VC Process&#x20;
 
@@ -37,7 +37,7 @@ This process defines how a Verifiable Credential (VC) is securely issued by the 
 
 ### **Fetching and Key Setup**
 
-1. The Issuer fetches the Holder’s **X25519 public key and DID** (`GET /holder?vcld=`).
+1. The Issuer fetches the Holder’s **X25519 public key and DID** (`GET /v1/vc/enc/holder?vcId=`).
 2. The Issuer generates an ECDH key using the Holder’s public key and the Issuer’s private key.
 3. Issuance data is encrypted using AES with the ECDH key.
 4. The ECDH key itself is encrypted using the Holder’s RSA public key.
@@ -74,7 +74,9 @@ This process defines how a Verifiable Credential (VC) is securely issued by the 
 22. The Holder generates the ECDH key using the Issuer’s public key and the Holder’s private key.&#x20;
 23. The Holder decrypts the VC using AES with the derived ECDH key and stores it locally.
 
-<figure><img src="../../.gitbook/assets/Encryption Colour 3 (1).png" alt=""><figcaption></figcaption></figure>
+
+
+<figure><img src="../../.gitbook/assets/Encryption Colour 3.png" alt=""><figcaption></figcaption></figure>
 
 ## Create and Verify VP Process&#x20;
 

@@ -309,13 +309,13 @@ Here body transfer is the transaction data. For specific json format and paramet
 #### Submit Transaction
 
 ```
-// POST HTTP /ztx/tx/submit
+POST HTTP /ztx/tx/submit
 ```
 
 CURL Command
 
 ```bash
-// curl POST https://{endpoint}/ztx/tx/submit
+curl POST https://{endpoint}/ztx/tx/submit
 ```
 
 * Function&#x20;

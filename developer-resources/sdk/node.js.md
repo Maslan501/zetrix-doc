@@ -288,7 +288,7 @@ Allows the user to submit the transaction to the blockchain.
 
 Parameter - JSON object with the following fields:
 
-* `signature` : a string containing the private key to the account making the transaction stored within a list
+* `signature` : a list of signature objects returned by the sign() function, each containing `signData` and `publicKey`
 * `blob` : Blob generated from the buildBlob function above
 
 
@@ -402,7 +402,7 @@ Parameter - JSON object with the following fields:
 
 * `contractAddress` : A string of the contract address of the token
 * `sourceAddress` : A string of the address invoking the contract
-* `amount` : The amount of Zetrix to be sent (defined in ZETA)
+* `gasAmount` : The amount of Zetrix to be sent (defined in ZETA)
 * `input` : JSON string specifying the method and parameters (destination address and amount to transfer)
 * `metadata` : A string as a memo for transferring the tokens
 
