@@ -265,6 +265,18 @@ The Zetrix MCP Server is a comprehensive bridge between AI assistants (like Clau
 * Ledger version : 1014
 * Chain version : 1.1.5
 
+**Mainnet Release Info**
+
+#### Changes:
+
+1. Disable multiQuery API (unbounded recursive calls could cause OOM and impact validator availability)
+2. Harden V8 contract runtime against non-deterministic execution (remove Intl, disable Function-constructor code generation, undefine locale-sensitive String/Number prototype methods)
+
+#### Update info
+
+* Ledger version : 2002
+* Chain version : 1.0.3
+
 ***
 
 > This document is the official Zetrix release note.
