@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Zetrix Official Release Notes
 
 ### Release 1: Support `int256`
@@ -149,7 +153,7 @@
 **Completion Date:** 29 November 2025\
 **Status:** Completed
 
-**Description:** User can use it to interact with our Zetrix RPC, WebSocket and even create/deploy/test a smart contract.&#x20;
+**Description:** User can use it to interact with our Zetrix RPC, WebSocket and even create/deploy/test a smart contract.
 
 The Zetrix MCP Server is a comprehensive bridge between AI assistants (like Claude) and the Zetrix blockchain. It provides **44 specialized tools** that enable natural language interactions with blockchain operations, making blockchain technology accessible through conversational AI.
 
