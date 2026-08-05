@@ -1,18 +1,18 @@
-# Mainet Release
+# Mainnet Release
 
 ### Release 1: Increase transaction queue
 
 **Completion Date:** 4 August 2026\
 **Status:** Completed
 
-**Description:** This release increases transaction queue capacity and timeout limits to handle higher load, with the transaction timeout extended to 24 hours, the total queue limit raised to 100,000, and per-account transaction limit increased to 64,000. It also updates the system to Ledger version 1002 and Chain version 1.0.3.
+**Description:** This release increases transaction queue capacity and timeout limits to handle higher load, with the transaction timeout extended to 24 hours, the total queue limit raised to 300,000, and per-account transaction limit increased to 64,000. It also updates the system to Ledger version 2002 and Chain version 1.0.3.
 
 **Release Info**
 
 #### Changes:
 
 * Increased `QUEUE_TRANSACTION_TIMEOUT` to 24 hours
-* Increased `queue_limit` to 100000
+* Increased `queue_limit` to 300000
 * Increased `queue_per_account_txs_limit` to 64000
 
 #### Update info
