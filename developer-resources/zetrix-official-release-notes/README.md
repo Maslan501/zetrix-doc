@@ -2,7 +2,7 @@
 
 ## Zetrix Node Release Information
 
-### Node Software & Network Updates
+### Node & Network Updates
 
 This page provides the official release information for **Zetrix node updates**.
 
@@ -48,5 +48,5 @@ Node operators should review the latest release information before performing an
 ***
 
 **Zetrix Node Release Information**\
-_&#x43;entral reference for Zetrix node software, configuration, and network version updates._
+_&#x43;entral reference for Zetrix node, configuration, and network version updates._
 
