@@ -156,7 +156,7 @@
 * [Zetrix Official Release Notes](developer-resources/zetrix-official-release-notes/README.md)
   * [Mainnet Release](developer-resources/zetrix-official-release-notes/mainnet-release.md)
   * [Testnet Release](developer-resources/zetrix-official-release-notes/testnet-release.md)
-* [Agentic Wallet (x401 & x402)](developer-resources/agentic-wallet-x401/README.md)
+* [Agentic Wallet](developer-resources/agentic-wallet-x401/README.md)
   * [Abstract](developer-resources/agentic-wallet-x401/abstract.md)
   * [Motivation](developer-resources/agentic-wallet-x401/motivation/README.md)
     * [Two gaps in the agentic web](developer-resources/agentic-wallet-x401/motivation/two-gaps-in-the-agentic-web.md)
