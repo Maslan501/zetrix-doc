@@ -45,7 +45,7 @@
 
 ### Release 3: Fixes intermittent node freeze during transaction confirmation
 
-**Completion Date:** 28 September 2026\
+**Completion Date:** 23 September 2026\
 **Status:** Completed
 
 **Description:** This release rolls out to mainnet the fix for an issue where a node could occasionally freeze for up to 60 seconds instead of confirming transactions immediately, causing a large batch of transactions to be processed all at once instead of normally. The node now checks for pending transactions continuously instead of relying on a single check that could be missed. It updates the system to Ledger version 2003 and Chain version 1.0.4.
