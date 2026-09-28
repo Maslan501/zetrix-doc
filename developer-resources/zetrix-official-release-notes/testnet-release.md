@@ -21,7 +21,7 @@
 
 #### Changes:
 
-* Increased `QUEUE_TRANSACTION_TIMEOUT` to 24 hours
+* Increased `QUEUE_TRANSACTION_TIMEOUT` to 24 hours
 * Increased `queue_limit` to 300000
 * Increased `queue_per_account_txs_limit` to 64000
 
@@ -37,7 +37,7 @@
 **Completion Date:** 28 October 2025\
 **Status:** Completed
 
-**Description:** This release improves consensus timing by reducing the leader node’s propose timeout and increasing the verification node’s check timeout, along with general timeout adjustments and enhanced logging. It also updates the system to Ledger version 1004 and Chain version 1.0.5.
+**Description:** This release improves consensus timing by reducing the leader node's propose timeout and increasing the verification node's check timeout, along with general timeout adjustments and enhanced logging. It also updates the system to Ledger version 1004 and Chain version 1.0.5.
 
 **Release Info**
 
@@ -264,5 +264,25 @@ The Zetrix MCP Server is a comprehensive bridge between AI assistants (like Clau
 
 * Ledger version : 1014
 * Chain version : 1.1.5
+
+***
+
+### Release 14: Fixes intermittent node freeze during transaction confirmation
+
+**Completion Date:** 15 September 2026\
+**Status:** Completed
+
+**Description:** This release fixes an issue where a node could occasionally freeze for up to 60 seconds instead of confirming transactions immediately, causing a large batch of transactions to be processed all at once instead of normally. The node now checks for pending transactions continuously instead of relying on a single check that could be missed. It updates the system to Ledger version 1015 and Chain version 1.1.6.
+
+**Release Info**
+
+#### Changes:
+
+1. Fixed an issue where a node could occasionally freeze for up to 60 seconds instead of confirming transactions right away, causing a large batch of transactions to go through all at once instead of normally. Node now checks for pending transactions continuously instead of relying on a single check that could be missed.
+
+#### Update info
+
+* Ledger version : 1015
+* Chain version : 1.1.6
 
 ***

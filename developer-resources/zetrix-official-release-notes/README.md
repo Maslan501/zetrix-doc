@@ -48,5 +48,4 @@ Node operators should review the latest release information before performing an
 ***
 
 **Zetrix Node Release Information**\
-_&#x43;entral reference for Zetrix node, configuration, and network version updates._
-
+*Central reference for Zetrix node, configuration, and network version updates.*
