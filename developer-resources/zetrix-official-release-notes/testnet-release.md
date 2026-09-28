@@ -1,4 +1,4 @@
-# Zetrix Official Release Notes
+# Testnet Release
 
 ### Release 1: Support `int256`
 
@@ -15,14 +15,14 @@
 **Completion Date:** 24 October 2025\
 **Status:** Completed
 
-**Description:** This release increases transaction queue capacity and timeout limits to handle higher load, with the transaction timeout extended to 24 hours, the total queue limit raised to 100,000, and per-account transaction limit increased to 64,000. It also updates the system to Ledger version 1002 and Chain version 1.0.3.
+**Description:** This release increases transaction queue capacity and timeout limits to handle higher load, with the transaction timeout extended to 24 hours, the total queue limit raised to 300,000, and per-account transaction limit increased to 64,000. It also updates the system to Ledger version 1002 and Chain version 1.0.3.
 
 **Release Info**
 
 #### Changes:
 
-* Increased `QUEUE_TRANSACTION_TIMEOUT` to 24 hours
-* Increased `queue_limit` to 100000
+* Increased `QUEUE_TRANSACTION_TIMEOUT` to 24 hours
+* Increased `queue_limit` to 300000
 * Increased `queue_per_account_txs_limit` to 64000
 
 #### Update info
@@ -37,7 +37,7 @@
 **Completion Date:** 28 October 2025\
 **Status:** Completed
 
-**Description:** This release improves consensus timing by reducing the leader node’s propose timeout and increasing the verification node’s check timeout, along with general timeout adjustments and enhanced logging. It also updates the system to Ledger version 1004 and Chain version 1.0.5.
+**Description:** This release improves consensus timing by reducing the leader node's propose timeout and increasing the verification node's check timeout, along with general timeout adjustments and enhanced logging. It also updates the system to Ledger version 1004 and Chain version 1.0.5.
 
 **Release Info**
 
@@ -149,7 +149,7 @@
 **Completion Date:** 29 November 2025\
 **Status:** Completed
 
-**Description:** User can use it to interact with our Zetrix RPC, WebSocket and even create/deploy/test a smart contract.&#x20;
+**Description:** User can use it to interact with our Zetrix RPC, WebSocket and even create/deploy/test a smart contract.
 
 The Zetrix MCP Server is a comprehensive bridge between AI assistants (like Claude) and the Zetrix blockchain. It provides **44 specialized tools** that enable natural language interactions with blockchain operations, making blockchain technology accessible through conversational AI.
 
@@ -267,25 +267,22 @@ The Zetrix MCP Server is a comprehensive bridge between AI assistants (like Clau
 
 ***
 
-### Release 14: Mainnet rollout — disable multiQuery API and harden the V8 contract runtime
+### Release 14: Fixes intermittent node freeze during transaction confirmation
 
-**Completion Date:** 4 August 2026\
+**Completion Date:** 28 September 2026\
 **Status:** Completed
 
-**Description:** This release rolls out to mainnet the disabling of the multiQuery API, whose unbounded recursive calls could cause out-of-memory conditions and impact validator availability, together with the hardening of the V8 contract runtime against non-deterministic execution by removing Intl, disabling Function-constructor code generation, and undefining locale-sensitive String/Number prototype methods. It updates the system to Ledger version 2002 and Chain version 1.0.3.
+**Description:** This release fixes an issue where a node could occasionally freeze for up to 60 seconds instead of confirming transactions immediately, causing a large batch of transactions to be processed all at once instead of normally. The node now checks for pending transactions continuously instead of relying on a single check that could be missed. It updates the system to Ledger version 1015 and Chain version 1.1.6.
 
-**Mainnet Release Info**
+**Release Info**
 
 #### Changes:
 
-1. Disable multiQuery API (unbounded recursive calls could cause OOM and impact validator availability)
-2. Harden V8 contract runtime against non-deterministic execution (remove Intl, disable Function-constructor code generation, undefine locale-sensitive String/Number prototype methods)
+1. Fixed an issue where a node could occasionally freeze for up to 60 seconds instead of confirming transactions right away, causing a large batch of transactions to go through all at once instead of normally. Node now checks for pending transactions continuously instead of relying on a single check that could be missed.
 
 #### Update info
 
-* Ledger version : 2002
-* Chain version : 1.0.3
+* Ledger version : 1015
+* Chain version : 1.1.6
 
 ***
-
-> This document is the official Zetrix release note.
