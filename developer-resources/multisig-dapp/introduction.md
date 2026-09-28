@@ -21,7 +21,7 @@ A Multisig account is a **joint-controlled blockchain account** protected by mul
 
 ### Accessing the Application
 
-<figure><img src="../../.gitbook/assets/unknown (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/unknown.png" alt=""><figcaption></figcaption></figure>
 
 #### Test Environment
 

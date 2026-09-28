@@ -24,7 +24,6 @@ This section provides a brief overview of how to quickly get up and running with
 * Here list of platforms where you can get your ZETRIX:
   * Coinstore [https://www.coinstore.com/](https://www.coinstore.com/)
   * MEXC [https://www.mexc.com/](https://www.mexc.com/)
-  * BitMart [https://www.bitmart.com/](https://www.bitmart.com/)
 * Transfer the tokens to your Zetrix wallet by copying the wallet’s public address and initiating the transaction.
 
 **1.3 Performing a Transaction**
@@ -35,7 +34,7 @@ This section provides a brief overview of how to quickly get up and running with
 
 **2. Introduction to Development**
 
-Zetrix provides an easy-to-use Integrated Development Environment (IDE) at [ide.zetrix.com](https://ide.zetrix.com/),              allowing developers to quickly start building and deploying smart contracts on the Zetrix blockchain. This section will guide you through setting up your development environment, writing smart contracts, and interacting with the Zetrix blockchain using the IDE.
+Zetrix provides an easy-to-use Integrated Development Environment (IDE) at [ide.zetrix.com](https://ide.zetrix.com/), allowing developers to quickly start building and deploying smart contracts on the Zetrix blockchain. This section will guide you through setting up your development environment, writing smart contracts, and interacting with the Zetrix blockchain using the IDE.
 
 **2.1 Setting Up Development Environment**
 

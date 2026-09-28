@@ -2,6 +2,8 @@
 
 The implementation splits into two new components to build plus existing Zetrix wallet infrastructure.
 
+<figure><img src="../../../.gitbook/assets/Agentix Architecture-2026-07-23-062805.png" alt=""><figcaption></figcaption></figure>
+
 ## To build
 
 * **Agentic Wallet MCP (Wallet / ZID)**, the credential manager per the x401 spec. Holds credentials, receives OpenID4VP requests, selects matching VCs, **derives selective-disclosure proofs in software** (BBS+ / range-proofs), orchestrates holder-binding signatures via the Wallet BE, and returns the credential presentation result.

@@ -1,4 +1,4 @@
-# POC payment architecture: P1 (issuance) and P2 (pay-per-use)
+# POC payment architecture: P1 & P2
 
 The POC realizes x402 as **two payment programs** against two resource servers. **JMYR (a ZTP20 token)** or **native ZETRIX** may be used; the technical team decides. **Policy-engine checks are explicitly out of scope** for the POC.
 
@@ -6,7 +6,7 @@ The POC realizes x402 as **two payment programs** against two resource servers. 
 
 The **MBI Resource Server (MYID issuer)** both settles the payment and issues the VC in one location, because it holds the issuer key.
 
-<figure><img src="../assets/p1-issuance-flow.png" alt=""><figcaption><p>P1: paid VC issuance via MBI</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/p1-issuance-flow.png" alt=""><figcaption><p>P1: paid VC issuance via MBI</p></figcaption></figure>
 
 * The wallet initiates issuance with `applyX402VC`.
 * MBI returns x402 payment terms with `payTo` = the MBI issuer account.
@@ -61,18 +61,18 @@ The settling party (MBI for issuance, RS for usage) verifies amount/`payTo`/asse
 
 ### Two payment purposes
 
-|  | Subscription (one-time) | Pay-per-use (usage) |
-| --- | --- | --- |
-| When | The agent needs a credential it does not hold | Every subsequent paid API call |
-| Endpoint | Zetrix BaaS VC issuer | API Resource Server |
-| Result | The API Subscription Credential is issued | That one call succeeds |
-| Frequency | Once | Per request |
+|           | Subscription (one-time)                       | Pay-per-use (usage)            |
+| --------- | --------------------------------------------- | ------------------------------ |
+| When      | The agent needs a credential it does not hold | Every subsequent paid API call |
+| Endpoint  | Zetrix BaaS VC issuer                         | API Resource Server            |
+| Result    | The API Subscription Credential is issued     | That one call succeeds         |
+| Frequency | Once                                          | Per request                    |
 
 ## P2: pay-per-use (x401 + x402 on the API Resource Server)
 
 For protected, metered APIs the **API Resource Server** requires proof and payment on the same call:
 
-<figure><img src="../assets/p2-pay-per-use-flow.png" alt=""><figcaption><p>P2: pay-per-use (x401 + x402 on the API RS)</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/p2-pay-per-use-flow.png" alt=""><figcaption><p>P2: pay-per-use (x401 + x402 on the API RS)</p></figcaption></figure>
 
 The PROOF-RESPONSE carries the x401 VP (validated by the OID4VP verifier) and is **paired with the x402 payment blob** for the metered call.
 

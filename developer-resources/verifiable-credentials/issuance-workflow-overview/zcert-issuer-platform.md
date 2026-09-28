@@ -28,7 +28,7 @@ It is the essential component for creating Verifiable Credentials.
 * Used directly by the VC Issuance API and issuance console.
 * Must exist before any credential can be issued.
 
-Example of VC template:&#x20;
+Example of VC template:
 
 ```json
 {
@@ -61,7 +61,7 @@ A **Design Pass** is the **visual representation** of the credential, generated 
 Design passes function like **digital cards**, similar to how a digital passport, MyKad, or membership card visually displays the credential data.
 
 * Enhances user experience by providing a branded, readable, card like UI.
-* Completely optional  VCs can be issued without a design pass.
+* Completely optional VCs can be issued without a design pass.
 
 ### Template Creation Workflow
 
@@ -194,19 +194,12 @@ All onboarding steps should first be performed on the **Testnet environment** fo
 * **Testnet**: [https://zid-issuer-sandbox.zetrix.com/#/](https://zid-issuer-sandbox.zetrix.com/#/)
 * **Mainnet**: [https://zid-issuer.zetrix.com/#/](https://zid-issuer.zetrix.com/#/)
 
-
-
 1. Log in using the Zetrix wallet at website to register and manage VC template.\
    **Note:** Developers may also create a template directly via the API.
 2.  Fill in the company information and submit the application form.
 
-    <figure><img src="../../../.gitbook/assets/image (40).png" alt=""><figcaption></figcaption></figure>
-
-
+    <figure><img src="../../../.gitbook/assets/image (39).png" alt=""><figcaption></figcaption></figure>
 3.  Once approved, the Issuer can create and manage a VC template as shown below.
-
-
 
     <figure><img src="../../../.gitbook/assets/bbs (2).png" alt=""><figcaption></figcaption></figure>
 4. After the VC template is submitted, it will shown in dashboard.
-
