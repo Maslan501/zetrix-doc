@@ -16,4 +16,4 @@ This paper describes three progressive stages so readers can distinguish what is
 | POC | Yes | Subscription + usage | API Subscription Credential | MBI Resource Server (Zetrix BaaS VC issuer) |
 | Future | Yes | Per-access (proof + pay) | Any required credential | Per-resource |
 
-> **Note (to confirm):** the MVP fee-free period ended **14 July 2026**; free issuance mode is currently disabled in all environments. Confirm whether the free MVP path is still offered — see [VC issuance contract](../protocol-flow/vc-issuance-contract.md).
+> **Note:** free issuance mode is currently **disabled in all environments** (the MVP fee-free period ended **14 July 2026**); MVP issuance follows the paid path. See [VC issuance contract](../protocol-flow/vc-issuance-contract.md).

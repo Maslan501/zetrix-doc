@@ -2,7 +2,7 @@
 
 **Goal.** Bootstrap the agent's identity: set up the wallet and obtain a free **Agent Credential** from **ZCert**. Issuance is gated by an x401 exchange (the agent proves control of its wallet/DID); **no x402 payment** is involved in the MVP.
 
-> **Status note (to confirm).** The MVP fee-free grace period ended **14 July 2026**, and free issuance mode is currently disabled in all environments (see [VC issuance contract](../protocol-flow/vc-issuance-contract.md)). Confirm whether a free MVP path is still offered; if it is not, issuance follows the paid path in [Flow 2](flow-2-baas-access-and-payment.md).
+> **Status note.** Free issuance mode is currently **disabled in all environments** (the MVP fee-free grace period ended **14 July 2026**; see [VC issuance contract](../protocol-flow/vc-issuance-contract.md)). MVP issuance therefore follows the paid path in [Flow 2](flow-2-baas-access-and-payment.md).
 
 ## Steps
 
