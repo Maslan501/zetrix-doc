@@ -13,5 +13,7 @@ This paper describes three progressive stages so readers can distinguish what is
 | Stage | Identity (x401) | Payment (x402) | Credential | Issuer |
 | --- | --- | --- | --- | --- |
 | MVP | Yes | None (free) | Agent Credential | ZCert |
-| POC | Yes | Subscription + usage | API Subscription Credential | Zetrix BaaS VC issuer |
+| POC | Yes | Subscription + usage | API Subscription Credential | MBI Resource Server (Zetrix BaaS VC issuer) |
 | Future | Yes | Per-access (proof + pay) | Any required credential | Per-resource |
+
+> **Note:** free issuance mode is currently **disabled in all environments** (the MVP fee-free period ended **14 July 2026**); MVP issuance follows the paid path. See [VC issuance contract](../protocol-flow/vc-issuance-contract.md).

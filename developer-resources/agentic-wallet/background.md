@@ -5,7 +5,7 @@ x401 is an **open, issuer-neutral** protocol. Key characteristics drawn from the
 * **Challenge-response over HTTP**, deliberately mirroring x402's five-step shape.
 * **Verifiable Credentials, not sessions or API keys.** Proofs are cryptographically signed assertions from an **Issuer**; verification is deterministic against the issuer's public keys, requiring **no shared secret and no live round-trip** to the issuer.
 * **Humans authorize; agents inherit.** x401 gives agents **no independent legal identity**. An agent presents proof that a verified human (or org) authorized this scoped action, preserving the accountability chain that legal frameworks (e.g., ESIGN/UETA) require.
-* **Built on open identity standards:** the credential requirement is an **OpenID4VP** request carrying a **DCQL** query. It accepts any OpenID4VP-expressible format: `jwt_vc_json`, `sd-jwt`, `mso_mdoc`, and others.
+* **Built on open identity standards:** the credential requirement is an **OpenID4VP** request carrying a **DCQL** query. The **protocol** admits any OpenID4VP-expressible format (`jwt_vc_json`, `sd-jwt`, `mso_mdoc`, and others); the **Zetrix POC** currently verifies only `ldp_vp` / `jwt_vp`, with the others planned — see [Open items & decisions](open-items-and-decisions.md).
 * **Privacy-preserving:** selective disclosure and zero-knowledge proofs allow answering "over 18?" or "accredited?" without revealing the underlying data.
 * **Composable with x402:** identity and payment remain distinct flows; a server may require either, or both in sequence.
 

@@ -12,7 +12,7 @@ The **MBI Resource Server (MYID issuer)** both settles the payment and issues th
 * MBI returns x402 payment terms with `payTo` = the MBI issuer account.
 * The wallet builds the **x402 payment blob (unsigned)** and signs it via the **SoftHSM holder key** (password-gated).
 * MBI calls `/facilitator/verify` + `/facilitator/settle`; on settlement it **issues the VC directly** (Ed25519 + BBS+).
-* The agent stores the VC in its **Vault**.
+* The agent retains the VC (**client-held**) and passes it back on each call; the MCP keeps no credential vault.
 
 ### Overview
 
@@ -64,7 +64,7 @@ The settling party (MBI for issuance, RS for usage) verifies amount/`payTo`/asse
 |           | Subscription (one-time)                       | Pay-per-use (usage)            |
 | --------- | --------------------------------------------- | ------------------------------ |
 | When      | The agent needs a credential it does not hold | Every subsequent paid API call |
-| Endpoint  | Zetrix BaaS VC issuer                         | API Resource Server            |
+| Endpoint  | MBI Resource Server (Zetrix BaaS VC issuer)   | API Resource Server            |
 | Result    | The API Subscription Credential is issued     | That one call succeeds         |
 | Frequency | Once                                          | Per request                    |
 
@@ -85,7 +85,7 @@ The PROOF-RESPONSE carries the x401 VP (validated by the OID4VP verifier) and is
 
 ## Combined end-to-end: first paid access
 
-First time an agent hits a paid resource: check vault → if no VC, x402 one-time issuance via MBI (P1) issues the VC → present the VC as x401 proof (VP submitted to the OID4VP verifier, result relayed as PROOF-RESPONSE to the API RS) → x402 pay-per-use (P2) for the call. Phase 2 runs only when no VC is held; on later calls it's skipped.
+First time an agent hits a paid resource: check held VCs → if none, x402 one-time issuance via MBI (P1) issues the VC → present the VC as x401 proof (VP submitted to the OID4VP verifier, result relayed as PROOF-RESPONSE to the API RS) → x402 pay-per-use (P2) for the call. Phase 2 runs only when no VC is held; on later calls it's skipped.
 
 #### Access and VC pre-check
 
@@ -103,7 +103,7 @@ sequenceDiagram
     OID-->>API: VerificationData
     API-->>AV: 401 + PROOF-REQUEST
     AV->>WMCP: Forward PROOF-REQUEST
-    WMCP->>WMCP: Check vault — hold required VC?
+    WMCP->>WMCP: Check held VCs — required VC present?
     end
 ```
 
@@ -136,7 +136,7 @@ sequenceDiagram
     FAC-->>MBI: settled + txHash
     MBI->>MBI: Issue VC directly (MYID issuer — Ed25519 + BBS+)
     MBI-->>WMCP: return vc
-    WMCP->>WMCP: Store VC in vault
+    WMCP-->>AV: Return VC (client-held)
     end
 ```
 

@@ -6,14 +6,14 @@ The implementation splits into two new components to build plus existing Zetrix 
 
 ## To build
 
-* **Agentic Wallet MCP (Wallet / ZID)**, the credential manager per the x401 spec. Holds credentials, receives OpenID4VP requests, selects matching VCs, **derives selective-disclosure proofs in software** (BBS+ / range-proofs), orchestrates holder-binding signatures via the Wallet BE, and returns the credential presentation result.
-* **X401 SDK (Java / Node.js)**, the Resource Server–side library. Issues the 401 + challenge, validates returned proof artifacts on every request, runs the OAuth 2.0 token-exchange endpoint, and coordinates with the X402 SDK via a shared route registry ([Result delivery](../protocol-flow/result-delivery.md)).
+* **Agentic Wallet MCP (Wallet / ZID)**, the credential manager per the x401 spec. Receives OpenID4VP requests, selects matching VCs (**client-held**: the agent passes each VC back per call; the MCP keeps no credential vault), **delegates selective-disclosure proof derivation to the MBI RS** (`/v1/vp/ext/*`; the MCP is a thin wallet with no BBS+/Bulletproof libraries), orchestrates holder-binding signatures via the Wallet BE, and returns the credential presentation result.
+* **X401 SDK (Java / Node.js)**, the Resource Server–side library. Issues the 401 + challenge, validates returned proof artifacts on every request, (planned) exposes an OAuth 2.0 token-exchange endpoint for reusable sessions — not yet specified in the POC (see [Open items & decisions](../open-items-and-decisions.md)) — and coordinates with the X402 SDK via a shared route registry ([Result delivery](../protocol-flow/result-delivery.md)).
 
 ## Agent Runtime (wallet side, new build)
 
-* **Agentic Wallet MCP / Wallet BE**, credential manager; holds credentials, derives SD proofs in software (BBS+/range), and **signs x402 payment blobs** via the holder key.
+* **Agentic Wallet MCP / Wallet BE**, credential manager; a **thin wallet** that holds no credential vault (VCs are client-held and passed back per call), **delegates SD proof derivation to the MBI RS** (`/v1/vp/ext/*`), and **signs x402 payment blobs** via the holder key.
 * **SoftHSM (holder key, PKCS#11)**, software HSM holding the holder signing key, reached over PKCS#11. Calls are **password-gated (no session tokens)**; no direct MCP→SoftHSM path.
-* **Vault**, secure storage for the agent's Verifiable Credentials.
+* **Agent-held credential store**, the calling agent retains each issued VC and passes it back on every call; the MCP keeps **no** server-side credential vault.
 * **Avatar**, the user-facing agentic wallet app.
 
 ## Resource Servers

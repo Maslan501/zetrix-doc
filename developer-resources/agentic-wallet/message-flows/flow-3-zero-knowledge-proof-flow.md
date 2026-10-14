@@ -65,7 +65,7 @@ The OID4VP verifier verifies **in-process** (`PresentationServiceImpl.verifyVp` 
 * **Signatures**, BBS+ derived proof and Ed25519 holder binding, against keys **resolved from the on-chain ZID registry** (not trusted from the request).
 * **Range proof**, the Bulletproof is checked against the stated bounds and domain.
 * **DCQL constraints**, the disclosed claims satisfy the requested paths/constraints.
-* **Nonce/replay**, the holder binding must match the session nonce; VP single-submission is enforced.
+* **Nonce/replay**, the holder binding must match the session nonce; VP single-submission is enforced. (**Pending**: the binding currently uses a server-random nonce rather than the verifier's challenge — a backend change to `VpCommonService.createVp` is required; see [Open items & decisions](../open-items-and-decisions.md).)
 
 The verifier returns a **signed result** (`verified`, `status`, `verifiedClaims`); the RS accepts access on `verified = true`.
 
