@@ -6,6 +6,14 @@
 
 **DID / ZID**, a Decentralised Identifier; the Zetrix variant (`did:zid:…`) resolves to a DID document on-chain that carries the subject's public keys.
 
+**DID methods used across this documentation (ZID, BID, `did:zetrix`).** The same on-chain Zetrix identity infrastructure is referred to by more than one name:
+
+* **ZID**, the Zetrix decentralised-identity system and the holder/subject form (`did:zid:…`) used in wallet contexts.
+* **BID**, the DID method registered in the W3C DID Specification Registry, used for **issuer** DIDs whose public keys verifiers resolve.
+* **`did:zetrix`**, the method identifier used in the internal v1.3 Transfers and Delegation Proposal; it denotes the same Zetrix DID system.
+
+Use **ZID** for holder/subject identifiers and **BID** for issuer identifiers in this documentation.
+
 **DCQL (Digital Credentials Query Language)**, the JSON query a verifier uses to state which credential and which claims/constraints it needs. This is where a proof's required conditions are defined.
 
 **BBS+ selective disclosure**, reveals only chosen claims from a VC while keeping the issuer signature verifiable. Producing it is a public-key re-randomisation of the issuer's signature, it needs no holder secret.

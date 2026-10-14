@@ -25,7 +25,7 @@ HTTP/1.1 401 Proof-Required
     "credentialQuery": { "credentials": [ /* DCQL — see Message flows, Flow 3 */ ] },
     "nonce": "n-0S6_WzA2Mj",
     "responseUri": "https://verifier/v1/presentation/submit",
-    "abortUri": "https://verifier/api/v1/presentation/abort",
+    "abortUri": "https://verifier/v1/presentation/abort",
     "responseMode": "direct_post",
     "state": "eyJhbGciOiJSU..."
   },

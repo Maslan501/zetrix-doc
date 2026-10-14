@@ -1,10 +1,10 @@
 # Crypto architecture split
 
-Standard HSMs cannot derive the zero-knowledge / selective-disclosure proofs (BBS+, Bulletproof range-proofs) that privacy-preserving VCs require. Responsibilities therefore split:
+Standard HSMs cannot derive the zero-knowledge / selective-disclosure proofs (BBS+, Bulletproof range-proofs) that privacy-preserving VCs require. In the current **thin-wallet** implementation the MCP does not embed these libraries either; derivation is delegated to the MBI RS. Responsibilities therefore split:
 
 | Operation | Where it runs |
 | --- | --- |
-| Selective-disclosure proof derivation (BBS+, range-proofs) from VCs | **Software**, inside the Agentic Wallet MCP |
+| Selective-disclosure proof derivation (BBS+, range-proofs) from VCs | **MBI RS** (`POST /v1/vp/ext/create` → HSM-sign the returned blob → `POST /v1/vp/ext/submit`); the MCP is a thin wallet with no BBS+/Bulletproof libraries |
 | Holder-binding signature (Ed25519 over the request nonce) | **SoftHSM** holder key (PKCS#11), via the Wallet BE — password-gated, no session tokens |
 | x402 payment blob signing (blob unsigned until HSM signing) | **SoftHSM** holder key, via the Wallet BE |
 | Issuer signature (VC issuance) | **MBI / MYID issuer** — Ed25519 + BBS+ |

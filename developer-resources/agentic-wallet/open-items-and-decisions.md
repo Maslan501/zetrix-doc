@@ -6,5 +6,6 @@
 * **Subscription lifetime.** Permanent, time-boxed, or renewable?
 * **Finality vs latency.** Confirm the acceptable settlement finality depth before issuance.
 * **VP format scope.** POC targets `ldp_vp` / `jwt_vp`; SD-JWT / mdoc are not yet verifiable, either scope them out or fund the crypto.
-* **Asset choice.** JMYR vs native ZETRIX for the POC.
+* **Asset choice — decided.** JMYR (ZTP20) is the POC asset; native ZETRIX is supported but disabled in config (re-enabling is config-only).
+* **Session tokens (OAuth 2.0 token-exchange).** The overview and component design reference a reusable-session Bearer token issued after a successful proof, but no endpoint, request/response format or token lifetime is defined in Messages & endpoints or the Endpoint reference. Either specify these (and add them to both references) or remove the references.
 * **Auto-disclosure policy.** Programmatic DCQL matching for low-sensitivity claims vs. human approval for KYC-grade disclosure.
