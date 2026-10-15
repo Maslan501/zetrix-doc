@@ -26,5 +26,5 @@ The implementation splits into two new components to build plus existing Zetrix 
 * **OID4VP Server / Verifier**, decodes the JAR, resolves the `dcql_query`, and validates VPs in-process (BBS+, range-proof, DCQL). Service classes: `PresentationServiceImpl` (in-process handler, `POST /presentation/submit`), `VpCommonService` (`createVp`), `CallbackService` (result-signature generation).
 * **Credential Engine**, Zplatform VC Engine; issues/stores VCs. **Explicitly excluded from the verify flow.**
 * **DID Resolver**, Zplatform service; resolves DIDs (BID method) to issuer public keys.
-* **X402 SDK (V2), Facilitator**, the payment leg; the Facilitator exposes `/supported`, `/verify`, `/settle`.
+* **x402 SDK (`x402-zetrix-client`), Facilitator**, the payment leg; the Facilitator exposes `/supported`, `/verify`, `/settle`. (The `x402Version` field is **server-driven** — `2` for the MBI `POST /v1/vc/pay/apply` challenge, `1` for the other flows — so no single protocol-version number applies.)
 * **On-chain ZID Registry**, supplies issuer public keys directly, so no external credential-engine round-trip is needed at verify time.
