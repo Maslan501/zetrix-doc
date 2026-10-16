@@ -7,7 +7,7 @@ The implementation splits into two new components to build plus existing Zetrix 
 ## To build
 
 * **Agentic Wallet MCP (Wallet / ZID)**, the credential manager per the x401 spec. Receives OpenID4VP requests, selects matching VCs (**client-held**: the agent passes each VC back per call; the MCP keeps no credential vault), **delegates selective-disclosure proof derivation to the MBI RS** (`/v1/vp/ext/*`; the MCP is a thin wallet with no BBS+/Bulletproof libraries), orchestrates holder-binding signatures via the Wallet BE, and returns the credential presentation result.
-* **X401 SDK (Java / Node.js)**, the Resource Server–side library. Issues the 401 + challenge, validates returned proof artifacts on every request, (planned) exposes an OAuth 2.0 token-exchange endpoint for reusable sessions — not yet specified in the POC (see [Open items & decisions](../open-items-and-decisions.md)) — and coordinates with the X402 SDK via a shared route registry ([Result delivery](../protocol-flow/result-delivery.md)).
+* **X401 SDK (Java / Node.js)**, the Resource Server–side library. Issues the 401 + challenge, validates returned proof artifacts on every request, and coordinates with the x402 SDK via a shared route registry ([Result delivery](../protocol-flow/result-delivery.md)). Reusable sessions, if any, are the Resource Server's own concern — the wallet holds no session token (signing is password-gated per call, no JWT/Bearer).
 
 ## Agent Runtime (wallet side, new build)
 
@@ -25,6 +25,6 @@ The implementation splits into two new components to build plus existing Zetrix 
 
 * **OID4VP Server / Verifier**, decodes the JAR, resolves the `dcql_query`, and validates VPs in-process (BBS+, range-proof, DCQL). Service classes: `PresentationServiceImpl` (in-process handler, `POST /presentation/submit`), `VpCommonService` (`createVp`), `CallbackService` (result-signature generation).
 * **Credential Engine**, Zplatform VC Engine; issues/stores VCs. **Explicitly excluded from the verify flow.**
-* **DID Resolver**, Zplatform service; resolves DIDs (BID method) to issuer public keys.
-* **X402 SDK (V2), Facilitator**, the payment leg; the Facilitator exposes `/supported`, `/verify`, `/settle`.
+* **DID Resolver**, Zplatform service; resolves `did:zid` DIDs to issuer public keys.
+* **x402 SDK (`x402-zetrix-client`), Facilitator**, the payment leg; the Facilitator exposes `/supported`, `/verify`, `/settle`. (The `x402Version` field is **server-driven** — `2` for the MBI `POST /v1/vc/pay/apply` challenge, `1` for the other flows — so no single protocol-version number applies.)
 * **On-chain ZID Registry**, supplies issuer public keys directly, so no external credential-engine round-trip is needed at verify time.

@@ -7,5 +7,5 @@
 * **Finality vs latency.** Confirm the acceptable settlement finality depth before issuance.
 * **VP format scope.** POC targets `ldp_vp` / `jwt_vp`; SD-JWT / mdoc are not yet verifiable, either scope them out or fund the crypto.
 * **Asset choice — decided.** JMYR (ZTP20) is the POC asset; native ZETRIX is supported but disabled in config (re-enabling is config-only).
-* **Session tokens (OAuth 2.0 token-exchange).** The overview and component design reference a reusable-session Bearer token issued after a successful proof, but no endpoint, request/response format or token lifetime is defined in Messages & endpoints or the Endpoint reference. Either specify these (and add them to both references) or remove the references.
+* **Session tokens — decided (none).** There is no OAuth token-exchange or wallet session token; signing is open + password-gated per call (no JWT/Bearer). Any reusable session is the Resource Server's own concern (see the x401 server SDK). References to a Zetrix token-exchange have been removed.
 * **Auto-disclosure policy.** Programmatic DCQL matching for low-sensitivity claims vs. human approval for KYC-grade disclosure.

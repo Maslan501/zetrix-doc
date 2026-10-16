@@ -9,6 +9,6 @@
 | Proof object | Signed payment authorization / on-chain transfer | Verifiable Presentation (VP) of one or more VCs |
 | Verified against | Facilitator (`/verify`, `/settle`) | Issuer public keys (deterministic, offline) |
 | Zetrix primitive | JMYR (ZTP20) transfer — POC asset; native ZETRIX supported but disabled in config — Facilitator settlement | ZID VC + BID DID + on-chain issuer/revocation registry |
-| Reusable session | Payment channel / receipt | OAuth 2.0 token-exchange → short-lived Bearer token *(planned; endpoint, format and token lifetime not yet specified — see [Open items & decisions](open-items-and-decisions.md))* |
+| Reusable session | Payment channel / receipt | No Zetrix-defined session token — each proof is independent and wallet signing is password-gated per call (no JWT/Bearer); a Resource Server may issue its own session token (see the x401 server SDK example) |
 
 The two are **orthogonal and composable**. A high-value action typically requires *both*: authority (x401) then payment (x402).
