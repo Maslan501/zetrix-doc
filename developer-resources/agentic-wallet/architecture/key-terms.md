@@ -6,13 +6,12 @@
 
 **DID / ZID**, a Decentralised Identifier; the Zetrix variant (`did:zid:…`) resolves to a DID document on-chain that carries the subject's public keys.
 
-**DID methods on Zetrix (`did:zid`, BID, `did:zetrix`).**
+**DID methods on Zetrix (`did:zid`, BID).**
 
 * **`did:zid`** is the Zetrix DID method identifier used across the platform — for **holder, subject and issuer** DIDs and for VC / template IDs alike (per the Zetrix [Verifiable Credentials](../../verifiable-credentials/README.md) docs and API reference, where `issuer`, `holder`, `vcId` and `templateId` are all `did:zid:…`).
 * **BID (Blockchain-based Identifiers)** is Zetrix's umbrella term for its on-chain identity (the Zidentity product); it is the concept behind `did:zid`, **not** a separate `did:bid` method.
-* **`did:zetrix`** is the label used in the internal v1.3 Transfers and Delegation Proposal for the same system.
 
-Use **`did:zid`** as the identifier form throughout this documentation.
+Use **`did:zid`** as the only identifier form throughout this documentation.
 
 **DCQL (Digital Credentials Query Language)**, the JSON query a verifier uses to state which credential and which claims/constraints it needs. This is where a proof's required conditions are defined.
 
