@@ -32,8 +32,6 @@ Transaction amount hiding in Zetrix is accomplished using Pedersen commitments, 
 
 Transaction address hiding in Zetrix is achieved by transferring ownership through a transformed version of the recipient’s public key. For each transaction output, a unique one-time public key is generated based on the recipient’s original key using a defined transformation rule. This ensures that each output uses a different address, making it impossible for external observers to link multiple transactions to the same recipient. As a result, ownership changes occur securely while preserving address confidentiality and preventing traceability.
 
-Ask ChatGPT
-
 ![](<../.gitbook/assets/image (12) (1) (1).png>)
 
 ## Application Development - Friendly Smart Contract
@@ -46,7 +44,7 @@ The Zetrix blockchain features a smart contract engine built on the Chrome V8 vi
 
 The Zetrix blockchain utilizes an interconnected chain architecture to enable advanced cross-chain capabilities, supporting multiple interoperability models such as multi-notary consensus and trusted hardware mechanisms. Developers can build a Relay Chain using SPV (Simplified Payment Verification) to connect with external business chains and create parallel chains as needed, which are then linked to the Relay Chain via a defined cross-chain protocol. This modular structure reduces architectural complexity and offers greater flexibility, making it ideal for practical enterprise use cases. Zetrix supports both isomorphic and heterogeneous cross-chain operations, facilitating not only the transfer of digital assets but also enabling cross-chain execution of smart contracts and decentralized applications.
 
-![](https://docs.bubi.cn/en/docs/assets/relay_chain.png)
+![](../.gitbook/assets/relay_chain.png)
 
 ## Legal Effect and Compliance
 
