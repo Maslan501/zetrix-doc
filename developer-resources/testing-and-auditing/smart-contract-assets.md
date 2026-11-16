@@ -214,9 +214,7 @@ The execution flow for this scenario consists of the following steps:
 
 #### Compressing Text
 
-Open the online text compression page: [tool from the third party](https://jsmin.51240.com/) , copy the verified smart contract code to the edit box on the page, then click the **Compress** button to copy the compressed string, as shown below:
-
-![](https://docs.bubi.cn/en/docs/assets/compressedString.png)
+Open the online text compression page: [tool from the third party](https://jsmin.51240.com/) , copy the verified smart contract code to the edit box on the page, then click the **Compress** button to copy the compressed string.
 
 #### &#x20;<a href="#creating-sdk-instances-1" id="creating-sdk-instances-1"></a>
 

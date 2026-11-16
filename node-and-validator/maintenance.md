@@ -83,9 +83,7 @@ Before clearing the database, you must stop the Zetrix service. Follow these ste
     ./ztx --dropdb
     ```
 
-> **Note**: After the database is successfully cleared, you can see the information shown below.
-
-![](https://docs.bubi.cn/en/docs/assets/clear_database.png)
+> **Note**: A confirmation message is displayed after the database is successfully cleared.
 
 ### Creating a Hard Fork
 
@@ -96,9 +94,7 @@ You must complete the following steps to create a hard fork.
     ```shell
     ./ztxchain/bin/ztx --create-hardfork
     ```
-2. Enter `y` when prompted and then press `Enter`. The message shown below indicates the hard fork is created successfully.
-
-![](https://docs.bubi.cn/en/docs/assets/hard_fork_created.png)
+2. Enter `y` when prompted and then press `Enter`. A message is displayed to indicate that the hard fork is created successfully.
 
 > **Note**:
 >
